@@ -33,8 +33,8 @@ if (route && route !== 'index.html') {
 
   const firstInsight = document.querySelector('.insight-entry-visual');
   if (firstInsight) firstInsight.replaceWith(figure('insight-ai.jpg', 'Branding in the world of AI', ''));
-  const bookIndex = document.querySelector('#insight-book .insight-entry-index');
-  if (bookIndex) bookIndex.replaceWith(figure('insight-book.png', 'Arabic book on branding', ''));
+  const bookCopy = document.querySelector('#insight-book .insight-entry-copy');
+  if (bookCopy) bookCopy.before(figure('insight-book.png', 'Arabic book on branding', ''));
   const culture = document.querySelector('.career-culture-stage');
   if (culture) {
     const gallery = document.createElement('div'); gallery.className = 'editorial-culture-gallery';
