@@ -1,4 +1,11 @@
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+// A fixed portrait frame keeps the crop and card dimensions stable on hover.
+document.querySelectorAll('.leadership-grid article > img').forEach(image => {
+  const frame = document.createElement('div');
+  frame.className = 'leadership-portrait';
+  image.before(frame);
+  frame.append(image);
+});
 const counters = document.querySelectorAll('[data-count]');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(({ target, isIntersecting }) => {
