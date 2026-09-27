@@ -2,10 +2,11 @@
 .about-page .client-wall.client-marquee{background:transparent;padding-block:28px}
 .about-page .client-marquee figure img,.about-page .client-marquee figure:hover img,.home-logo-group img{opacity:1;filter:none;object-fit:contain;transform:none}
 .client-colour-mark{display:none!important}
-.home-page .home-trust{background:#fff;color:#111}
-.about-page .client-marquee figure,.about-page .client-marquee figure:hover{background:#fff;width:210px;flex-basis:210px;height:110px;padding:12px 20px}
+.home-page .home-trust{background:#f7f7f5;color:#111;border:0}
+.about-page .client-marquee figure,.about-page .client-marquee figure:hover{background:transparent;width:210px;flex-basis:210px;height:110px;padding:12px 20px}
 .about-page .client-marquee figure img{position:static;width:170px;height:86px}
 .about-page .client-marquee figure:has(img[src*="client-madina-made"]){background:#929b9e}
 .home-logo-group img[src*="client-madina-made"]{background:#929b9e;border-radius:4px}
 .home-logo-group img{width:180px;height:90px;margin:0 24px}
+.about-page .client-marquee figure img:not([src*="client-madina-made"]),.home-logo-group img:not([src*="client-madina-made"]){mix-blend-mode:multiply}
 @media(max-width:600px){.about-page .client-marquee figure{width:180px;flex-basis:180px;height:100px;padding:10px 15px}.about-page .client-marquee figure img{width:150px;height:80px}.home-logo-group img{width:150px;height:80px;margin:0 18px}}
