@@ -28,7 +28,6 @@ if (route && route !== 'index.html') {
     title.classList.add('editorial-opening');
   };
   hero('.services-catalogue-title', 'services-official.png', 'BrandShip services artwork', 'Strategy · Identity · Communication');
-  hero('.work-catalogue-title', 'madina-made.jpg', 'Madina Made project', 'Selected work · Madina Made');
   hero('.insights-catalogue-title', 'insight-book.png', 'Arabic branding book featured by BrandShip', 'Ideas, culture and brand knowledge');
   hero('.careers-catalogue-title', 'careers-01.jpg', 'People connecting at a creative industry event', 'Life, ideas and connection');
 
