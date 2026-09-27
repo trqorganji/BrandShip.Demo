@@ -27,16 +27,6 @@ counters.forEach(counter => observer.observe(counter));
 const wall = document.querySelector('.client-wall');
 if (wall) {
   const logos = [...wall.children];
-  logos.forEach(logo => {
-    // Published marks are white-only. Keep the source untouched and tint
-    // their alpha silhouettes blue until full-colour artwork is supplied.
-    const img = logo.querySelector('img');
-    const mark = document.createElement('span');
-    mark.className = 'client-colour-mark';
-    mark.setAttribute('aria-hidden', 'true');
-    mark.style.setProperty('--logo', `url("${img.getAttribute('src')}")`);
-    logo.append(mark);
-  });
   const rows = Array.from({ length: 3 }, () => {
     const row = document.createElement('div');
     row.className = 'client-logo-row';

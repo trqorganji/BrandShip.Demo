@@ -1,0 +1,4 @@
+/* Preserve the pixels of published client artwork: no recolouring or masks. */
+.about-page .client-wall.client-marquee{background:#111;padding-block:28px}
+.about-page .client-marquee figure img,.about-page .client-marquee figure:hover img,.home-logo-group img{opacity:1;filter:none;object-fit:contain;transform:none}
+.client-colour-mark{display:none!important}
