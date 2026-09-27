@@ -1,4 +1,5 @@
 import './internal-editorial.js';
+import './official-films.js';
 const baseUrl = import.meta.env.BASE_URL;
 document.querySelectorAll('.menu-btn').forEach(button => button.setAttribute('aria-label', 'Open navigation'));
 
