@@ -2,7 +2,7 @@ import './official-films.css';
 
 const base = import.meta.env.BASE_URL;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-const film = (name, label) => `<figure class="official-film"><video controls muted loop playsinline preload="none" poster="${base}assets/${name}.jpg" data-film-src="${base}assets/${name}.mp4" aria-label="${label}"></video><figcaption>${label}<span>BrandShip in motion</span></figcaption></figure>`;
+const film = (name, label) => `<figure class="official-film"><video autoplay muted loop playsinline preload="none" poster="${base}assets/${name}.jpg" data-film-src="${base}assets/${name}.mp4" aria-label="${label}"></video><figcaption>${label}<span>BrandShip in motion</span></figcaption></figure>`;
 const purpose = `<h2>BrandShip is home to those who<br><em>Think With Purpose</em></h2><p>Fueled by magnetic culture of purpose and connection, backed by the belief that we build iconic Saudi brands</p>`;
 
 if (document.body.classList.contains('home-page')) {
@@ -31,7 +31,7 @@ if (location.pathname.endsWith('careers.html')) {
 const close = document.querySelector('.consultancy-close');
 if (close) {
  close.classList.add('film-close');
- close.insertAdjacentHTML('afterbegin', `<video muted loop playsinline preload="none" poster="${base}assets/official-gradient.jpg" data-film-src="${base}assets/official-gradient.mp4" aria-hidden="true"></video>`);
+ close.insertAdjacentHTML('afterbegin', `<video autoplay muted loop playsinline preload="none" poster="${base}assets/official-gradient.jpg" data-film-src="${base}assets/official-gradient.mp4" aria-hidden="true"></video>`);
 }
 
 const videos = [...document.querySelectorAll('[data-film-src]')];
@@ -40,22 +40,16 @@ const observer = new IntersectionObserver(entries => {
  for (const {target: video, isIntersecting} of entries) {
   if (isIntersecting) {
    if (!video.src && !reduced.matches) { video.src = video.dataset.filmSrc; video.load(); }
-   if (!reduced.matches && !video.dataset.userPaused && !document.hidden) {
+   if (!reduced.matches && !document.hidden) {
     automatic.add(video); video.play().catch(() => {});
    }
   } else { automatic.delete(video); video.pause(); }
  }
 }, {threshold: .25});
 videos.forEach(video => {
+ video.muted = true;
+ video.controls = false;
  observer.observe(video);
- video.addEventListener('pointerdown', () => {
-  if (!video.src) { video.src = video.dataset.filmSrc; video.load(); }
-  video.dataset.userPaused = 'true'; automatic.delete(video);
- });
- video.addEventListener('keydown', () => {
-  if (!video.src) { video.src = video.dataset.filmSrc; video.load(); }
-  video.dataset.userPaused = 'true'; automatic.delete(video);
- });
 });
 document.addEventListener('visibilitychange', () => {
  videos.forEach(video => {if (document.hidden) video.pause(); else if (automatic.has(video) && !reduced.matches) video.play().catch(() => {});});
