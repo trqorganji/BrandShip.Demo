@@ -1,14 +1,17 @@
 import './internal-editorial.css';
 
 // Progressive enhancement is deliberately limited to internal routes.
-const route = location.pathname;
-if (route !== '/' && !route.endsWith('/index.html')) {
+const baseUrl = import.meta.env.BASE_URL;
+const route = location.pathname.startsWith(baseUrl)
+  ? location.pathname.slice(baseUrl.length)
+  : location.pathname.replace(/^\/+/, '');
+if (route && route !== 'index.html') {
   document.body.classList.add('internal-editorial');
   const figure = (file, alt, caption, eager = false) => {
     const node = document.createElement('figure');
     node.className = 'editorial-media';
     const image = document.createElement('img');
-    image.src = `/assets/${file}`;
+    image.src = `${baseUrl}assets/${file}`;
     image.alt = alt;
     image.loading = eager ? 'eager' : 'lazy';
     image.decoding = 'async';
