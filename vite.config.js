@@ -6,17 +6,35 @@ const githubPagesBase = '/BrandShip.Demo/';
 
 export default defineConfig({
   base: githubPages ? githubPagesBase : '/',
-  plugins: githubPages ? [{
+  plugins: [{
+    name: 'preserve-final-design-styles',
+    apply: 'build',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html) {
+        // Vite shares CSS between page entries. Keep the final design overrides
+        // after page-specific legacy styles, matching the development cascade.
+        const finalStyles = [];
+        const result = html.replace(/<link\b[^>]*rel="stylesheet"[^>]*>/g, tag => {
+          if (/\/consultancy-[^/]+\.css"/.test(tag)) {
+            finalStyles.push(tag);
+            return '';
+          }
+          return tag;
+        });
+        return result.replace('</head>', `${finalStyles.join('\n')}\n</head>`);
+      }
+    }
+  }, ...(githubPages ? [{
     name: 'github-pages-links',
     transformIndexHtml: {
       order: 'pre',
       handler(html) {
         return html
-          .replace(/href="\/(about|services|work|insights|careers|contact|case-study)\.html/g, `href="${githubPagesBase}$1.html`)
-          .replace(/href="\/"/g, `href="${githubPagesBase}"`);
+          .replace(/(<a\b[^>]*\bhref=")\/(?!\/)/g, `$1${githubPagesBase}`);
       }
     }
-  }] : [],
+  }] : [])],
   build: {
     rollupOptions: {
       input: {

@@ -23,7 +23,7 @@ document.querySelectorAll('.menu nav a').forEach(link => {
     shape.setAttribute('d', navIcons[path]);
     svg.append(shape); link.prepend(svg);
   }
-  if (path === location.pathname) link.setAttribute('aria-current', 'page');
+  if (new URL(link.href).pathname === location.pathname) link.setAttribute('aria-current', 'page');
 });
 
 // Motion enhances visible content; nothing waits hidden for JavaScript or scrolling.
