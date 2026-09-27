@@ -1,4 +1,5 @@
 import './internal-editorial.js';
+const baseUrl = import.meta.env.BASE_URL;
 document.querySelectorAll('.menu-btn').forEach(button => button.setAttribute('aria-label', 'Open navigation'));
 
 // Labelled line icons keep mobile navigation recognisable without guessing.
@@ -12,7 +13,7 @@ const navIcons = {
   '/contact.html': 'M3 5h18v14H3ZM3 5l9 8 9-8'
 };
 document.querySelectorAll('.menu nav a').forEach(link => {
-  const path = new URL(link.href).pathname;
+  const path = `/${new URL(link.href).pathname.slice(baseUrl.length)}`;
   if (navIcons[path]) {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 24 24');
@@ -34,7 +35,7 @@ try {
     const arrival = document.createElement('div');
     arrival.className = 'brand-arrival';
     arrival.setAttribute('aria-hidden', 'true');
-    arrival.innerHTML = '<img src="/assets/brandship-logo.png" alt=""><span></span>';
+    arrival.innerHTML = `<img src="${baseUrl}assets/brandship-logo.png" alt=""><span></span>`;
     document.body.append(arrival);
     const dismiss = () => arrival.remove();
     setTimeout(dismiss, 1300);

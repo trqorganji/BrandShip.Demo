@@ -1,7 +1,22 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 
+const githubPages = process.env.GITHUB_PAGES === 'true';
+const githubPagesBase = '/BrandShip.Demo/';
+
 export default defineConfig({
+  base: githubPages ? githubPagesBase : '/',
+  plugins: githubPages ? [{
+    name: 'github-pages-links',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html) {
+        return html
+          .replace(/href="\/(about|services|work|insights|careers|contact|case-study)\.html/g, `href="${githubPagesBase}$1.html`)
+          .replace(/href="\/"/g, `href="${githubPagesBase}"`);
+      }
+    }
+  }] : [],
   build: {
     rollupOptions: {
       input: {
