@@ -3,6 +3,7 @@ import './official-films.js';
 import './refinements.css';
 import './project-deck.css';
 import './original-client-marks.css';
+import './arrow-icons.js';
 const baseUrl = import.meta.env.BASE_URL;
 document.querySelectorAll('.menu-btn').forEach(button => button.setAttribute('aria-label', 'Open navigation'));
 

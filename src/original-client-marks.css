@@ -10,3 +10,4 @@
 .home-logo-group img{width:180px;height:90px;margin:0 24px}
 .about-page .client-marquee figure img:not([src*="client-madina-made"]),.home-logo-group img:not([src*="client-madina-made"]){mix-blend-mode:multiply}
 @media(max-width:600px){.about-page .client-marquee figure{width:180px;flex-basis:180px;height:100px;padding:10px 15px}.about-page .client-marquee figure img{width:150px;height:80px}.home-logo-group img{width:150px;height:80px;margin:0 18px}}
+.vector-arrow{display:inline-block;width:20px;height:20px;flex-shrink:0;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
