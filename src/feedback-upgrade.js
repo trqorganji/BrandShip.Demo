@@ -12,7 +12,7 @@ if (nav) {
     ['Careers', 'careers.html'], ['Contact', 'contact.html']
   ].map(([label, path]) => `<a href="${href(path)}">${label}</a>`).join(''));
   quick.setAttribute('aria-label', 'Primary navigation');
-  nav.after(quick);
+  nav.append(quick);
   const current = location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
   quick.querySelectorAll('a').forEach(link => {
     if (link.pathname.replace(/\/$/, '') === current) link.setAttribute('aria-current', 'page');
