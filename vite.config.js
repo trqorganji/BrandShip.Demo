@@ -45,7 +45,9 @@ export default defineConfig({
         insights: resolve(process.cwd(), 'insights.html'),
         careers: resolve(process.cwd(), 'careers.html'),
         contact: resolve(process.cwd(), 'contact.html'),
-        caseStudy: resolve(process.cwd(), 'case-study.html')
+        caseStudy: resolve(process.cwd(), 'case-study.html'),
+        practice: resolve(process.cwd(), 'practice.html'),
+        team: resolve(process.cwd(), 'team.html')
       }
     }
   }
