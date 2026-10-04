@@ -3,22 +3,6 @@ const base = import.meta.env.BASE_URL;
 const href = path => `${base}${path}`;
 const el = (tag, className, html) => { const node = document.createElement(tag); node.className = className; node.innerHTML = html; return node; };
 
-// Keep the top-level sitemap visible on a phone, without opening the overlay menu.
-const nav = document.querySelector('.nav');
-if (nav) {
-  const quick = el('nav', 'mobile-primary-nav', [
-    ['Home', ''], ['About', 'about.html'], ['Services', 'services.html'],
-    ['Our work', 'work.html'], ['Insights', 'insights.html'],
-    ['Careers', 'careers.html'], ['Contact', 'contact.html']
-  ].map(([label, path]) => `<a href="${href(path)}">${label}</a>`).join(''));
-  quick.setAttribute('aria-label', 'Primary navigation');
-  nav.append(quick);
-  const current = location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
-  quick.querySelectorAll('a').forEach(link => {
-    if (link.pathname.replace(/\/$/, '') === current) link.setAttribute('aria-current', 'page');
-  });
-}
-
 const aboutContent = document.querySelector('.about-directory-content');
 if (aboutContent) {
   const overview = aboutContent.querySelector('#overview');
