@@ -6,6 +6,8 @@ import './original-client-marks.css';
 import './arrow-icons.js';
 import './feedback-upgrade.js';
 import './feedback-upgrade.css';
+import './cinematic-motion.js';
+import './home-motion.js';
 const baseUrl = import.meta.env.BASE_URL;
 document.querySelectorAll('.menu-btn').forEach(button => button.setAttribute('aria-label', 'Open navigation'));
 

@@ -11,6 +11,9 @@ if (projects) {
  function show(next){active=(next+cards.length)%cards.length;cards.forEach((card,i)=>{const position=(i-active+cards.length)%cards.length;card.dataset.position=position;card.inert=position!==0;card.setAttribute('aria-hidden',String(position!==0));buttons[i].setAttribute('aria-pressed',String(position===0));});status.textContent=`${cards[active].querySelector('h3').textContent.trim()} — swipe to discover`;
  }
  projects.after(index,status);show(0);
+ projects.addEventListener('brandship:deck-select',event=>{
+  if(Number.isInteger(event.detail?.index))show(event.detail.index);
+ });
  projects.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(active+(e.key==='ArrowRight'?1:-1));}});
  let start,swiped=false;projects.addEventListener('pointerdown',e=>{swiped=false;start={x:e.clientX,y:e.clientY};});
  projects.addEventListener('pointerup',e=>{if(start&&Math.abs(e.clientX-start.x)>50&&Math.abs(e.clientX-start.x)>Math.abs(e.clientY-start.y)){swiped=true;show(active+(e.clientX<start.x?1:-1));}start=null;});

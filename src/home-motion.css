@@ -1,0 +1,50 @@
+.home-page.home-motion{--home-motion-ease:cubic-bezier(.22,1,.36,1)}
+.home-motion .hero{--home-hero-exit:0;clip-path:inset(0 calc(var(--home-hero-exit) * 2%) round calc(var(--home-hero-exit) * 28px))}
+.home-page.home-motion .title-line>span{animation:home-title-arrive 1.15s var(--home-motion-ease) .15s both}
+.home-page.home-motion .hero h1 i.title-line>span{animation-delay:.3s}
+@keyframes home-title-arrive{from{transform:translateY(110%) rotate(2deg);opacity:.2}to{transform:none;opacity:1}}
+.home-motion-entry.home-motion-arrived{animation:home-section-arrive 1s var(--home-motion-ease) var(--home-entry-delay,0ms) both}
+@keyframes home-section-arrive{from{opacity:.25;transform:translateY(25px);clip-path:inset(3% 0 0)}to{opacity:1;transform:none;clip-path:inset(0)}}
+
+/* Three beliefs open into the existing brand montage as the reader scrolls. */
+.home-motion .brand-manifesto{--manifesto-inset-left:52%;--manifesto-inset-edge:9%;--manifesto-film-scale:1.12;--manifesto-progress:0;display:block;height:205svh;padding:0;position:relative;background:#f7f7f5}
+.home-manifesto-scene{position:sticky;top:0;height:100svh;overflow:clip;isolation:isolate;display:flex;align-items:center;padding:120px 7vw 80px}
+.home-motion .manifesto-copy{position:relative;z-index:2;max-width:49%;color:#111;opacity:var(--manifesto-copy-opacity,1);transform:translateX(calc((1 - var(--manifesto-copy-opacity,1)) * -35px))}
+.home-film-link{position:absolute;z-index:3;left:7vw;bottom:8svh;color:#fff;opacity:var(--manifesto-link-opacity,0);padding:16px 0;border-bottom:1px solid #fff8;text-transform:uppercase;font-size:13px;letter-spacing:.08em}.home-film-link:focus-visible{outline:2px solid #00a3ff;outline-offset:8px}
+.home-motion .manifesto-copy h2{font-size:clamp(58px,6.8vw,110px);line-height:1.05;letter-spacing:-.06em;margin:22px 0 28px}
+.home-motion .manifesto-copy h2>span{animation:none;transform:translateX(calc(14px * (1 - var(--manifesto-word-focus,0))));color:inherit;transition:color .5s var(--home-motion-ease)}
+.home-motion .manifesto-copy h2>span.is-focused{color:#00a3ff}
+.home-motion .manifesto-copy>p:not(.home-label){max-width:340px;font-size:clamp(17px,1.5vw,22px);transition:color .65s var(--home-motion-ease)}
+.home-motion .brand-manifesto .official-film{position:absolute;inset:0;z-index:0;clip-path:inset(var(--manifesto-inset-edge) 0 var(--manifesto-inset-edge) var(--manifesto-inset-left));will-change:clip-path}
+.home-motion .brand-manifesto .official-film video{height:100%;aspect-ratio:auto;width:100%;object-fit:cover;transform:scale(var(--manifesto-film-scale));will-change:transform}
+.home-motion .brand-manifesto .official-film:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#000b,transparent 80%);opacity:var(--manifesto-progress);pointer-events:none}
+.home-motion .brand-manifesto .official-film figcaption{position:absolute;right:5vw;bottom:4svh;left:55%;z-index:1;color:white;text-align:right;justify-content:flex-end;font-size:11px}.home-motion .brand-manifesto .official-film figcaption>span{display:none}
+.home-motion .brand-manifesto.is-immersed .manifesto-copy{color:#fff}.home-motion .brand-manifesto.is-immersed .manifesto-copy>p:not(.home-label){color:#ddd}.home-motion .brand-manifesto.is-immersed .home-label{color:#b8d6e5}
+.home-manifesto-orbit{position:absolute;width:70vw;aspect-ratio:1;border-radius:50%;border:1px solid #00a3ff1a;left:-25vw;top:50%;transform:translateY(-50%) rotate(calc(var(--manifesto-progress) * 90deg));opacity:calc(1 - var(--manifesto-progress));pointer-events:none}.home-manifesto-orbit:after{content:"";position:absolute;inset:12%;border:1px dashed #00a3ff20;border-radius:50%}
+
+/* The project stack becomes an exhibition controlled by scroll, buttons or swipe. */
+.home-motion .home-selected{height:215svh;padding:0 5vw;position:relative}
+.home-work-scene{position:sticky;top:110px;min-height:calc(100svh - 110px);padding:30px 0;display:flex;flex-direction:column;justify-content:center}
+.home-work-scene .home-section-head{margin-bottom:24px}.home-work-scene .home-section-head h2{font-size:clamp(36px,3.5vw,52px);margin-top:12px}
+.home-page.home-motion .home-projects.project-deck{height:clamp(330px,45svh,510px);margin:0 0 0;transform:perspective(1500px) rotateX(var(--deck-tilt-x,0deg)) rotateY(var(--deck-tilt-y,0deg));transition:transform .7s var(--home-motion-ease)}
+.home-page.home-motion .project-deck .home-project{border-color:#ffffff28;transition:transform 1s var(--home-motion-ease),opacity .75s;box-shadow:0 25px 80px #0004}
+.home-page.home-motion .project-deck [data-position='0']{transform:translateX(0) scale(1) rotate(-.5deg)}
+.home-page.home-motion .project-deck [data-position='1']{transform:translateX(8%) scale(.91) rotate(3deg);opacity:.7}
+.home-page.home-motion .project-deck [data-position='2']{transform:translateX(15%) scale(.82) rotate(6deg);opacity:.4}
+.home-motion .project-deck-index{margin-top:26px}.home-motion .project-deck-index button{padding:14px 0;transition:color .5s,border-color .5s}.home-motion .project-deck-status{margin-bottom:0;font-size:11px}
+.home-motion .home-selected:after{content:"";position:absolute;bottom:0;left:5vw;right:5vw;height:1px;background:#ffffff20}
+
+.home-motion .brand-purpose{position:relative;overflow:clip;padding-top:65px}.home-purpose-ribbon{display:flex;align-items:center;gap:40px;width:max-content;margin:0 0 60px;transform:translateX(var(--purpose-drift,0px));pointer-events:none}.home-purpose-ribbon span{font-size:clamp(80px,12vw,190px);line-height:1;font-weight:300;letter-spacing:-.055em;color:transparent;-webkit-text-stroke:1px #ffffff35}.home-purpose-ribbon i{width:20px;height:20px;background:#00a3ff;transform:rotate(45deg)}
+.home-motion .home-conversation{position:relative;isolation:isolate;overflow:clip}.home-motion .home-conversation:before{content:"";position:absolute;z-index:-1;right:-10vw;top:50%;width:50vw;aspect-ratio:1;border:1px solid #00a3ff20;border-radius:50%;transform:translateY(-50%);box-shadow:0 0 0 6vw #00a3ff04,0 0 0 12vw #00a3ff03;pointer-events:none}
+
+@media(max-height:740px) and (min-width:801px){.home-work-scene{padding:20px 0}.home-work-scene .home-section-head{margin-bottom:20px}.home-work-scene .home-section-head h2{font-size:36px;margin-top:8px}.home-page.home-motion .home-projects.project-deck{height:clamp(260px,40svh,350px)}.home-motion .project-deck-index{margin-top:15px}.home-motion .project-deck-status{font-size:10px}.home-motion .manifesto-copy h2{font-size:clamp(58px,6vw,90px)}}
+@media(max-width:800px){
+ .home-film-link{display:none}.home-page.home-motion .home-projects.project-deck{overflow:clip}
+ .home-motion .hero{clip-path:none}.home-motion .brand-manifesto{height:auto;padding:55px 6vw}.home-manifesto-scene{position:relative;top:auto;display:block;height:auto;padding:0;overflow:visible}.home-motion .manifesto-copy{max-width:100%}.home-motion .manifesto-copy h2{font-size:clamp(50px,12vw,80px)}.home-motion .manifesto-copy h2>span{transform:none}.home-motion .brand-manifesto .official-film{position:relative;clip-path:none;will-change:auto;margin-top:35px}.home-motion .brand-manifesto .official-film video{height:auto;aspect-ratio:16/10;transform:none;will-change:auto}.home-motion .brand-manifesto .official-film:after,.home-manifesto-orbit{display:none}.home-motion .brand-manifesto .official-film figcaption{position:static;color:#666;justify-content:flex-start;text-align:left}
+ .home-motion .home-selected{height:auto;padding:55px 6vw}.home-work-scene{position:static;min-height:0;padding:0}.home-page.home-motion .home-projects.project-deck{height:430px;transform:none}.home-work-scene .home-section-head{margin-bottom:30px}.home-motion .project-deck-index{margin-top:28px}.home-purpose-ribbon{gap:25px;margin-bottom:40px}.home-purpose-ribbon span{font-size:90px}.home-purpose-ribbon i{width:12px;height:12px;flex:none}.home-motion .brand-purpose{padding-top:40px}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-film-link{display:none}
+ .home-page.home-motion .title-line>span,.home-motion-entry.home-motion-arrived{animation:none;transform:none}.home-motion .hero{clip-path:none}.home-motion .brand-manifesto{height:auto;padding:80px 5vw}.home-manifesto-scene{position:static;display:grid;grid-template-columns:1fr 1fr;gap:6vw;height:auto;padding:0}.home-motion .manifesto-copy{max-width:100%}.home-motion .manifesto-copy h2>span{transform:none;transition:none}.home-motion .brand-manifesto .official-film{position:relative;clip-path:none;will-change:auto}.home-motion .brand-manifesto .official-film video{height:auto;aspect-ratio:16/9;transform:none;will-change:auto}.home-motion .brand-manifesto .official-film:after,.home-manifesto-orbit{display:none}.home-motion .brand-manifesto .official-film figcaption{position:static;color:#666}.home-motion .home-selected{height:auto;padding:80px 5vw}.home-work-scene{position:static;min-height:0;padding:0}.home-page.home-motion .home-projects.project-deck{transform:none;transition:none}.home-page.home-motion .project-deck .home-project{transition:none}.home-purpose-ribbon{transform:none}.home-motion .project-deck-index button{transition:none}
+}
+@media(prefers-reduced-motion:reduce) and (max-width:800px){.home-manifesto-scene{display:block}.home-motion .brand-manifesto,.home-motion .home-selected{padding:55px 6vw}}

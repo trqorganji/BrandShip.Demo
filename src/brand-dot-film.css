@@ -1,0 +1,5 @@
+.about-brand-signature{position:relative;overflow:hidden}
+.about-brand-signature .brand-dot-film{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;pointer-events:none}
+.about-brand-signature.dot-film-active .brand-dot-film{opacity:1}
+.about-brand-signature.dot-film-active>img{opacity:0}
+@media(prefers-reduced-motion:reduce){.about-brand-signature.dot-film-active>img{opacity:1}.about-brand-signature .brand-dot-film{display:none}}

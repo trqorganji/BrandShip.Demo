@@ -1,4 +1,36 @@
+import './brand-dot-film.css';
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const signature = document.querySelector('.about-brand-signature');
+if (signature) {
+  const video = document.createElement('video');
+  video.className = 'brand-dot-film';
+  video.src = `${import.meta.env.BASE_URL}assets/brandship-dot-loop.mp4`;
+  video.autoplay = !reducedMotion.matches;
+  video.muted = true;
+  video.defaultMuted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.controls = false;
+  video.preload = 'metadata';
+  video.setAttribute('aria-hidden', 'true');
+  // Retain the original image as the accessible name and loading/error fallback.
+  signature.append(video);
+  let visible = false;
+  function updateSignature() {
+    if (visible && !document.hidden && !reducedMotion.matches) video.play().catch(() => {});
+    else video.pause();
+    signature.classList.toggle('dot-film-active', !reducedMotion.matches && video.readyState >= 2);
+  }
+  video.addEventListener('playing', updateSignature);
+  video.addEventListener('loadeddata', updateSignature);
+  video.addEventListener('error', () => signature.classList.remove('dot-film-active'));
+  new IntersectionObserver(entries => {
+    visible = entries[0].isIntersecting;
+    updateSignature();
+  }, { threshold: .1 }).observe(signature);
+  document.addEventListener('visibilitychange', updateSignature);
+  reducedMotion.addEventListener('change', updateSignature);
+}
 // A fixed portrait frame keeps the crop and card dimensions stable on hover.
 document.querySelectorAll('.leadership-grid article > img').forEach(image => {
   const frame = document.createElement('div');
