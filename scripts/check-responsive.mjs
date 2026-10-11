@@ -16,6 +16,9 @@ try {
       await page.goto(new URL(route, base).href);
       await page.evaluate(() => document.fonts.ready);
       await page.waitForTimeout(350);
+      if (route === 'about.html') {
+        assert.equal(await page.locator('.about-purpose-grid').evaluate(e => getComputedStyle(e).backgroundColor), 'rgba(0, 0, 0, 0)', 'Mission & Vision must retain the final layout in production');
+      }
       for (const fraction of [0, .5, 1]) {
         await page.evaluate(f => scrollTo(0, (document.documentElement.scrollHeight - innerHeight) * f), fraction);
         await page.waitForTimeout(100);

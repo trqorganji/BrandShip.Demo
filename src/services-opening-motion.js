@@ -25,6 +25,7 @@ for (const opening of document.querySelectorAll('.services-catalogue-title.edito
   function update() {
     frame = 0;
     const bounds = opening.getBoundingClientRect();
+    if (bounds.bottom < -100 || bounds.top > innerHeight + 100) return;
     const depth = reduced.matches || compact.matches ? 0 : Math.max(-12, Math.min(12, (innerHeight / 2 - bounds.top - bounds.height / 2) * .025));
     opening.style.setProperty('--services-depth', `${depth.toFixed(2)}px`);
   }

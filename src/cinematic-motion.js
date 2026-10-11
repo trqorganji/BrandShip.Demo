@@ -100,16 +100,22 @@ if (!document.body.classList.contains('home-page')) {
   let stageValue = 0;
   let processTarget = 0;
   let processValue = 0;
+  let stageVisible = false;
+  let methodVisible = false;
 
   function measure() {
     const staticView = reduced.matches || compact.matches;
     if (stage) {
       const rect = stage.getBoundingClientRect();
+      stageVisible = rect.bottom > -100 && rect.top < innerHeight + 100;
       stageTarget = staticView ? .76 : clamp(-rect.top / Math.max(1, rect.height - innerHeight));
+      if (!stageVisible) stageValue = stageTarget;
     }
     if (method) {
       const rect = method.getBoundingClientRect();
+      methodVisible = rect.bottom > -100 && rect.top < innerHeight + 100;
       processTarget = staticView ? 1 : clamp((110 - rect.top) / Math.max(1, rect.height - innerHeight + 110));
+      if (!methodVisible) processValue = processTarget;
     }
     if (timeline) {
       const rect = timeline.getBoundingClientRect();
@@ -135,7 +141,7 @@ if (!document.body.classList.contains('home-page')) {
     const smoothing = 1 - Math.exp(-elapsed / 85);
     stageValue += (stageTarget - stageValue) * smoothing;
     processValue += (processTarget - processValue) * smoothing;
-    if (stage) {
+    if (stage && stageVisible) {
       const opening = ease(clamp(stageValue / .66));
       stage.style.setProperty('--portal-inset-x', `${(1 - opening) * 29}%`);
       stage.style.setProperty('--portal-inset-y', `${(1 - opening) * 23}%`);
@@ -146,7 +152,7 @@ if (!document.body.classList.contains('home-page')) {
       stage.style.setProperty('--portal-exit', String(ease(clamp((stageValue - .82) / .18))));
       stage.style.setProperty('--portal-line', String(opening));
     }
-    if (methodGrid) {
+    if (methodGrid && methodVisible) {
       methodGrid.style.setProperty('--process-progress', processValue.toFixed(4));
       phaseCards.forEach((card, index) => {
         const focus = reduced.matches || compact.matches ? 1 : clamp(1 - Math.abs(processValue * (phaseCards.length - 1) - index));

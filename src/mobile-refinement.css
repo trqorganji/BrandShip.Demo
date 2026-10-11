@@ -1,4 +1,7 @@
 /* Shared small-screen safeguards; desktop composition stays unchanged. */
+.page-transition.is-leaving::before,.page-transition.is-leaving::after{animation-duration:.18s;animation-delay:0s}
+.page-transition.is-entering::before,.page-transition.is-entering::after{animation-duration:.24s;animation-delay:0s}
+.page-transition.is-leaving .page-transition__mark,.page-transition.is-entering .page-transition__mark{animation-duration:.12s;animation-delay:0s}
 @media(max-width:800px){
   main,footer{overflow-wrap:break-word}
   main :is(article,section,figure,nav,form),footer>div{min-width:0}

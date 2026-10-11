@@ -4,7 +4,11 @@ const paths={'↗':'M5 19 19 5M5 5h14v14','↘':'M5 5l14 14M5 19h14V5','↙':'M1
 const aliases={'➡':'→','➜':'→','➔':'→','⬅':'←','⬆':'↑','⬇':'↓','⬈':'↗','⬊':'↘','⬋':'↙','⬉':'↖'};
 const arrows=/([↗↘↙↖←→↓↑↔➡➜➔⬅⬆⬇⬈⬊⬋⬉][\uFE0E\uFE0F]?)/;
 const replace = root => {
- root.querySelectorAll('.feedback-arrow,.contact-pill > span,.career-role > b,.insight-entry-copy a > b,.service-stream-group > b').forEach(holder=>{
+ if (!root.isConnected || root.nodeType !== Node.ELEMENT_NODE) return;
+ const selector='.feedback-arrow,.contact-pill > span,.career-role > b,.insight-entry-copy a > b,.service-stream-group > b';
+ const holders=[...root.querySelectorAll(selector)];
+ if(root.matches(selector))holders.unshift(root);
+ holders.forEach(holder=>{
   if(holder.querySelector('svg'))return;
   holder.classList.add('svg-arrow-holder');
   holder.setAttribute('aria-hidden','true');
@@ -27,4 +31,16 @@ const replace = root => {
 };
 replace(document.body);
 let queued=false;
-new MutationObserver(()=>{if(queued)return;queued=true;queueMicrotask(()=>{queued=false;replace(document.body);});}).observe(document.body,{childList:true,subtree:true,characterData:true});
+const pending=new Set();
+new MutationObserver(records=>{
+ records.forEach(record=>{
+  if(record.type==='characterData'){
+   if(arrows.test(record.target.nodeValue))pending.add(record.target.parentElement);
+  } else record.addedNodes.forEach(node=>{
+   if(node.nodeType===Node.ELEMENT_NODE && !node.closest('svg,script,style'))pending.add(node);
+   else if(node.nodeType===Node.TEXT_NODE && arrows.test(node.nodeValue))pending.add(node.parentElement);
+  });
+ });
+ if(queued||!pending.size)return;
+ queued=true;queueMicrotask(()=>{queued=false;const roots=[...pending];pending.clear();roots.forEach(root=>{if(root&&!roots.some(other=>other!==root&&other?.contains(root)))replace(root);});});
+}).observe(document.body,{childList:true,subtree:true,characterData:true});

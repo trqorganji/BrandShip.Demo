@@ -14,6 +14,7 @@ if (positions) {
   function paint() {
     queued = false;
     const rect = section.getBoundingClientRect();
+    if (rect.bottom < -100 || rect.top > innerHeight + 100) return;
     const progress = reduced.matches || mobile.matches ? 1 : Math.max(0, Math.min(1, (120 - rect.top) / Math.max(1, section.offsetHeight - innerHeight + 150)));
     section.style.setProperty('--connect-progress', progress);
     section.style.setProperty('--connect-rise', Math.max(0, 1 - progress * 2.1));

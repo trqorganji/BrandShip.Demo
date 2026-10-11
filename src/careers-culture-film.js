@@ -33,6 +33,7 @@ if (culture) {
       return;
     }
     const box = track.getBoundingClientRect();
+    if (box.bottom < -100 || box.top > innerHeight + 100) return;
     const progress = clamp((125 - box.top) / Math.max(1, track.offsetHeight - innerHeight + 125));
     culture.style.setProperty('--film-expand', clamp(progress * 5));
     culture.style.setProperty('--film-progress', progress);

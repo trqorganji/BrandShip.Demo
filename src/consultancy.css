@@ -51,7 +51,8 @@ body :focus-visible{outline:2px solid #00a3ff;outline-offset:5px}section[id],art
 @media(max-width:520px){.work-catalogue .archive-grid{grid-template-columns:1fr}}
 
 /* Native cross-document transitions preserve links, history and keyboard navigation. */
-@view-transition{navigation:auto}
+/* The branded curtain owns navigation; avoid stacking native page snapshots. */
+@view-transition{navigation:none}
 ::view-transition-old(root){animation:page-out .24s ease both}
 ::view-transition-new(root){animation:page-in .38s ease both}
 @keyframes page-out{to{opacity:0;transform:translateY(-8px)}}

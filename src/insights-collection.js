@@ -24,11 +24,13 @@ if (collection) {
   function paint() {
     frame = 0;
     const bounds = collection.getBoundingClientRect();
+    if (bounds.bottom < -100 || bounds.top > innerHeight + 100) return;
     const progress = Math.max(0, Math.min(1, (innerHeight * .8 - bounds.top) / Math.max(1, bounds.height + innerHeight * .5)));
     collection.style.setProperty('--collection-progress', reduced.matches ? 1 : progress);
     entries.forEach(entry => {
       if (entry.hidden) return;
       const box = entry.getBoundingClientRect();
+      if (box.bottom < -100 || box.top > innerHeight + 100) return;
       const offset = reduced.matches ? 0 : Math.max(-22, Math.min(22, (innerHeight / 2 - box.top - box.height / 2) * .075));
       entry.style.setProperty('--insight-depth', `${offset}px`);
       entry.style.setProperty('--signal-turn', `${offset * .7}deg`);

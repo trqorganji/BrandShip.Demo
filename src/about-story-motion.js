@@ -22,6 +22,7 @@ if (pair) {
   function update() {
     frame = 0;
     const bounds = pair.getBoundingClientRect();
+    if (bounds.bottom < -100 || bounds.top > innerHeight + 100) return;
     const dot = overview.querySelector('.blue-stop')?.getBoundingClientRect();
     const label = story.querySelector('.chapter-label').getBoundingClientRect();
     if (!dot) return;

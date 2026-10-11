@@ -31,6 +31,8 @@ if (culture) {
   function paint() {
     pending = false;
     const box = interlude.getBoundingClientRect();
+    const storyBox = story.getBoundingClientRect();
+    if (box.top > innerHeight + 100 || storyBox.bottom < -100) return;
     const reveal = simple.matches ? 1 : clamp((innerHeight * .8 - box.top) / (innerHeight * .65));
     interlude.style.setProperty('--brand-reveal', reveal);
     // Clip the entire pinned mark at the incoming section's leading edge.
@@ -44,6 +46,7 @@ if (culture) {
     sticky.style.clipPath = simple.matches ? 'none' : `inset(0 0 ${Math.max(0, stickyBox.bottom - coverTop)}px 0)`;
     story.querySelectorAll('.life-story-chapter').forEach(chapter => {
       const rect = chapter.getBoundingClientRect();
+      if (rect.bottom < -100 || rect.top > innerHeight + 100) return;
       const progress = simple.matches ? 1 : clamp((innerHeight * .92 - rect.top) / (innerHeight * .5));
       chapter.style.setProperty('--chapter-reveal', progress);
       chapter.style.setProperty('--chapter-turn', `${simple.matches ? 0 : (progress - .5) * 32}deg`);

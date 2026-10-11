@@ -75,7 +75,7 @@ if(!reduceMotion){
   document.body.appendChild(transition);
   let navigationArrival=false;
   try{navigationArrival=sessionStorage.getItem('brandship-navigation')===location.href;sessionStorage.removeItem('brandship-navigation')}catch{}
-  if(navigationArrival)requestAnimationFrame(()=>{transition.classList.add('is-entering');setTimeout(()=>transition.classList.remove('is-entering'),900)});
+  if(navigationArrival)requestAnimationFrame(()=>{transition.classList.add('is-entering');setTimeout(()=>transition.classList.remove('is-entering'),350)});
   let navigating=false;
   document.addEventListener('click',event=>{
     const link=event.target.closest('a[href]');
@@ -90,9 +90,9 @@ if(!reduceMotion){
     navigating=true;
     if(target.origin===location.origin){try{sessionStorage.setItem('brandship-navigation',target.href)}catch{}}
     transition.classList.remove('is-entering');transition.classList.add('is-leaving');
-    setTimeout(()=>location.assign(target.href),720);
+    setTimeout(()=>location.assign(target.href),200);
   });
-  addEventListener('pageshow',event=>{if(event.persisted){navigating=false;transition.classList.remove('is-leaving');transition.classList.add('is-entering');setTimeout(()=>transition.classList.remove('is-entering'),900)}});
+  addEventListener('pageshow',event=>{if(event.persisted){navigating=false;transition.classList.remove('is-leaving');transition.classList.add('is-entering');setTimeout(()=>transition.classList.remove('is-entering'),350)}});
 }
 
 // Project cards transition through their own artwork into the case-study hero.

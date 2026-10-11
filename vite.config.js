@@ -14,15 +14,16 @@ export default defineConfig({
       handler(html) {
         // Vite shares CSS between page entries. Keep the final design overrides
         // after page-specific legacy styles, matching the development cascade.
-        const finalStyles = [];
+        const styles = [];
         const result = html.replace(/<link\b[^>]*rel="stylesheet"[^>]*>/g, tag => {
-          if (/\/consultancy-[^/]+\.css"/.test(tag)) {
-            finalStyles.push(tag);
-            return '';
-          }
-          return tag;
+          styles.push(tag);
+          return '';
         });
-        return result.replace('</head>', `${finalStyles.join('\n')}\n</head>`);
+        // Shared legacy page rules must precede route-specific layouts, not just
+        // the final consultancy overrides. Otherwise About reverts in production.
+        const priority = tag => /\/pages-[^/]+\.css"/.test(tag) ? 0 : /\/consultancy-[^/]+\.css"/.test(tag) ? 2 : 1;
+        styles.sort((a, b) => priority(a) - priority(b));
+        return result.replace('</head>', `${styles.join('\n')}\n</head>`);
       }
     }
   }, ...(githubPages ? [{
