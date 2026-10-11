@@ -1,5 +1,6 @@
 // Editorial additions from the website review. Unapproved facts are explicitly labelled.
 const base = import.meta.env.BASE_URL;
+export const originalServiceCapabilities = [...document.querySelectorAll('.service-stream > article')].map(article => ({ name: article.querySelector('h2')?.textContent, description: article.querySelector('p')?.textContent }));
 const href = path => `${base}${path}`;
 const el = (tag, className, html) => { const node = document.createElement(tag); node.className = className; node.innerHTML = html; return node; };
 

@@ -1,0 +1,26 @@
+/* Stable contrast in every state; only portraits and accent lines respond to hover. */
+.about-page .editorial-leadership .leadership-grid>article,
+.about-page .editorial-leadership .leadership-grid>article:hover,
+.about-page .editorial-leadership .leadership-grid>.leadership-owner,
+.about-page .editorial-leadership .leadership-grid>.leadership-owner:hover{background:transparent!important;color:#111!important;padding:0!important;transition:none!important;transform:none!important;animation:none!important;opacity:1!important}
+.about-page .editorial-leadership .leadership-owner{gap:4vw;grid-template-columns:1fr 1.1fr;overflow:visible}
+.about-page .editorial-leadership .owner-copy{padding:25px 0}
+.about-page .editorial-leadership .leadership-grid h3{color:#111!important;position:relative;padding-bottom:15px}
+.about-page .editorial-leadership .leadership-grid h3:after{content:"";position:absolute;bottom:0;left:50%;width:55px;height:2px;background:#00a3ff;transform:translateX(-50%) scaleX(.35);transform-origin:center;opacity:.5;transition:transform 450ms cubic-bezier(.2,.7,.2,1),opacity 450ms}
+.about-page .editorial-leadership .leadership-grid p{color:#62686b!important;line-height:1.75}
+.about-page .editorial-leadership .owner-copy .owner-role,.about-page .editorial-leadership .owner-copy>span{color:#007fba!important}
+.about-page .editorial-leadership .leadership-credential{margin-top:20px;font-size:12px}
+.about-page .editorial-leadership .leadership-credential span{color:#333!important;display:block;margin-top:12px;font-size:10px;letter-spacing:.12em}
+.about-page .editorial-leadership .leadership-portrait{clip-path:none!important;transform:none!important;animation:none!important;opacity:1!important;background:#e5e5e2}
+.about-page .editorial-leadership .leadership-portrait img{transform:scale(1)!important;filter:none!important;transition:transform 650ms cubic-bezier(.2,.7,.2,1)!important}
+.about-page .editorial-leadership .leader-arrived .leadership-portrait{animation:leader-crop 1000ms cubic-bezier(.16,1,.3,1) var(--leader-delay,0ms) both!important}
+.editorial-leadership .leader-arrived>h3,.editorial-leadership .leader-arrived>.owner-copy{animation:leader-copy 850ms cubic-bezier(.16,1,.3,1) var(--leader-delay,0ms) both}
+@keyframes leader-crop{from{clip-path:inset(5% 3%)}to{clip-path:inset(0)}}
+@keyframes leader-copy{from{opacity:.65;translate:0 12px}to{opacity:1;translate:0 0}}
+@media(hover:hover) and (pointer:fine){
+ .about-page .editorial-leadership .leadership-grid>article:hover .leadership-portrait img{transform:scale(1.018)!important}
+ .about-page .editorial-leadership .leadership-grid>article:hover h3:after{transform:translateX(-50%) scaleX(1);opacity:1}
+}
+@media(max-width:800px){.about-page .editorial-leadership .leadership-owner{grid-template-columns:1fr;gap:10px}.about-page .editorial-leadership .owner-copy{padding:20px 0 30px}}
+@media(max-width:480px){.about-page .editorial-leadership .leadership-grid{grid-template-columns:1fr;gap:32px}.about-page .editorial-leadership .leadership-portrait{aspect-ratio:4/5}}
+@media(prefers-reduced-motion:reduce){.about-page .editorial-leadership .leader-arrived .leadership-portrait,.editorial-leadership .leader-arrived>h3,.editorial-leadership .leader-arrived>.owner-copy{animation:none!important}.about-page .editorial-leadership .leadership-portrait img,.about-page .editorial-leadership .leadership-grid h3:after{transition:none!important}}

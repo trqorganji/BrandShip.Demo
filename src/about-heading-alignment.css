@@ -1,0 +1,25 @@
+/* One centered heading system throughout About, independent of content grids. */
+.about-page main :is(h1,h2,h3,h4,h5,h6){text-align:center}
+.about-page .about-directory-content :is(.feedback-heading,section>header){display:flex!important;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.about-page .about-directory-content :is(.feedback-heading,section>header)>:is(span,h2,p){margin-inline:auto!important;max-width:min(950px,100%);text-align:center}
+.about-page .about-directory-content .feedback-intro{margin:25px auto 38px!important;max-width:min(750px,100%);text-align:center}
+.about-page .about-directory-content :is(.chapter-label,.about-overview>span,.about-purpose>span,.proof-eyebrow,.leadership-group-label){display:block;text-align:center}
+.about-page .about-overview>div>h2,.about-page .story-section>h2{margin-inline:auto}
+.about-page .about-purpose-grid article>small{display:block;text-align:center}
+.about-page .proof-copy{text-align:center}
+.about-page .proof-copy p{margin-inline:auto}
+.about-page .recognition-drafts>div{text-align:center}
+.about-page .recognition-drafts p{margin-inline:auto}
+.about-page .why-grid article{text-align:center}
+.about-page .principle-symbol{display:block;margin-inline:auto}
+.about-page .consistent-timeline article{text-align:center}
+.about-page .about-stat-grid article strong,.about-page .about-stat-grid article p{text-align:center;margin-inline:auto}
+.about-page .team-preview article,.about-page .client-stories>h3{text-align:center}
+.about-page .about-editorial-copy{text-align:center}
+.about-page .about-editorial-copy>p{margin-inline:auto}
+.about-page .about-editorial-copy>a{margin-inline:auto}
+.about-page .consultancy-close{text-align:center}
+@media(max-width:800px){
+ .about-page .about-directory-content :is(.feedback-heading,section>header){gap:16px}
+ .about-page .about-directory-content .feedback-intro{margin-block:22px 30px!important}
+}

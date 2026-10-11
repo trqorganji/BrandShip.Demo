@@ -1,3 +1,8 @@
+// Load the page's layout before inserting its content, not via a separate entry.
+import './feedback-upgrade.css';
+import './internal-heading-alignment.css';
+import { enhanceBrandingOpening } from './branding-opening.js';
+
 const base = import.meta.env.BASE_URL;
 const area = new URLSearchParams(location.search).get('area') === 'communication' ? 'communication' : 'branding';
 const practices = {
@@ -36,4 +41,8 @@ const practices = {
 };
 const data = practices[area];
 document.title = `${data.name} — BrandShip`;
+queueMicrotask(() => {
+  enhanceBrandingOpening(area);
+  if (area === 'communication') document.querySelector('.practice-method h2').innerHTML = 'From insight to activation<span class="blue-stop">.</span>';
+});
 document.querySelector('#practice-root').innerHTML = `<section class="practice-hero"><a class="feedback-text-link" href="${base}services.html">All services</a><p class="practice-eyebrow">Core domain</p><h1>${data.name}<span>.</span></h1><p>${data.proposition}</p></section><section class="practice-body"><div class="practice-lead"><span>Overview</span><p>${data.intro}</p></div><div class="practice-questions"><article><span>What we solve</span><h2>${data.solve}</h2></article><article><span>Our approach</span><p>${data.approach}</p></article></div><div class="practice-capabilities"><div class="feedback-heading"><span>Capabilities</span><h2>The work behind the promise<span class="blue-stop">.</span></h2></div><div>${data.capabilities.map(([name, description])=>`<article><h3>${name}</h3><p>${description}</p></article>`).join('')}</div></div><div class="practice-deliverables"><div class="feedback-heading"><span>Illustrative deliverables</span><h2>What an engagement might produce<span class="blue-stop">.</span></h2></div><p class="approval-note">Sample deliverables for layout; the actual scope is agreed for each project.</p><div>${data.deliverables.map((item,index)=>`<article><small>0${index+1}</small><h3>${item}</h3></article>`).join('')}</div></div><div class="practice-method"><div class="feedback-heading"><span>Methodology</span><h2>From understanding to expression<span class="blue-stop">.</span></h2></div><p>Discovery and research → strategic direction → creative development → activation → measurement and governance. Illustrative stages only; confirm the actual BrandShip process before launch.</p></div><div class="practice-related"><div class="feedback-heading"><span>Selected cases</span><h2>See the practice in action<span class="blue-stop">.</span></h2></div><div>${data.cases.map(([name,slug])=>`<a href="${base}case-study.html?project=${slug}">${name}<span class="feedback-arrow" aria-hidden="true"></span></a>`).join('')}</div></div><div class="practice-related"><div class="feedback-heading"><span>Related thinking</span><h2>Explore the thinking<span class="blue-stop">.</span></h2></div><p class="approval-note">${data.insight}</p><a class="feedback-text-link" href="${base}insights.html">Visit Insights <span class="feedback-arrow" aria-hidden="true"></span></a></div></section>`;

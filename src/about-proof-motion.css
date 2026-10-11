@@ -1,0 +1,36 @@
+.about-page .proof-showcase{padding-bottom:55px}
+.proof-showcase .proof-feature{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;align-items:center;margin-top:40px;padding-block:30px;border-top:1px solid #d5dadd}
+.proof-eyebrow{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#007fbf;display:block}
+.about-page .proof-copy h3{font-size:clamp(28px,3vw,46px);line-height:1.15;letter-spacing:-.04em;margin:24px 0}
+.proof-copy p,.recognition-drafts p{font-size:15px;line-height:1.75;color:#6d7174;max-width:45ch}
+.proof-link{display:inline-flex;align-items:center;gap:35px;margin-top:20px;padding-bottom:12px;border-bottom:1px solid #a9b1b5;color:#111;text-decoration:none}
+.proof-link svg{width:20px;height:20px;fill:none;stroke:#00a3ff;stroke-width:1.5;transition:transform .5s}
+.proof-link:hover svg,.proof-link:focus-visible svg{transform:translate(3px,-3px)}
+.proof-image{display:block;position:relative;overflow:hidden;aspect-ratio:1.65;background:#e9ecec;color:white}
+.proof-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.proof-image:hover img,.proof-image:focus-visible img{transform:scale(1.035)}
+.proof-image span{position:absolute;inset:auto 0 0;padding:35px 25px 20px;background:linear-gradient(transparent,rgba(0,0,0,.55));font-size:14px}
+.recognition-drafts{display:grid;grid-template-columns:1fr 1fr;gap:5vw;margin-top:30px;border-top:1px solid #d5dadd;padding-top:30px}
+.recognition-drafts h3{font-size:25px;letter-spacing:-.035em;margin:20px 0 12px}
+.proof-note{font-size:11px;color:#777;line-height:1.7;margin-top:25px}
+.connected-principles .feedback-intro{font-size:15px;max-width:65ch;margin-top:25px}
+.clarity-network{height:90px;margin:30px 0 10px;overflow:hidden}
+.clarity-network svg{width:100%;height:100%;fill:none;stroke:#cbd8df;stroke-width:1;vector-effect:non-scaling-stroke}
+.clarity-network .clarity-line{stroke:#00a3ff;stroke-width:1.5;stroke-dasharray:580;stroke-dashoffset:580}
+.clarity-network circle{fill:#00a3ff;stroke:none}
+.connected-principles .why-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 3vw}
+.connected-principles .why-grid article{position:relative;padding:26px 20px 25px;isolation:isolate;transition:border-color .6s;border-top-color:#d5dadd}
+.connected-principles .why-grid article:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(145deg,rgba(0,163,255,.065),transparent 80%);opacity:0;transition:opacity .6s}
+.connected-principles .why-grid article:hover:before,.connected-principles .why-grid article:focus-within:before{opacity:1}
+.connected-principles .why-grid article:hover{border-top-color:#00a3ff}
+.principle-symbol{width:28px;height:28px;fill:none;stroke:#00a3ff;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.connected-principles .why-grid h3{font-size:clamp(22px,1.9vw,28px);margin:20px 0 16px}
+.proof-arrived .proof-image{animation:proof-open 1.3s cubic-bezier(.16,1,.3,1) both}
+.proof-arrived .proof-copy,.recognition-drafts.proof-arrived>div,.connected-principles.proof-arrived .why-grid article{animation:proof-rise 1s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--proof-order,0) * 100ms)}
+.proof-arrived .clarity-line{animation:clarity-draw 1.8s cubic-bezier(.2,.7,.2,1) forwards}
+.proof-arrived .complexity-lines{animation:proof-rise 1.4s both}
+@keyframes proof-open{from{clip-path:inset(12% 8%);transform:translateY(18px)}to{clip-path:inset(0);transform:none}}
+@keyframes proof-rise{from{opacity:.4;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes clarity-draw{to{stroke-dashoffset:0}}
+@media(max-width:800px){.proof-showcase .proof-feature{grid-template-columns:1fr;gap:30px}.recognition-drafts{grid-template-columns:1fr;gap:25px}.connected-principles .why-grid{grid-template-columns:1fr;gap:0;border-left:1px solid #cbd8df}.connected-principles .why-grid article{margin-left:0;padding-left:25px}.connected-principles .why-grid article:after{content:"";position:absolute;left:-4px;top:32px;width:7px;height:7px;background:#00a3ff;border-radius:50%}.connected-principles .feedback-intro{margin-left:0}.clarity-network{height:60px}}
+@media(prefers-reduced-motion:reduce){.proof-arrived .proof-image,.proof-arrived .proof-copy,.recognition-drafts.proof-arrived>div,.connected-principles.proof-arrived .why-grid article,.proof-arrived .complexity-lines,.proof-arrived .clarity-line{animation:none}.clarity-network .clarity-line{stroke-dashoffset:0}.proof-image img,.proof-link svg,.connected-principles .why-grid article,.connected-principles .why-grid article:before{transition:none}}

@@ -65,30 +65,34 @@ if(brandCursor&&matchMedia('(pointer:fine)').matches){
   document.documentElement.addEventListener('mouseleave',()=>brandCursor.classList.remove('visible'));
 }
 
-// Branded transitions between internal pages. Same-page anchors keep native smooth scrolling.
+// Branded navigation handoff. External sites retain their own loading experience.
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(false){
+if(!reduceMotion){
   const transition=document.createElement('div');
   transition.className='page-transition';
   transition.setAttribute('aria-hidden','true');
-  transition.innerHTML='<img class="page-transition__mark" src="/assets/brandship-logo.png" alt="">';
+  transition.innerHTML=`<img class="page-transition__mark" src="${pageUrl('assets/brandship-logo.png')}" alt="">`;
   document.body.appendChild(transition);
-  const projectArrival=sessionStorage.getItem('brandship-project-flight')==='1';
-  sessionStorage.removeItem('brandship-project-flight');
-  if(!projectArrival)requestAnimationFrame(()=>{transition.classList.add('is-entering');setTimeout(()=>transition.classList.remove('is-entering'),900)});
+  let navigationArrival=false;
+  try{navigationArrival=sessionStorage.getItem('brandship-navigation')===location.href;sessionStorage.removeItem('brandship-navigation')}catch{}
+  if(navigationArrival)requestAnimationFrame(()=>{transition.classList.add('is-entering');setTimeout(()=>transition.classList.remove('is-entering'),900)});
+  let navigating=false;
   document.addEventListener('click',event=>{
     const link=event.target.closest('a[href]');
-    if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||link.target==='_blank'||link.hasAttribute('download'))return;
+    if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||(link.target&&link.target!=='_self')||link.hasAttribute('download'))return;
     const href=link.getAttribute('href');
     if(!href||href.startsWith('#')||href.startsWith('mailto:')||href.startsWith('tel:'))return;
     const target=new URL(link.href,location.href);
-    if(target.origin!==location.origin)return;
+    if(!['http:','https:'].includes(target.protocol))return;
     if(target.pathname===location.pathname&&target.search===location.search)return;
     event.preventDefault();
+    if(navigating)return;
+    navigating=true;
+    if(target.origin===location.origin){try{sessionStorage.setItem('brandship-navigation',target.href)}catch{}}
     transition.classList.remove('is-entering');transition.classList.add('is-leaving');
     setTimeout(()=>location.assign(target.href),720);
   });
-  addEventListener('pageshow',event=>{if(event.persisted){transition.classList.remove('is-leaving');transition.classList.add('is-entering');setTimeout(()=>transition.classList.remove('is-entering'),900)}});
+  addEventListener('pageshow',event=>{if(event.persisted){navigating=false;transition.classList.remove('is-leaving');transition.classList.add('is-entering');setTimeout(()=>transition.classList.remove('is-entering'),900)}});
 }
 
 // Project cards transition through their own artwork into the case-study hero.

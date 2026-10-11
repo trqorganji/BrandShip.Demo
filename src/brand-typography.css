@@ -1,0 +1,19 @@
+/* Font files and weights published by the original Brandship website. */
+@font-face{font-family:"Brandship Hero";src:url("https://cdn.prod.website-files.com/6836ed96599e86416e08437d/68830bda8e73b3c1f6ca3085_HelveticaNeueBold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:Metropolis;src:url("https://cdn.prod.website-files.com/6836ed96599e86416e08437d/683822c94adc8de082444cda_Metropolis-ExtraLight.otf") format("opentype");font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:Metropolis;src:url("https://cdn.prod.website-files.com/6836ed96599e86416e08437d/683822c9cfac708067af530f_Metropolis-Black.otf") format("opentype");font-weight:900;font-style:normal;font-display:swap}
+body,button,input,textarea,select{font-family:Metropolis,Arial,sans-serif}
+/* Override legacy serif substitutions and thin display weights throughout. */
+body h1,body h2,body h3,body h4,body h5,body h6{font-family:Metropolis,Arial,sans-serif!important;letter-spacing:-.025em}
+body h1,body h2,body h4,body h5,body h6{font-weight:700!important}
+body h3{font-weight:500!important}
+body h1 em,body h2 em,body h3 em,body h1 i,body h2 i{font-family:inherit!important;font-weight:inherit!important}
+body .footer-top p{font-family:Metropolis,Arial,sans-serif;font-weight:500}
+.home-page .hero h1,.home-page .hero h1 em{font-family:"Brandship Hero","Helvetica Neue",Arial,sans-serif!important;font-weight:700!important}
+.home-page .hero h1{color:#fff;letter-spacing:-.025em}
+.home-page .hero h1 .hero-iconic{font-style:italic;color:#00a3ff}
+.home-page .hero h1>.title-line:last-child>span{animation-delay:.3s}
+body .about-stat-grid strong,body .practice-stat strong{font-family:Metropolis,Arial,sans-serif;font-weight:500}
+/* Light weights belong to decorative layers, not essential reading. */
+.home-purpose-ribbon span{font-family:Metropolis,Arial,sans-serif;font-weight:200}
+.home-page .home-project h3,.home-page .home-articles h3{letter-spacing:-.02em}

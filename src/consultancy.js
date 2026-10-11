@@ -8,6 +8,20 @@ import './feedback-upgrade.js';
 import './feedback-upgrade.css';
 import './cinematic-motion.js';
 import './home-motion.js';
+import './about-hero-motion.js';
+import './brand-typography.css';
+import './about-story-motion.js';
+import './shared-timelines.js';
+import './about-metrics-motion.js';
+import './about-proof-motion.js';
+import './about-heading-alignment.css';
+import './internal-heading-alignment.css';
+import './leadership-motion.js';
+import './culture-premium-motion.js';
+import './client-story-gallery.js';
+import './footer-refinement.js';
+import './services-opening-motion.js';
+import './capability-studio.js';
 const baseUrl = import.meta.env.BASE_URL;
 document.querySelectorAll('.menu-btn').forEach(button => button.setAttribute('aria-label', 'Open navigation'));
 
@@ -88,12 +102,12 @@ if (stream) {
   tabs.className = 'insight-tabs';
   tabs.setAttribute('aria-label', 'Insight categories');
   const entries = [...stream.querySelectorAll('.insight-entry')];
-  const categories = ['research', 'magazine', 'magazine', 'research', 'magazine'];
+  const categories = ['research', 'magazine', 'perspectives', 'research', 'sector insights'];
   const empty = document.createElement('p');
   empty.className = 'editorial-note';
-  empty.textContent = 'No news articles are currently listed here. Explore Research and Magazine for published perspectives.';
+  empty.textContent = 'No publications are listed in this category yet. Explore the other categories for available perspectives.';
   empty.hidden = true;
-  for (const label of ['All', 'Research', 'Magazine', 'News']) {
+  for (const label of ['All', 'Research', 'Perspectives', 'Reports', 'Sector Insights', 'Magazine', 'News']) {
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = label;
@@ -120,3 +134,11 @@ if (form) form.addEventListener('submit', event => {
   window.location.href = `mailto:hello@ourbrandship.com?subject=${encodeURIComponent('BrandShip project enquiry')}&body=${encodeURIComponent(body)}`;
   document.querySelector('#enquiry-status').textContent = 'Your email app has been requested. Please send the draft there to complete your enquiry. If it does not open, email hello@ourbrandship.com directly.';
 });
+import './work-archive-toolbar.js';
+import './insights-opening.js';
+import './insights-collection.js';
+import './careers-opening.js';
+import './careers-culture-film.js';
+import './careers-life-story.js';
+import './careers-linkedin.js';
+import './mobile-refinement.css';

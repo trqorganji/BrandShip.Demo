@@ -1,0 +1,28 @@
+.about-page .about-story-pair.connected-story{position:relative;isolation:isolate;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:7vw;padding-block:72px 80px}
+.about-page .connected-story .about-overview,.about-page .connected-story .story-section{position:relative;z-index:1}
+.about-page .connected-story .story-section{border-left:0;padding:0!important}
+.about-page .connected-story .about-overview h2{font-size:clamp(36px,3.9vw,60px);line-height:1.13;max-width:600px;margin-bottom:28px}
+.about-page .connected-story .story-section h2{font-size:clamp(27px,2.6vw,40px);line-height:1.2;max-width:500px;letter-spacing:-.025em;margin-bottom:25px}
+.about-page .connected-story .about-overview p,.about-page .connected-story .story-section>p:not(.approval-note){font-size:clamp(15px,1.2vw,18px);line-height:1.8;max-width:530px}
+.about-page .connected-story .story-section .approval-note{font-size:11px;line-height:1.7;max-width:400px;margin-top:26px}
+.story-connection{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:0;pointer-events:none}
+.story-connection path{fill:none;stroke-width:1;vector-effect:non-scaling-stroke}
+.connection-guide{stroke:#00a3ff18}
+.connection-trace{stroke:#00a3ff;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--connection-progress,0));opacity:.6}
+.connection-tail{stroke:#00a3ff;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--connection-progress,0));opacity:.15}
+.connection-node{fill:#00a3ff;opacity:var(--connection-progress,0)}
+.connection-satellite{fill:var(--cream,#f7f7f5);stroke:#00a3ff;stroke-width:1;opacity:calc(var(--connection-progress,0) * .4)}
+.connected-story.connection-entered .about-overview h2{animation:story-enter .8s cubic-bezier(.22,1,.36,1) both}
+.connected-story.connection-entered .chapter-label,.connected-story.connection-entered .story-section h2{animation:story-enter .8s cubic-bezier(.22,1,.36,1) .18s both}
+@keyframes story-enter{from{transform:translateY(12px);opacity:.35}to{transform:none;opacity:1}}
+@media(max-width:650px){
+ .about-page .about-story-pair.connected-story{display:block;padding-block:40px 52px}
+ .about-page .connected-story .about-overview{padding-bottom:42px}
+ .about-page .connected-story .story-section{padding:28px 0 0 22px!important;border-top:0}
+ .about-page .connected-story .about-overview h2{font-size:clamp(32px,8.5vw,44px)}
+ .about-page .connected-story .story-section h2{font-size:clamp(26px,7vw,34px)}
+ .about-page .connected-story .about-overview p,.about-page .connected-story .story-section>p:not(.approval-note){font-size:15px;line-height:1.75}
+}
+@media(prefers-reduced-motion:reduce){
+ .connected-story.connection-entered .about-overview h2,.connected-story.connection-entered .chapter-label,.connected-story.connection-entered .story-section h2{animation:none}
+}

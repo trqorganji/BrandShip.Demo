@@ -1,0 +1,30 @@
+/* Shared small-screen safeguards; desktop composition stays unchanged. */
+@media(max-width:800px){
+  main,footer{overflow-wrap:break-word}
+  main :is(article,section,figure,nav,form),footer>div{min-width:0}
+  main img,main video{max-width:100%}
+  .menu{height:100dvh;overflow-y:auto;overscroll-behavior:contain}
+  .menu nav{padding-bottom:max(24px,env(safe-area-inset-bottom))}
+  .site-search{overflow-y:auto;max-height:100dvh}
+  .enquiry-form input,.enquiry-form textarea{font-size:16px}
+  .enquiry-form button{min-height:44px;max-width:100%}
+  .consultancy-close{gap:24px;align-items:flex-start}
+  .consultancy-close a{min-height:44px;max-width:100%}
+  .refined-footer a{min-height:32px;overflow-wrap:anywhere}
+  .internal-editorial .culture-cinema-simple .culture-film-scene{width:100%;min-width:0;aspect-ratio:auto;min-height:0;height:clamp(350px,100vw,450px)}
+  .culture-cinema-simple .culture-film-scene figcaption{left:7%;right:7%}
+  .insights-page .insight-tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;gap:22px;scrollbar-width:thin;padding-bottom:4px;max-width:100%}
+  .insights-page .insight-tabs button{flex:0 0 auto;white-space:nowrap;min-height:44px}
+  .branding-capability-links{gap:4px 18px}
+  .branding-capability-links a{min-height:44px;display:inline-flex;align-items:center}
+  .practice-page .branding-premium-opening h1{font-size:clamp(38px,11vw,64px)}
+  .practice-page .communication-premium-opening h1{font-size:clamp(32px,9vw,58px)}
+}
+@media(hover:none) and (pointer:coarse){
+  .brand-cursor{display:none!important}
+  .showcase-project .view-case{opacity:1;transform:none}
+  .client-wall figure img{filter:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+}

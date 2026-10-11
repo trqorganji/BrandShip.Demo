@@ -1,0 +1,19 @@
+.careers-page .careers-catalogue,.internal-editorial .careers-catalogue{padding-top:135px}
+.internal-editorial .careers-premium-opening{position:relative;top:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);height:auto;min-height:0;gap:6%;align-items:center;padding:0 0 38px;margin:0 0 36px}
+.internal-editorial .careers-premium-opening>div{min-width:0;text-align:center;padding:12px 18px}
+.internal-editorial .careers-opening-label{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#69747b;margin-bottom:24px}
+.internal-editorial .careers-premium-opening h1{font-size:clamp(40px,4.8vw,70px);line-height:1.15;margin:0 0 24px;overflow:visible}
+.internal-editorial .careers-premium-opening p{max-width:480px;margin:0 auto;font-size:16px;line-height:1.8}
+.internal-editorial .careers-opening-link{display:inline-flex;align-items:center;gap:28px;margin-top:32px;padding-bottom:12px;border-bottom:1px solid #a9b1b6;color:#17242c;font-size:12px;transition:color .2s}
+.internal-editorial .careers-opening-link svg{width:20px;height:20px;fill:none;stroke:#00a3ff;stroke-width:1.4;transition:transform .2s}
+.internal-editorial .careers-opening-link:hover{color:#008ccd}
+.internal-editorial .careers-opening-link:hover svg{transform:translateY(3px)}
+.internal-editorial .careers-opening-link:focus-visible{outline:2px solid #00a3ff;outline-offset:6px}
+.internal-editorial .careers-premium-opening .editorial-media{position:relative;align-self:center;overflow:visible;background:transparent;aspect-ratio:auto;height:auto;max-height:none;margin:0}
+.internal-editorial .careers-opening-frame{overflow:hidden;aspect-ratio:5/4;background:#e5e3de}
+.internal-editorial .careers-opening-frame img{width:100%;height:100%;object-fit:cover;transform:translateY(var(--careers-depth,0px)) scale(1.1)}
+.internal-editorial .careers-premium-opening figcaption{position:static;padding:15px 0 0;background:none;color:#69747b;text-align:center;font-size:10px;letter-spacing:.08em}
+.internal-editorial .careers-premium-opening::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:#00a3ff;transform:scaleX(var(--careers-line,0));transform-origin:left;pointer-events:none}
+.internal-editorial #positions{scroll-margin-top:130px;outline:none}
+@media(max-width:800px){.internal-editorial .careers-catalogue{padding-top:115px}.internal-editorial .careers-premium-opening{grid-template-columns:1fr;gap:28px}.internal-editorial .careers-premium-opening>div{padding:0}.internal-editorial .careers-premium-opening h1{font-size:44px}.internal-editorial .careers-opening-frame{aspect-ratio:16/10}.internal-editorial .careers-opening-link{margin-top:24px}.internal-editorial #positions{scroll-margin-top:110px}}
+@media(prefers-reduced-motion:reduce){.internal-editorial .careers-opening-frame img{transform:none}.internal-editorial .careers-opening-link,.internal-editorial .careers-opening-link svg{transition:none}}

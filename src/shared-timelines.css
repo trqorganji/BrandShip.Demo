@@ -1,0 +1,27 @@
+/* Shared Services timeline treatment for chronological and process content. */
+.about-page .about-history.shared-timeline-section{height:195svh;padding:0!important;position:relative}
+.shared-timeline-section .feedback-intro{margin:24px 0 38px 27%;font-size:clamp(15px,1.25vw,19px);max-width:760px}
+.shared-timeline-section .story-timeline{margin-top:0}
+.motion-luxury .consistent-timeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;background:transparent;border:0}
+.motion-luxury .consistent-timeline:after{top:0;transform:scaleX(var(--process-progress,0))}
+.motion-luxury .consistent-timeline article:before{display:block;position:absolute;inset:0;width:auto;height:auto;margin:0;background:linear-gradient(155deg,#e5f4fd,#f7f7f500 85%);opacity:var(--phase-focus,0);z-index:-1}
+.consistent-timeline article small{display:block;color:#00a3ff;letter-spacing:.14em;font-size:10px;margin:0 0 30px}
+.motion-luxury .consistent-timeline article h3{font-size:clamp(18px,1.8vw,26px);font-weight:500;line-height:1.18;letter-spacing:-.035em;margin:0}
+.motion-luxury .consistent-timeline article p{font-size:13px;line-height:1.65;margin:20px 0 25px}
+@media(max-width:1100px) and (min-width:801px){.shared-timeline-section .motion-method-stage{padding:25px 0}.shared-timeline-section .feedback-heading h2{font-size:48px!important}}
+@media(max-height:740px) and (min-width:801px){.shared-timeline-section .feedback-heading h2{font-size:42px!important}.shared-timeline-section .feedback-intro{font-size:14px;margin-bottom:24px}}
+@media(max-width:800px){
+ .about-page .about-history.shared-timeline-section{height:auto;padding:55px 0!important}
+ .shared-timeline-section .feedback-intro{margin:24px 0 35px}
+ .motion-luxury .consistent-timeline{grid-template-columns:1fr}
+ .motion-luxury .consistent-timeline:before,.motion-luxury .consistent-timeline:after{display:none}
+ .motion-luxury .consistent-timeline article:before{display:none}
+ .consistent-timeline article small{margin-bottom:12px}
+ .motion-luxury .consistent-timeline article h3{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+ .about-page .about-history.shared-timeline-section{height:auto;padding:60px 0!important}
+ .shared-timeline-section .motion-method-stage{position:static;min-height:0;padding:0}
+ .motion-luxury .consistent-timeline article{transform:none}
+ .motion-luxury .consistent-timeline article:before{opacity:0}
+}

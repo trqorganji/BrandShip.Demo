@@ -1,0 +1,21 @@
+.capability-studio .feedback-heading h2{font-size:clamp(32px,3.6vw,54px)!important}
+.capability-intro{font-size:15px;color:#697276;text-align:center;line-height:1.7;margin:20px auto 35px}
+.capability-practices{max-width:1200px;margin:auto}
+.capability-domain{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);gap:6vw;padding:40px 0;border-top:1px solid #d0d8dc;scroll-margin-top:130px}
+.capability-domain-heading{text-align:center;align-self:start}
+.capability-domain-heading h3{font-size:clamp(26px,2.6vw,38px);line-height:1.2;letter-spacing:-.035em;margin:0 0 18px}
+.capability-domain-heading p{font-size:15px;line-height:1.7;color:#697276;max-width:35ch;margin:0 auto 22px}
+.capability-domain-heading a{display:inline-flex;align-items:center;gap:20px;color:#007fba;font-size:12px;padding-bottom:10px;border-bottom:1px solid #00a3ff}
+.capability-domain-heading svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}
+.capability-services details{border-bottom:1px solid #d5dadd}
+.capability-services summary{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;padding:20px 0;list-style:none;font-size:clamp(18px,1.6vw,23px);font-weight:500;line-height:1.3;color:#222;transition:color 200ms}
+.capability-services summary::-webkit-details-marker{display:none}
+.capability-services summary:hover,.capability-services details[open] summary{color:#007fba}
+.capability-services summary:focus-visible{outline:2px solid #007fba;outline-offset:4px}
+.capability-toggle{position:relative;width:18px;height:18px;flex-shrink:0}
+.capability-toggle:before,.capability-toggle:after{content:"";position:absolute;background:currentColor;left:2px;right:2px;top:8px;height:1px}
+.capability-toggle:after{transform:rotate(90deg);transition:transform 250ms}
+details[open] .capability-toggle:after{transform:rotate(0)}
+.capability-description p{font-size:15px;line-height:1.85;color:#5d686d;margin:0;padding:0 30px 24px 0;max-width:65ch}
+@media(max-width:800px){.capability-domain{grid-template-columns:1fr;gap:25px;padding:30px 0}.capability-domain-heading p{max-width:45ch}.capability-services summary{padding:19px 0;font-size:19px}.capability-description p{font-size:14px;padding-right:10px}}
+@media(prefers-reduced-motion:reduce){.capability-services summary,.capability-toggle:after{transition:none}}

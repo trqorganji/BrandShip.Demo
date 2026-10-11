@@ -1,5 +1,49 @@
-.about-brand-signature{position:relative;overflow:hidden}
-.about-brand-signature .brand-dot-film{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;pointer-events:none}
-.about-brand-signature.dot-film-active .brand-dot-film{opacity:1}
-.about-brand-signature.dot-film-active>img{opacity:0}
-@media(prefers-reduced-motion:reduce){.about-brand-signature.dot-film-active>img{opacity:1}.about-brand-signature .brand-dot-film{display:none}}
+/* Alpha-transparent artwork: only the dot and ripple animate. */
+.about-page .about-editorial-hero:has(.about-brand-signature){grid-template-columns:minmax(0,.75fr) minmax(0,1.45fr);gap:5vw;align-items:center;padding-block:165px 65px}
+.about-page .about-editorial-copy{min-width:0}
+.about-page .about-editorial-copy>span{display:block;font-size:10px;line-height:1.6;letter-spacing:.12em;max-width:320px}
+.about-page .about-editorial-copy h1{font-size:clamp(42px,4vw,66px);line-height:1.08;letter-spacing:-.045em;margin:24px 0 22px}
+.about-page .about-editorial-copy p{font-size:clamp(14px,1.05vw,16px);line-height:1.75;margin:0;max-width:340px}
+.about-page .about-editorial-copy>a{margin-top:28px;font-size:12px;gap:28px}
+.about-page .about-brand-signature{position:relative;display:grid;place-items:center;min-width:0;min-height:280px;aspect-ratio:2.15;border:0;background:transparent;overflow:visible}
+.about-page .about-brand-signature>img{width:94%;filter:brightness(0)}
+.signature-wordmark{display:block;width:96%;height:auto;overflow:visible}
+.signature-lettering{filter:brightness(0)}
+.signature-dot{fill:#000;animation:signature-dot-bounce 4s ease-in-out infinite}
+.signature-ripple{fill:none;stroke:#00a3ff;stroke-width:1;opacity:0;transform-box:fill-box;transform-origin:center;animation:signature-dot-ripple 4s ease-out infinite}
+.signature-paused .signature-dot,.signature-paused .signature-ripple{animation-play-state:paused}
+@keyframes signature-dot-bounce{
+ 0%,12%,72%,100%{fill:#000;transform:translateY(0)}
+ 21%{fill:#00a3ff;transform:translateY(0)}
+ 29%{fill:#00a3ff;transform:translateY(-28px)}
+ 37%{fill:#00a3ff;transform:translateY(0)}
+ 43%{fill:#00a3ff;transform:translateY(-12px)}
+ 49%{fill:#00a3ff;transform:translateY(0)}
+ 54%{fill:#00a3ff;transform:translateY(-4px)}
+ 58%{fill:#00a3ff;transform:translateY(0)}
+}
+@keyframes signature-dot-ripple{0%,20%{opacity:0;transform:scale(.5)}22%{opacity:.28;transform:scale(.5)}52%,100%{opacity:0;transform:scale(2.3)}}
+.about-page .signature-hero{isolation:isolate}
+.about-page .signature-hero .about-brand-signature{transform:translate3d(var(--signature-x,0px),calc(var(--signature-y,0px) + var(--signature-exit,0) * -24px),0) scale(calc(1 - var(--signature-exit,0) * .045));transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.signature-hero .about-editorial-copy h1{animation:signature-copy-enter .85s cubic-bezier(.22,1,.36,1) both}
+.signature-hero .signature-wordmark{animation:signature-wordmark-enter .95s cubic-bezier(.22,1,.36,1) .12s both}
+.signature-hero .about-editorial-copy>span,.signature-hero .about-editorial-copy>p,.signature-hero .about-editorial-copy>a{animation:signature-copy-enter .8s cubic-bezier(.22,1,.36,1) .22s both}
+@keyframes signature-copy-enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes signature-wordmark-enter{from{translate:0 12px;scale:.98}to{translate:0 0;scale:1}}
+.about-page .about-section-nav a{position:relative;transition:color .25s}
+.about-page .about-section-nav a:after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;background:#00a3ff;transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.about-page .about-section-nav a[aria-current="location"]{color:#0085cc}
+.about-page .about-section-nav a[aria-current="location"]:after{transform:scaleX(1)}
+@media(max-width:800px){
+ .about-page .about-editorial-hero:has(.about-brand-signature){grid-template-columns:minmax(0,1fr);padding-block:130px 40px;gap:30px}
+ .about-page .about-editorial-copy h1{font-size:clamp(36px,7.5vw,54px);margin:22px 0}
+ .about-page .about-editorial-copy p{font-size:14px}
+ .about-page .about-brand-signature{min-height:140px;aspect-ratio:2.15}
+ .about-page .signature-hero .about-brand-signature{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .signature-hero .about-editorial-copy h1,.signature-hero .about-editorial-copy>span,.signature-hero .about-editorial-copy>p,.signature-hero .about-editorial-copy>a,.signature-hero .signature-wordmark,.signature-dot{animation:none}
+ .about-page .signature-hero .about-brand-signature{transform:none;transition:none}
+ .signature-ripple{display:none}
+ .about-page .about-section-nav a,.about-page .about-section-nav a:after{transition:none}
+}

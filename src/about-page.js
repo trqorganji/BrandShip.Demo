@@ -2,28 +2,20 @@ import './brand-dot-film.css';
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const signature = document.querySelector('.about-brand-signature');
 if (signature) {
-  const video = document.createElement('video');
-  video.className = 'brand-dot-film';
-  video.src = `${import.meta.env.BASE_URL}assets/brandship-dot-loop.mp4`;
-  video.autoplay = !reducedMotion.matches;
-  video.muted = true;
-  video.defaultMuted = true;
-  video.loop = true;
-  video.playsInline = true;
-  video.controls = false;
-  video.preload = 'metadata';
-  video.setAttribute('aria-hidden', 'true');
-  // Retain the original image as the accessible name and loading/error fallback.
-  signature.append(video);
+  const image = signature.querySelector('img');
+  const wordmark = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  wordmark.classList.add('signature-wordmark');
+  wordmark.setAttribute('viewBox', '-10 -35 678 216');
+  wordmark.setAttribute('role', 'img');
+  wordmark.setAttribute('aria-label', image.alt);
+  // Original transparent artwork, with only the old i-dot clipped out.
+  wordmark.innerHTML = `<defs><clipPath id="signature-lettering"><path clip-rule="evenodd" d="M0 0H658V156H0Z M545 14H567V35H545Z"/></clipPath></defs><image width="658" height="156" clip-path="url(#signature-lettering)" class="signature-lettering"/><circle class="signature-ripple" cx="556" cy="24.5" r="25" aria-hidden="true"/><rect class="signature-dot" x="546" y="15" width="20" height="19" aria-hidden="true"/>`;
+  wordmark.querySelector('image').setAttribute('href', image.src);
+  image.replaceWith(wordmark);
   let visible = false;
   function updateSignature() {
-    if (visible && !document.hidden && !reducedMotion.matches) video.play().catch(() => {});
-    else video.pause();
-    signature.classList.toggle('dot-film-active', !reducedMotion.matches && video.readyState >= 2);
+    signature.classList.toggle('signature-paused', !visible || document.hidden || reducedMotion.matches);
   }
-  video.addEventListener('playing', updateSignature);
-  video.addEventListener('loadeddata', updateSignature);
-  video.addEventListener('error', () => signature.classList.remove('dot-film-active'));
   new IntersectionObserver(entries => {
     visible = entries[0].isIntersecting;
     updateSignature();

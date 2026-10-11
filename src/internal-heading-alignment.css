@@ -1,0 +1,18 @@
+/* Home is explicitly excluded: its existing editorial composition stays intact. */
+body:not(.home-page) main :is(h1,h2,h3,h4,h5,h6){text-align:center}
+body:not(.home-page) main .feedback-heading,
+body:not(.home-page) main section>header:not(.nav){display:flex!important;flex-direction:column;align-items:center;gap:20px;text-align:center}
+body:not(.home-page) main :is(.feedback-heading,section>header)>:is(span,h1,h2,h3,p,div){margin-inline:auto!important;text-align:center;max-width:100%}
+body:not(.home-page) main .feedback-heading h2{width:100%;max-width:950px;margin-inline:auto!important}
+body:not(.home-page) main .feedback-intro{margin:25px auto 38px!important;max-width:min(750px,100%);text-align:center}
+body:not(.home-page) main :is(.section-tag,.chapter-label,.proof-eyebrow){display:block;text-align:center}
+body:not(.home-page) main :is(.editorial-opening,.page-hero,.archive-hero,.insights-hero,.team-hero,.case-hero,.practice-hero) :is(h1,h2,h3){margin-inline:auto}
+body:not(.home-page) main :is(.editorial-opening,.page-hero,.archive-hero,.insights-hero,.team-hero,.case-hero,.practice-hero)>div{text-align:center}
+body:not(.home-page) main :is(.page-hero,.archive-hero,.insights-hero,.team-hero,.case-hero,.practice-hero)>p{margin-inline:auto;text-align:center}
+body:not(.home-page) main :is(.method-grid,.story-timeline,.why-grid,.team-grid,.practice-overview-grid,.archive-card,.team-preview,.wider-team-grid) :is(article,a,article>small,article>b){text-align:center}
+body:not(.home-page) main :is(.method-grid,.story-timeline,.why-grid,.team-grid,.practice-overview-grid,.archive-card) p{margin-inline:auto}
+body:not(.home-page) main .consultancy-close{text-align:center;align-items:center}
+@media(max-width:800px){
+ body:not(.home-page) main .feedback-heading,body:not(.home-page) main section>header:not(.nav){gap:16px}
+ body:not(.home-page) main .feedback-intro{margin-block:22px 30px!important}
+}
