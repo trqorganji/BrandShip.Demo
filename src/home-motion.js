@@ -10,7 +10,9 @@ if (document.body.classList.contains('home-page')) {
   const hero = document.querySelector('.hero');
   const manifesto = document.querySelector('.brand-manifesto');
   const selected = document.querySelector('.home-selected');
-  const deck = document.querySelector('.project-deck');
+  // Production executes shared imports before home-page.js adds .project-deck.
+  // Bind to the stable HTML element so scroll selection works in either order.
+  const deck = document.querySelector('.home-projects');
   const purpose = document.querySelector('.brand-purpose');
 
   function wrapScene(section, className) {

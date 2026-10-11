@@ -43,5 +43,19 @@ try {
     assert(await page.locator('.culture-cinema-simple').count());
     await page.close();
   }
+  const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await desktop.goto(new URL('index.html', base).href);
+  await desktop.locator('.project-deck').waitFor();
+  const titles = await desktop.locator('.project-deck .home-project h3').allTextContents();
+  for (const [index, fraction] of [.1, .5, .8].entries()) {
+    await desktop.evaluate(f => {
+      const section = document.querySelector('.home-selected');
+      scrollTo(0, section.offsetTop + (section.offsetHeight - innerHeight + 110) * f - 110);
+    }, fraction);
+    await desktop.waitForTimeout(300);
+    assert.equal((await desktop.locator('.project-deck [data-position="0"] h3').textContent()).trim(), titles[index].trim(), 'Production deck must advance with scroll');
+  }
+  await desktop.close();
+  console.log('Desktop project deck scroll: checked');
 } finally { await browser.close(); }
 assert.equal(failures, 0, `${failures} responsive failures`);
