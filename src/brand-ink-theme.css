@@ -1,0 +1,198 @@
+/* Brandship's primary canvas. Light chapters are intentional, not inverted artwork. */
+html:has(body.brand-ink){background:#090c10;color-scheme:dark}
+body.brand-ink{--ink-bg:#090c10;--ink-panel:#111820;--ink-fg:#f3f6f8;--ink-muted:#bac5cd;--ink-label:#94a8b6;--ink-rule:#2b3741;--ink-blue:#00a3ff;--consult-paper:#090c10;--consult-ink:#f3f6f8;--consult-rule:#2b3741;--feedback-paper:#090c10;--feedback-rule:#2b3741;--about-rule:#2b3741;--motion-paper:#090c10;background:var(--ink-bg);color:var(--ink-fg)}
+body.brand-ink main,body.brand-ink main.cs-project{background:var(--ink-bg);color:var(--ink-fg)}
+.brand-ink .ink-dark{--ink-bg:#090c10;--ink-panel:#111820;--ink-fg:#f3f6f8;--ink-muted:#bac5cd;--ink-label:#94a8b6;--ink-rule:#2b3741;--feedback-paper:#090c10;--feedback-rule:#2b3741;--motion-paper:#090c10;--about-rule:#2b3741;--consult-paper:#090c10;--consult-ink:#f3f6f8;--consult-rule:#2b3741;color-scheme:dark;background-color:var(--ink-bg);color:var(--ink-fg);border-color:var(--ink-rule)}
+.brand-ink .ink-light{--ink-bg:#f5f5f2;--ink-panel:#fff;--ink-fg:#131a20;--ink-muted:#4c5e69;--ink-label:#526b7a;--ink-rule:#c9d2d7;--feedback-paper:#f5f5f2;--feedback-rule:#c9d2d7;--motion-paper:#f5f5f2;--about-rule:#c9d2d7;--consult-paper:#f5f5f2;--consult-ink:#131a20;--consult-rule:#c9d2d7;color-scheme:light;background:var(--ink-bg);color:var(--ink-fg);border-color:var(--ink-rule)}
+.brand-ink .ink-chapter{position:relative;isolation:isolate}
+.brand-ink .ink-chapter::before{content:'';position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:var(--ink-bg);z-index:-1;pointer-events:none}
+body.brand-ink :is(.ink-dark,.ink-light) :is(h1,h2,h3,h4,h5,blockquote,strong){color:var(--ink-fg)}
+body.brand-ink :is(.ink-dark,.ink-light) p{color:var(--ink-muted)}
+body.brand-ink :is(.ink-dark,.ink-light) :is(.cs-eyebrow,.feedback-heading>span,.practice-eyebrow,.chapter-label,.intelligence-label,.culture-kicker,.life-story-label,.approval-note,.approach-approval,.approach-output,.proof-note,.numbers-source,small){color:var(--ink-label)}
+body.brand-ink :is(.ink-dark,.ink-light) .approval-note{color:var(--ink-label)!important}
+body.brand-ink :is(.ink-dark,.ink-light) a{color:var(--ink-fg);border-color:var(--ink-rule)}
+body.brand-ink :is(.ink-dark,.ink-light) :is(a:hover,a:focus-visible){color:#008ccb}
+body.brand-ink .ink-dark :is(a:hover,a:focus-visible){color:#78cfff}
+body.brand-ink :is(.ink-dark,.ink-light) :is(.blue-stop,.cs-blue-stop,h1 em,h2 em,.hero-iconic,.footer-iconic){color:var(--ink-blue)}
+body.brand-ink :is(.ink-dark,.ink-light) :is(article,details,dl,li,.feedback-text-link,.capability-domain,.approach-output,.practice-related>div:last-child,.story-selectors,.client-index-row,.story-gallery-heading){border-color:var(--ink-rule)}
+body.brand-ink :is(.ink-dark,.ink-light) :is(.feedback-intro,.capability-intro,.practice-method>p,.capability-description p,.capability-domain-heading p,.culture-cinema-intro p,.branding-challenge p,.index-preview-copy p){color:var(--ink-muted)}
+body.brand-ink :is(.ink-dark,.ink-light) :is(button,summary){color:var(--ink-fg)}
+body.brand-ink :is(.ink-dark,.ink-light) :is(summary:hover,details[open] summary){color:var(--ink-blue)}
+body.brand-ink a:focus-visible,body.brand-ink button:focus-visible,body.brand-ink select:focus-visible{outline:2px solid #00a3ff;outline-offset:5px}
+body.brand-ink ::selection{background:#00a3ff;color:#03131e}
+
+/* Global chrome and logo: keep the original white mark and its blue dot. */
+body.brand-ink .nav,body.brand-ink .nav.scrolled{background:rgba(12,17,23,.94);border-color:#ffffff24}
+body.brand-ink .menu{background:#090c10;color:#f3f6f8}
+body.brand-ink .menu nav a{color:#f3f6f8}
+body.brand-ink .menu nav a[aria-current]{color:#00a3ff}
+body.brand-ink :is(.brand img,.footer-top img){filter:none}
+body.brand-ink footer.refined-footer{background:#080b0f;border-top:1px solid #25313b}
+body.brand-ink .brand-arrival{background:#090c10}
+
+/* Homepage: keep the montage, photo deck and their timing; change their canvas. */
+body.brand-ink .brand-manifesto{background:#090c10}
+body.brand-ink .brand-manifesto .manifesto-copy h2>span{color:#f3f6f8}
+body.brand-ink .brand-manifesto .manifesto-copy h2>span:nth-child(2){color:#00a3ff}
+body.brand-ink .home-offering{background:var(--ink-bg);border-block:1px solid #222c35}
+body.brand-ink .home-offering .home-service-groups h3{color:#65cbff}
+body.brand-ink .home-offering .home-service-groups article{border-color:var(--ink-rule)}
+body.brand-ink .home-offering .home-service-groups li{color:#d6dfe5}
+body.brand-ink .home-trust{background:#f5f5f2;color:#131a20}
+body.brand-ink .home-trust>p,body.brand-ink .home-trust button{color:#526b7a}
+body.brand-ink .home-selected .project-deck .home-project h3{color:#fff}
+body.brand-ink .home-selected .project-deck .home-project p{color:#d6e0e7}
+body.brand-ink .home-selected .project-deck-index button{color:#afbdc7}
+body.brand-ink .home-selected .project-deck-index button[aria-pressed=true]{color:#fff;border-top-color:#00a3ff}
+
+/* About: the perspective chapter and logo strip are the light pauses. */
+body.brand-ink.about-page main{background:#090c10}
+body.brand-ink .about-directory-content>section{color:var(--ink-fg);border-color:var(--ink-rule)}
+body.brand-ink .about-story-pair .about-overview,body.brand-ink .about-story-pair .story-section{background:transparent;color:var(--ink-fg)}
+body.brand-ink .about-section-nav{background:#090c10;border-color:#2b3741}
+body.brand-ink .about-section-nav a{color:#c2cfd8}
+body.brand-ink .about-section-nav a[aria-current]{color:#65cbff}
+body.brand-ink .about-editorial-copy>span{color:#a4bac8}
+body.brand-ink .about-brand-signature>img{filter:none}
+body.brand-ink .signature-lettering{filter:brightness(0) invert(1)}
+body.brand-ink .signature-dot{animation-name:ink-signature-bounce;fill:#00a3ff}
+@keyframes ink-signature-bounce{0%,12%,72%,100%{fill:#fff;transform:translateY(0)}21%{fill:#00a3ff;transform:translateY(0)}29%{fill:#00a3ff;transform:translateY(-28px)}37%{fill:#00a3ff;transform:translateY(0)}43%{fill:#00a3ff;transform:translateY(-12px)}50%{fill:#00a3ff;transform:translateY(0)}}
+body.brand-ink .about-stat-grid strong{color:#00a3ff}
+body.brand-ink .animated-metrics .about-stat-grid::before{background:#2b3741}
+body.brand-ink .about-directory-content>.cinematic-stage{background:#090c10!important}
+body.brand-ink .cinematic-coordinate,body.brand-ink .cinematic-scroll{color:#adc2cf}
+body.brand-ink .cinematic-exit{color:#f3f6f8}
+body.brand-ink .about-purpose article{background:transparent}
+body.brand-ink.about-page .editorial-leadership .leadership-grid>article,
+body.brand-ink.about-page .editorial-leadership .leadership-grid>article:hover,
+body.brand-ink.about-page .editorial-leadership .leadership-grid h3{color:#f3f6f8!important}
+body.brand-ink.about-page .editorial-leadership .leadership-grid p{color:#bac5cd!important}
+body.brand-ink.about-page .editorial-leadership .leadership-credential span{color:#a9bdca!important}
+body.brand-ink.about-page .cinematic-stories a.client-index-row{color:#f3f6f8!important;border-color:#2b3741}
+body.brand-ink .index-client-logo{background:#f5f5f2;padding:6px;mix-blend-mode:normal}
+body.brand-ink .index-client-logo img{mix-blend-mode:normal}
+body.brand-ink .compact-quote>svg{fill:#00a3ff}
+body.brand-ink .recognition-drafts{border-color:#2b3741}
+body.brand-ink .clarity-network .complexity-lines{opacity:.75}
+body.brand-ink .proof-eyebrow{color:#8dcff5}
+
+/* Services and practices: dark openings, light reading/process chapters. */
+body.brand-ink :is(.services-catalogue-title,.careers-catalogue-title,.insights-catalogue-title,.work-catalogue-title){border-color:#2b3741}
+body.brand-ink .premium-services-opening figcaption,body.brand-ink .intelligence-opening figcaption{color:#a9bdca}
+body.brand-ink .service-route-map .route-guides path{stroke:#34424e}
+body.brand-ink .branding-capability-links a{color:#c5d4dd;border-color:#465b6b}
+body.brand-ink .branding-premium-overview>span{color:#9fb5c4}
+body.brand-ink .branding-premium-overview>p{color:#d8e4eb}
+body.brand-ink .branding-approach-section.ink-light{padding-inline:4%;padding-block:45px}
+body.brand-ink .approach-diamond{background:var(--ink-bg)}
+body.brand-ink .practice-method.ink-light{padding:45px 4%}
+body.brand-ink .method-section.ink-light article{background:#f5f5f2;color:#131a20}
+body.brand-ink .consistent-timeline article::before{background:linear-gradient(155deg,#dceffa,transparent 85%)}
+body.brand-ink .practice-deliverables article{background:#111820;color:#f3f6f8}
+body.brand-ink .practice-deliverables article small{color:#5bc5ff}
+body.brand-ink .capability-services details,body.brand-ink .capability-domain{border-color:#34424e}
+
+/* Work: one uninterrupted canvas, with blue states and quiet control dividers. */
+body.brand-ink .work-portfolio-opening.future-dark,
+body.brand-ink .work-portfolio-opening.future-dark::before{background:var(--ink-bg)}
+body.brand-ink .ink-filter-chapter{padding-block:24px 0;color:var(--ink-fg);border-top:1px solid var(--ink-rule)}
+body.brand-ink .ink-filter-chapter .work-directory-head>p,
+body.brand-ink .ink-filter-chapter .archive-mobile-sector>span,
+body.brand-ink .ink-filter-chapter .work-explore>div>span{color:var(--ink-label)}
+body.brand-ink .ink-filter-chapter .archive-count{color:var(--ink-muted)}
+body.brand-ink .ink-filter-chapter .archive-tools{border-color:var(--ink-rule)}
+body.brand-ink .ink-filter-chapter .filters{border-color:var(--ink-rule)}
+body.brand-ink .ink-filter-chapter .filters button{color:var(--ink-muted);background:transparent}
+body.brand-ink .ink-filter-chapter .filters button:is(.active,:hover,:focus-visible){color:var(--ink-fg)}
+body.brand-ink .ink-filter-chapter .archive-mobile-sector select{background:var(--ink-panel);color:var(--ink-fg);border-color:var(--ink-rule);color-scheme:dark}
+body.brand-ink .ink-filter-chapter .archive-refine-panel{background:var(--ink-panel);color:var(--ink-fg);border-color:var(--ink-rule)}
+body.brand-ink .ink-filter-chapter .archive-refine summary{color:var(--ink-fg)}
+body.brand-ink .ink-filter-chapter .archive-refine summary:is(:hover,:focus-visible){color:#78cfff}
+body.brand-ink .ink-filter-chapter .work-filter-set button{color:var(--ink-muted);border-color:#465b6b}
+body.brand-ink .ink-filter-chapter .work-filter-set button:is(.active,:hover,:focus-visible){background:#153347;color:#f3f6f8;border-color:#00a3ff}
+body.brand-ink .ink-filter-chapter .work-filter-note{color:var(--ink-label)}
+body.brand-ink .ink-filter-chapter .archive-reset{color:#78cfff}
+body.brand-ink .archive-card,body.brand-ink .archive-card>div{background:transparent;color:#f3f6f8;border-color:#2b3741}
+body.brand-ink .archive-card h2,body.brand-ink .archive-card h3{color:#f3f6f8}
+body.brand-ink .archive-card span,body.brand-ink .archive-card p{color:#adbfcb}
+body.brand-ink .work-catalogue .archive-card>div::after{color:#cfdee8}
+
+/* Publications form one light editorial chapter; the photographic cover is dark. */
+body.brand-ink .insights-catalogue-content.ink-light{padding-block:40px}
+body.brand-ink .insights-directory-head{border-color:var(--ink-rule)}
+body.brand-ink .insight-tabs{border-color:#c9d2d7}
+body.brand-ink .insights-page .insight-tabs button{color:#52616b}
+body.brand-ink .ink-light .insight-tabs button{color:#52616b}
+body.brand-ink .ink-light .insight-tabs button[aria-pressed=true]{color:#131a20}
+body.brand-ink .ink-light .insight-entry:not(.insight-feature-dossier){background:transparent;color:#131a20;border-color:#c9d2d7}
+body.brand-ink .ink-light .insight-entry:not(.insight-feature-dossier) :is(h2,p,a){color:var(--ink-fg)}
+body.brand-ink .ink-light .insight-entry:not(.insight-feature-dossier) p{color:#4c5e69}
+body.brand-ink .insight-feature-dossier.ink-dark{--ink-fg:#f3f6f8;--ink-muted:#c0ced8;--ink-label:#a4c1d4;background:#080d14}
+
+/* Careers: keep the cinematic pictures, then a light culture-reading chapter. */
+body.brand-ink .life-brand-sticky>span,body.brand-ink .life-brand-sticky>small{color:#a9bdca}
+body.brand-ink .life-brand-sticky img{filter:none}
+body.brand-ink .life-story-cover.ink-light{background:#f5f5f2}
+body.brand-ink .life-story-symbol{background:#e9eff2}
+body.brand-ink .career-connect-stage{background:#090c10}
+body.brand-ink .career-connect-copy .career-connect-purpose{color:#a9bdca}
+body.brand-ink .career-connect-purpose span{color:#f3f6f8}
+body.brand-ink .career-connect-progress{background:#344854}
+body.brand-ink .career-positions.ink-light{padding:40px 0;margin-top:30px}
+body.brand-ink .career-role{color:#131a20;border-color:#c9d2d7}
+body.brand-ink .career-role small{color:#526b7a}
+body.brand-ink .career-role:hover{color:#fff}
+body.brand-ink .career-role:hover small{color:#c0ced8}
+
+/* People and contact: maintain image colours and accessible form controls. */
+body.brand-ink .team-grid article,body.brand-ink .team-preview article{background:transparent;border-color:#2b3741}
+body.brand-ink .team-grid p{color:#bac5cd}
+body.brand-ink .wider-team.ink-light{padding:45px 3%}
+body.brand-ink .enquiry-direct a{color:#f3f6f8}
+body.brand-ink .enquiry-form.ink-light{padding:30px;color:#131a20}
+body.brand-ink .enquiry-form label{color:#273e4d}
+body.brand-ink .enquiry-form :is(input,textarea){background:transparent;color:#131a20;border-color:#849aa9}
+body.brand-ink .enquiry-form :is(input,textarea)::placeholder{color:#5e7180;opacity:1}
+body.brand-ink .enquiry-form button{background:#10202c;color:#fff}
+body.brand-ink .enquiry-form :is(input,textarea):focus-visible{outline:2px solid #008bc5;outline-offset:4px}
+body.brand-ink .enquiry-form small{color:#526b7a}
+
+/* Case studies keep their own concept animations and original client marks. */
+body.brand-ink .cs-chapter-nav{background:#111820;border-color:#34424e;color:#f3f6f8;color-scheme:dark}
+body.brand-ink .cs-chapter-nav a{color:#aebfcb}
+body.brand-ink .cs-chapter-nav a[aria-current]{color:#fff}
+body.brand-ink .cs-chapter-nav small{color:#8ba6b8}
+body.brand-ink .cs-client-mark>div{background:#fff;border-color:#dbe0e2;color-scheme:light}
+body.brand-ink .cs-client-mark figcaption{color:#9bb0bf}
+body.brand-ink .cs-artwork-note{border-color:#34424e}
+body.brand-ink .cs-artwork-note .cs-assets-status{color:#a4bac8}
+body.brand-ink .cs-next{background:#111820}
+body.brand-ink .cs-next-link :is(h2,span){color:#fff}
+body.brand-ink .cs-next-top>a{color:#d4e2eb}
+
+/* Light closing invitations stay legible over their ambient film. */
+body.brand-ink .consultancy-close.ink-light{background:#e9edf2;color:#131a20}
+body.brand-ink .consultancy-close :is(h2,a){color:#131a20}
+/* Legacy labels and nested reading surfaces need explicit contrast in both roles. */
+body.brand-ink .ink-light .home-label{color:#526b7a}
+body.brand-ink .about-directory-content :is(section>header>span,.about-purpose>span,.about-clients>header>span,.about-leadership>header>span,.team-preview article>span,.story-gallery-heading>span,.testimonial-placeholder>span){color:var(--ink-label)}
+body.brand-ink .client-index-row>div>span{color:#a8bdcb}
+body.brand-ink .culture-cinema-intro>span,body.brand-ink .career-connect-label,body.brand-ink .section-tag{color:#a4bac8}
+body.brand-ink .branding-challenge>span,body.brand-ink .branding-approach>header>span{color:#526b7a}
+body.brand-ink .premium-services-opening>div:first-child>p,body.brand-ink .branding-premium-opening>p:last-of-type{color:#bac5cd}
+body.brand-ink.about-page .editorial-leadership .owner-copy .owner-role,body.brand-ink.about-page .editorial-leadership .owner-copy>span{color:#72cdff!important}
+body.brand-ink .wider-team.ink-light p{color:#4c5e69}
+body.brand-ink .ink-light .insights-directory-head>span,body.brand-ink .ink-light .insight-entry-copy>span{color:#526b7a}
+body.brand-ink .services-cta-label{color:#526b7a}
+body.brand-ink .cs-brief .cs-facts dt{color:#526b7a}
+body.brand-ink .home-link svg{stroke:#00a3ff}
+@media(max-width:800px){
+  body.brand-ink .branding-approach-section.ink-light{padding-inline:0;padding-block:32px}
+  body.brand-ink .practice-method.ink-light{padding:32px 0}
+  body.brand-ink .enquiry-form.ink-light{padding:25px 18px}
+  body.brand-ink .ink-filter-chapter{padding-top:24px}
+  body.brand-ink .insights-catalogue-content.ink-light{padding-block:30px}
+  body.brand-ink .wider-team.ink-light{padding:35px 0}
+  body.brand-ink .career-positions.ink-light{padding-block:30px}
+}
+@media(prefers-reduced-motion:reduce){body.brand-ink .signature-dot{animation:none;fill:#00a3ff}}

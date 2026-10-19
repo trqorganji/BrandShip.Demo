@@ -1,0 +1,141 @@
+.case-page main.cs-project{overflow:visible;background:#f7f7f5;color:#101519}
+.cs-project{--cs-blue:#00a3ff;--cs-line:#ccd3d6;--concept-progress:1}
+.cs-loading{display:grid;place-content:center;min-height:82svh;background:#080d12;color:#cedbe3;padding:130px 6vw;font-size:12px;line-height:1.8}
+.cs-loading a{color:#70ceff;text-decoration:underline}
+.cs-project *{box-sizing:border-box;min-width:0}
+.cs-project a{text-decoration:none}
+.cs-project svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cs-project a:focus-visible{outline:2px solid var(--cs-blue);outline-offset:5px}
+.cs-shell{padding-inline:6vw;max-width:1800px;margin-inline:auto}
+.cs-project section[id]{scroll-margin-top:165px}
+.cs-project .cs-eyebrow{font-size:10px;letter-spacing:.15em;text-transform:uppercase;line-height:1.7;color:#61717b}
+.cs-project .cs-blue-stop{color:var(--cs-blue)}
+.cs-hero{position:relative;height:82svh;min-height:600px;max-height:1000px;background:#080b0e;overflow:hidden;color:#fff;isolation:isolate}
+.cs-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateY(var(--hero-depth,0px)) scale(1.12);animation:cs-image-arrive 1.2s cubic-bezier(.2,.7,.2,1) both}
+.cs-hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,#0008,transparent 35%,#000b 85%,#000d),linear-gradient(90deg,#0005,transparent 65%)}
+.cs-hero-top{position:absolute;top:125px;left:6vw;right:6vw;display:flex;justify-content:space-between;gap:20px;color:#e0e8ec;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.cs-hero-top a{color:inherit;padding-bottom:8px;border-bottom:1px solid #ffffff50}
+.cs-hero-top a span{color:var(--cs-blue);margin-left:20px}
+.cs-hero-copy{position:absolute;left:6vw;right:6vw;bottom:80px}
+.cs-project .cs-hero-copy .cs-eyebrow{color:#8dd6ff}
+.cs-project .cs-hero h1{font-size:clamp(52px,7vw,112px);line-height:1.03;letter-spacing:-.045em;max-width:18ch;margin:20px 0;color:#fff;text-align:left!important;text-wrap:balance}
+.cs-hero-copy p{font-size:clamp(16px,1.6vw,23px);line-height:1.6;color:#e2e9ed;max-width:48ch;margin:0}
+.cs-hero-discover{position:absolute;right:6vw;bottom:35px;display:flex;gap:20px;align-items:center;color:#fff;font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+.cs-hero-discover svg{width:20px;height:20px;color:var(--cs-blue)}
+.cs-chapter-nav{position:sticky;top:88px;z-index:8;background:#f7f7f5;border-bottom:1px solid var(--cs-line)}
+.cs-chapter-nav>div{display:flex;align-items:center;gap:38px;max-width:1800px;margin:auto;padding:0 6vw}
+.cs-nav-project{margin-right:auto;font-size:12px;font-weight:500;max-width:25ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cs-chapter-nav a{position:relative;flex-shrink:0;display:flex;gap:10px;align-items:center;min-height:60px;color:#61717b;font-size:12px}
+.cs-chapter-nav a small{color:#85959e;font-size:9px}
+.cs-chapter-nav a::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--cs-blue);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.cs-chapter-nav a[aria-current]{color:#101519}
+.cs-chapter-nav a[aria-current]::after{transform:scaleX(1)}
+.cs-section-heading{display:flex;justify-content:space-between;gap:24px;align-items:baseline;margin-bottom:40px}
+.cs-review-tag{font-size:10px;line-height:1.6;color:#73818a;margin:0;max-width:38ch}
+.cs-brief{padding-block:64px 80px}
+.cs-overview{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.75fr);gap:8vw;align-items:start}
+.cs-project .cs-overview h2,.cs-project .cs-work-intro h2{font-size:clamp(32px,3.5vw,54px);line-height:1.2;letter-spacing:-.035em;margin:0;text-align:left!important;text-wrap:balance}
+.cs-overview>p,.cs-work-intro>p{font-size:16px;color:#58666f;line-height:1.9;margin:0;max-width:55ch}
+.cs-facts{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:35px;border-block:1px solid var(--cs-line);padding:24px 0;margin:46px 0}
+.cs-facts dt{font-size:9px;color:#687982;letter-spacing:.13em;text-transform:uppercase;margin-bottom:12px}
+.cs-facts dd{font-size:14px;line-height:1.6;margin:0}
+.cs-challenge{display:grid;grid-template-columns:minmax(140px,.4fr) minmax(0,1fr);gap:6vw;align-items:start}
+.cs-project .cs-challenge h3{font-size:clamp(25px,2.6vw,38px);line-height:1.4;max-width:38ch;margin:0;text-align:left!important;font-weight:500}
+.cs-concept{background:#080d12;color:#f7f7f5;padding-block:48px 64px;overflow:hidden}
+.cs-concept .cs-eyebrow{color:#a7c0d0}
+.cs-concept-caption{color:#92a4af;font-size:10px;line-height:1.7;max-width:34ch;text-align:right}
+.cs-concept-stage{position:relative;isolation:isolate;display:flex;align-items:center;min-height:390px;overflow:hidden}
+.cs-concept-watermark{position:absolute;left:28%;top:0;font-size:clamp(120px,22vw,360px);line-height:1.1;white-space:nowrap;font-weight:700;color:#ffffff05;transform:translateX(var(--concept-drift,0px));letter-spacing:-.05em;pointer-events:none}
+.cs-concept-diagram{position:absolute;right:0;top:20px;width:78%;height:340px;stroke-width:1.5;overflow:visible;transform:translateX(var(--concept-drift,0px))}
+.cs-project .cs-diagram-guides path{stroke:#ffffff15}
+.cs-project .cs-diagram-draw path{stroke:var(--cs-blue);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--concept-progress,1));vector-effect:non-scaling-stroke}
+.cs-project .cs-diagram-draw path:nth-child(2n){stroke:#83d3ff;opacity:.8}
+.cs-project .cs-concept h2{position:relative;z-index:1;font-size:clamp(60px,8vw,128px);line-height:1.1;letter-spacing:-.045em;margin:0;max-width:13ch;text-align:left!important;color:#fff}
+.cs-concept h2>span{color:var(--cs-blue)}
+.cs-concept[data-motif="opportunity"] .cs-diagram-draw path{stroke-dashoffset:calc(1 - clamp(0,calc(var(--concept-progress,1)*1.4 - var(--path-order)*.12),1))}
+.cs-concept[data-motif="play"] .cs-concept-diagram{transform:translateY(var(--concept-drift,0px))}
+.cs-concept[data-motif="arrival"] .cs-concept-diagram{transform:scale(calc(.92 + var(--concept-progress,1)*.08));transform-origin:center}
+.cs-strategy{display:grid;grid-template-columns:minmax(140px,.4fr) minmax(0,1fr);gap:6vw;border-top:1px solid #ffffff26;padding-top:30px}
+.cs-strategy>p{font-size:clamp(18px,1.9vw,28px);line-height:1.75;color:#c9d5dd;max-width:55ch;margin:0}
+.cs-work{padding-block:68px}
+.cs-work-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:8vw}
+.cs-work-gallery{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.75fr);gap:7vw;align-items:center;margin-top:44px}
+.cs-client-mark{margin:0;min-width:0}
+.cs-client-mark>div{height:350px;display:grid;place-items:center;background:#fff;border:1px solid #dbe0e2;padding:45px;overflow:hidden}
+.cs-client-mark img{width:100%;height:100%;max-height:255px;object-fit:contain;filter:none;mix-blend-mode:normal}
+.cs-client-mark figcaption{display:flex;justify-content:space-between;gap:20px;padding:14px 0;color:#687982;font-size:10px;line-height:1.6}
+.cs-artwork-note{padding:26px 0;border-block:1px solid var(--cs-line)}
+.cs-project .cs-artwork-note h3{font-size:clamp(25px,2.7vw,38px);line-height:1.25;margin:18px 0;text-align:left!important}
+.cs-artwork-note p{font-size:14px;line-height:1.85;color:#64747e;margin:0 0 24px}
+.cs-assets-status{display:inline-block;padding-left:12px;border-left:2px solid var(--cs-blue);font-size:10px;line-height:1.7;color:#687982}
+.cs-scope{padding-block:50px 68px;border-top:1px solid var(--cs-line)}
+.cs-scope .cs-section-heading{align-items:start}
+.cs-project .cs-scope h2{max-width:22ch;font-size:clamp(28px,3.2vw,46px);line-height:1.2;text-align:left!important;margin:0}
+.cs-scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw}
+.cs-project .cs-scope-grid h3{font-size:16px;margin:0 0 22px;text-align:left!important}
+.cs-scope-grid ol,.cs-scope-grid ul{list-style:none;padding:0;margin:0}
+.cs-scope-grid li{display:flex;gap:24px;padding:16px 0;border-top:1px solid var(--cs-line);font-size:14px;line-height:1.7}
+.cs-scope-grid li>span{font-size:10px;font-variant-numeric:tabular-nums;color:#008ac4;min-width:22px}
+.cs-scope-grid ul li::before{content:'';width:6px;height:6px;background:var(--cs-blue);flex:0 0 6px;margin-top:8px}
+.cs-evidence-note{font-size:11px;line-height:1.8;color:#6b7b85;margin:25px 0 0;max-width:55ch}
+.cs-next{background:#e9edef;padding-block:38px 55px}
+.cs-next-top{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:24px}
+.cs-next-top>a{display:flex;align-items:center;gap:18px;font-size:12px;color:#23303a;min-height:44px}
+.cs-next-top>a svg{width:20px;height:20px;color:#008ac4}
+.cs-next-link{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;min-height:310px;overflow:hidden;isolation:isolate;background:#080d12;padding:38px;color:#fff}
+.cs-next-link>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+.cs-next-link::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#000b,#0003),linear-gradient(0deg,#0009,transparent)}
+.cs-next-link div>span{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#d2e2eb;line-height:1.8}
+.cs-project .cs-next-link h2{font-size:clamp(32px,4vw,64px);line-height:1.15;margin:16px 0 0;text-align:left!important;color:#fff;max-width:25ch}
+.cs-next-link>svg{width:36px;height:36px;flex:0 0 36px;color:#5fc6ff;margin-bottom:8px}
+@media(hover:hover) and (pointer:fine){.cs-next-link:hover>img{transform:scale(1.035)}}
+@keyframes cs-image-arrive{from{opacity:.65;scale:1.025}to{opacity:1;scale:1}}
+@media(max-width:1000px){.cs-chapter-nav>div{gap:24px}.cs-nav-project{display:none}.cs-chapter-nav>div{justify-content:space-between}.cs-work-gallery{gap:35px}.cs-hero-copy{bottom:85px}}
+@media(max-width:800px){
+  .cs-shell{padding-inline:6vw}
+  .cs-hero{height:76svh;min-height:560px;max-height:780px}
+  .cs-hero-top{top:110px;font-size:9px}
+  .cs-hero-copy{bottom:88px}
+  .cs-project .cs-hero h1{font-size:clamp(42px,12vw,70px);line-height:1.08;margin:18px 0}
+  .cs-hero-copy p{font-size:15px;max-width:32ch}
+  .cs-hero-image{transform:none;animation-duration:.8s}
+  .cs-hero-discover{left:6vw;right:auto;bottom:28px}
+  .cs-chapter-nav{top:80px}
+  .cs-chapter-nav>div{gap:24px;justify-content:flex-start;overflow-x:auto;scrollbar-width:thin}
+  .cs-chapter-nav a{min-height:52px;font-size:11px;gap:6px}
+  .cs-chapter-nav a small{font-size:8px}
+  .cs-project section[id]{scroll-margin-top:150px}
+  .cs-brief,.cs-work{padding-block:40px}
+  .cs-section-heading{display:block;margin-bottom:28px}
+  .cs-review-tag{margin-top:12px}
+  .cs-overview,.cs-challenge,.cs-strategy,.cs-work-intro,.cs-work-gallery,.cs-scope-grid{grid-template-columns:1fr;gap:24px}
+  .cs-project .cs-overview h2,.cs-project .cs-work-intro h2{font-size:30px;line-height:1.28}
+  .cs-overview>p,.cs-work-intro>p{font-size:15px;line-height:1.85}
+  .cs-facts{grid-template-columns:1fr;gap:0;margin:28px 0;padding:0}
+  .cs-facts>div{display:grid;grid-template-columns:100px minmax(0,1fr);gap:18px;border-bottom:1px solid var(--cs-line);padding:16px 0}
+  .cs-facts>div:last-child{border:0}
+  .cs-facts dt{margin:3px 0 0;font-size:8px}
+  .cs-facts dd{font-size:13px}
+  .cs-project .cs-challenge h3{font-size:25px;line-height:1.4}
+  .cs-concept{padding-block:32px 40px}
+  .cs-concept-caption{display:block;text-align:left;margin-top:12px;font-size:9px}
+  .cs-concept-stage{min-height:240px;align-items:flex-end;padding-bottom:20px}
+  .cs-concept-diagram{top:0;width:100%;height:210px;opacity:.6;transform:none}
+  .cs-concept-watermark{font-size:130px;left:5%;top:15px;transform:none}
+  .cs-project .cs-concept h2{font-size:clamp(44px,13vw,72px);overflow-wrap:anywhere}
+  .cs-strategy{padding-top:24px;gap:16px}
+  .cs-strategy>p{font-size:17px;line-height:1.85}
+  .cs-work-gallery{margin-top:30px}
+  .cs-client-mark>div{height:250px;padding:28px}
+  .cs-client-mark img{max-height:190px}
+  .cs-client-mark figcaption{font-size:9px}
+  .cs-artwork-note{padding-block:24px}
+  .cs-scope{padding-block:36px 44px}
+  .cs-project .cs-scope h2{font-size:29px;margin-top:18px}
+  .cs-scope-grid{gap:34px}
+  .cs-next{padding-block:28px 36px}
+  .cs-next-link{min-height:280px;padding:25px;gap:16px}
+  .cs-project .cs-next-link h2{font-size:32px}
+  .cs-next-link>svg{width:26px;height:26px;flex-basis:26px}
+}
+@media(prefers-reduced-motion:reduce){.cs-hero-image{animation:none;transform:none}.cs-project .cs-diagram-draw path{stroke-dashoffset:0}.cs-concept-diagram,.cs-concept-watermark,.cs-concept[data-motif] .cs-concept-diagram{transform:none}.cs-chapter-nav a::after,.cs-next-link>img{transition:none}}

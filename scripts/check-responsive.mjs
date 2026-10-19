@@ -46,13 +46,16 @@ try {
   const desktop = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await desktop.goto(new URL('index.html', base).href);
   await desktop.locator('.project-deck').waitFor();
+  await desktop.locator('.home-work-scene').waitFor();
+  await desktop.evaluate(() => document.fonts.ready);
+  await desktop.waitForTimeout(600);
   const titles = await desktop.locator('.project-deck .home-project h3').allTextContents();
   for (const [index, fraction] of [.1, .5, .8].entries()) {
     await desktop.evaluate(f => {
       const section = document.querySelector('.home-selected');
-      scrollTo(0, section.offsetTop + (section.offsetHeight - innerHeight + 110) * f - 110);
+      scrollTo({ top: section.offsetTop + (section.offsetHeight - innerHeight + 110) * f - 110, behavior: 'instant' });
     }, fraction);
-    await desktop.waitForTimeout(300);
+    await desktop.waitForFunction(expected => document.querySelector('.project-deck [data-position="0"] h3')?.textContent.trim() === expected, titles[index].trim(), { timeout: 5000 });
     assert.equal((await desktop.locator('.project-deck [data-position="0"] h3').textContent()).trim(), titles[index].trim(), 'Production deck must advance with scroll');
   }
   await desktop.close();

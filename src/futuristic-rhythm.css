@@ -1,0 +1,45 @@
+/* Dark editorial chapters alternate with the existing light reading sections. */
+body:not(.home-page) .future-dark{position:relative;isolation:isolate;background:#080a0d;color:#f7f7f5;padding:64px 4%;margin-block:40px;border-color:#ffffff26}
+.future-dark::before{content:'';position:absolute;z-index:-1;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:#080a0d;pointer-events:none}
+body:not(.home-page) .future-dark :is(h2,h3,strong,blockquote){color:#f7f7f5}
+body:not(.home-page) .future-dark :is(p,.approval-note,.capability-intro,.capability-description p,.capability-domain-heading p){color:#b8c4cc}
+body:not(.home-page) .future-dark :is(.feedback-heading>span,small,.life-story-label){color:#a5b6c1}
+body:not(.home-page) .future-dark :is(a,summary){color:#f7f7f5}
+body:not(.home-page) .future-dark :is(a:hover,summary:hover,details[open] summary,em,.blue-stop){color:#00a3ff}
+body:not(.home-page) .future-dark :is(article,details,.capability-domain,.approach-output){border-color:#ffffff26;background:transparent}
+body:not(.home-page) .future-dark .about-purpose-grid{background:transparent}
+body:not(.home-page) .future-dark .testimonial-placeholder{background:#10161c;border-color:#ffffff24}
+body:not(.home-page) .future-dark .testimonial-placeholder::before{color:#00a3ff}
+body:not(.home-page) .future-dark .capability-domain-heading a{color:#62c6ff}
+body:not(.home-page) .future-dark .capability-toggle{color:#00a3ff}
+body:not(.home-page) .future-dark .client-story-index a{background:transparent}
+/* Increase the scale and travel of existing motion, rather than adding loops. */
+.branding-resolution{width:min(100%,1100px);height:150px}
+.branding-resolution path{stroke-width:1.6}
+body .branding-capability-mark{width:58px;height:58px;stroke-width:1.5}
+body.practice-page .branding-premium-capabilities article{grid-template-columns:58px minmax(200px,.65fr) minmax(0,1fr)}
+.premium-services-opening .services-image-frame img{transform:translateY(var(--services-depth,0px)) scale(1.16)}
+.culture-film-screen{width:calc(94% + var(--film-expand,0)*6%);height:calc(94% + var(--film-expand,0)*6%)}
+.life-brand-sticky img{width:min(85%,1100px)}
+.life-story-symbol{height:150px}
+.life-story-symbol i{border-width:2px}
+body .future-dark.culture-cinema-intro{max-width:none;margin-bottom:40px}
+body .future-dark.culture-cinema-intro p{max-width:620px}
+body .future-dark.insight-entry-featured{padding:38px;gap:38px}
+.future-dark.insight-entry-featured::before{left:0;width:100%}
+body .future-dark.work-directory-head{padding:30px 0;margin-block:16px 0}
+body .future-dark.work-directory-head .filters{border-color:#ffffff26}
+body .future-dark.work-directory-head .filters button{color:#b8c4cc}
+body .future-dark.work-directory-head .filters button.active,body .future-dark.work-directory-head .filters button:hover{color:#62c6ff}
+.future-dark .archive-mobile-sector>span{color:#b8c4cc}
+@media(max-width:800px){
+  body:not(.home-page) .future-dark{padding:40px 0;margin-block:28px}
+  .branding-resolution{height:90px}
+  body .branding-capability-mark{width:40px;height:40px}
+  body.practice-page .branding-premium-capabilities article{grid-template-columns:40px minmax(0,1fr)}
+  .premium-services-opening .services-image-frame img{transform:none}
+  .life-story-symbol{height:105px}
+  body .future-dark.insight-entry-featured{padding:24px 18px;gap:24px}
+  body .future-dark.culture-cinema-intro{padding-inline:12px}
+}
+@media(prefers-reduced-motion:reduce){.premium-services-opening .services-image-frame img{transform:none}}

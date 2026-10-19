@@ -1,0 +1,78 @@
+/* Different stories get different visual behaviour, not one repeated emblem. */
+.service-route-map{width:min(100%,1060px);height:130px;margin:0 auto 28px}
+.service-route-map svg{width:100%;height:100%;fill:none;stroke-linejoin:round}
+.route-guides path{stroke:#ffffff22;stroke-width:1}
+.route-draw path{stroke:#00a3ff;stroke-width:2;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--signal-progress,0));vector-effect:non-scaling-stroke}
+.route-draw path:nth-child(2){stroke:#78d4ff}
+.service-route-map rect{fill:#00a3ff;stroke:none}
+body .future-dark.practice-capabilities{padding-top:48px}
+.future-dark.practice-capabilities .branding-capability-mark path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1s cubic-bezier(.2,.7,.2,1)}
+.future-dark.practice-capabilities.future-entered .branding-capability-mark path{stroke-dashoffset:0}
+body .future-dark.culture-cinema-intro{padding-block:48px;position:relative;text-align:left}
+body .culture-cinema-intro.future-dark>span{display:block;max-width:1100px;margin:0 auto}
+body .culture-cinema-intro.future-dark h2{max-width:1100px;margin:22px auto;font-size:clamp(38px,5vw,76px);text-align:left!important}
+body .culture-cinema-intro.future-dark h2 em{display:inline-block;position:relative}
+.culture-cinema-intro.future-dark h2 em::after{content:'';position:absolute;left:0;right:0;bottom:-7px;height:3px;background:#00a3ff;transform:scaleX(var(--signal-progress,0));transform-origin:left}
+body .culture-cinema-intro.future-dark p{max-width:1100px;margin:0 auto;text-align:left;padding-right:25%}
+/* Portfolio: black holds the work itself, not the filtering controls. */
+body .premium-work-archive .work-portfolio-opening.future-dark{display:grid;top:auto;height:auto;min-height:0;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:6vw;align-items:center;padding:28px 0 60px;margin:0 0 40px;border:0;text-align:left}
+.work-portfolio-opening.future-dark::before{top:-160px}
+.work-portfolio-opening::after{display:none!important}
+.work-opening-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#b5c1ca}
+body .work-portfolio-opening h1{font-size:clamp(54px,6.6vw,96px);margin:24px 0;line-height:1.04;text-align:left!important}
+body .premium-work-archive .work-portfolio-opening p{font-size:16px;line-height:1.8;max-width:40ch;margin:0;text-align:left}
+.work-opening-mosaic{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:clamp(300px,30vw,440px)}
+.work-opening-image{position:relative;display:block;overflow:hidden;background:#182127;min-width:0;transform:translateY(var(--editorial-depth,0px))}
+.work-opening-image.image-1{grid-row:span 2;transform:translateY(calc(var(--editorial-depth,0px)*-.6))}
+.work-opening-image.image-3{transform:translateY(calc(var(--editorial-depth,0px)*1.3))}
+.work-opening-image::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 55%,#000b)}
+.work-opening-image img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.work-opening-image span{position:absolute;z-index:1;bottom:16px;left:16px;right:16px;font-size:12px;line-height:1.5;color:#fff}
+.work-opening-image:hover img{transform:scale(1.04)}
+.work-opening-image:focus-visible{outline:2px solid #00a3ff;outline-offset:4px}
+/* Insights: a photographic cover with a discrete, high-contrast reading panel. */
+body.insights-page .premium-insight-collection .insight-feature-dossier.future-dark{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:500px;gap:0;padding:0;margin:18px 0 28px;background:#080d14;border:1px solid #273541;overflow:hidden}
+.insight-feature-dossier.future-dark::before{display:none}
+body.insights-page .premium-insight-collection .insight-feature-dossier .editorial-media{position:absolute;inset:0 auto 0 0;aspect-ratio:auto;max-height:none;width:72%;height:100%;margin:0}
+body.insights-page .premium-insight-collection .insight-feature-dossier .editorial-media img{object-position:30% center;transform:translateY(var(--editorial-depth,0px)) scale(1.15)}
+.insight-feature-dossier .editorial-media::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#080d1400 20%,#080d14bb 52%,#080d14 85%)}
+body.insights-page .premium-insight-collection .insight-feature-dossier .insight-entry-copy{grid-column:2;position:relative;z-index:2;padding:58px 42px 45px;background:#080d14e8;align-self:stretch;display:flex;flex-direction:column;justify-content:center;border-left:1px solid #ffffff15}
+body.insights-page .premium-insight-collection .insight-feature-dossier .insight-entry-copy>span{color:#93d5ff;font-size:10px;letter-spacing:.12em}
+body.insights-page .premium-insight-collection .insight-feature-dossier h2{color:#fff;font-size:clamp(30px,3vw,46px);line-height:1.16;max-width:19ch;margin:20px 0}
+body.insights-page .premium-insight-collection .insight-feature-dossier p{color:#c0ced8;font-size:15px;line-height:1.85}
+body.insights-page .premium-insight-collection .insight-feature-dossier a{color:#fff;border-color:#6b8497;font-size:11px;letter-spacing:.06em;line-height:1.7;min-height:44px;margin-top:30px;align-self:flex-start}
+body.insights-page .premium-insight-collection .insight-feature-dossier a svg{stroke:#00a3ff}
+.insight-feature-dossier .insight-entry-copy::before{content:'Featured perspective / 01';font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#b7c4ce;position:absolute;top:24px;right:42px}
+@media(max-width:800px){
+  .service-route-map{height:85px;margin-bottom:20px}
+  body .future-dark.culture-cinema-intro{padding:32px 12px}
+  body .culture-cinema-intro.future-dark h2{font-size:36px}
+  body .culture-cinema-intro.future-dark p{padding-right:0}
+  body .premium-work-archive .work-portfolio-opening.future-dark{grid-template-columns:1fr;gap:28px;padding:0 0 36px;margin-bottom:30px}
+  body .work-portfolio-opening h1{font-size:54px;margin:18px 0}
+  body .premium-work-archive .work-portfolio-opening p{font-size:14px}
+  .work-opening-mosaic{height:280px;gap:8px}
+  .work-opening-image,.work-opening-image.image-1,.work-opening-image.image-3{transform:none}
+  .work-opening-image span{font-size:10px;left:10px;bottom:10px}
+  body.insights-page .premium-insight-collection .insight-feature-dossier.future-dark{grid-template-columns:1fr;min-height:0;padding-top:220px;gap:0}
+  body.insights-page .premium-insight-collection .insight-feature-dossier .editorial-media{height:250px;width:100%}
+  body.insights-page .premium-insight-collection .insight-feature-dossier .insight-entry-copy{grid-column:1;padding:54px 24px 28px;border-left:0;border-top:1px solid #ffffff20;background:#080d14}
+  .insight-feature-dossier .editorial-media::after{background:linear-gradient(transparent 60%,#080d14)}
+  .insight-feature-dossier .insight-entry-copy::before{left:24px;right:auto}
+  body.insights-page .premium-insight-collection .insight-feature-dossier h2{font-size:30px}
+  body.insights-page .premium-insight-collection .insight-feature-dossier .editorial-media img{transform:none}
+}
+@media(prefers-reduced-motion:reduce){.route-draw path{stroke-dashoffset:0}.future-dark.practice-capabilities .branding-capability-mark path{stroke-dashoffset:0;transition:none}.work-opening-image,.work-opening-image.image-1,.work-opening-image.image-3{transform:none}.work-opening-image img{transition:none}.culture-cinema-intro.future-dark h2 em::after{transform:none}.insights-page .premium-insight-collection .insight-feature-dossier .editorial-media img{transform:none!important}}
+/* Publication thumbnails use different graphic compositions, not orbital loops. */
+body.insights-page .premium-insight-collection .insight-signal i{border:0;border-radius:0;width:10%;height:48%;aspect-ratio:auto;left:24%;top:22%;background:#00a3ff55;transform:translateY(var(--insight-depth,0px))}
+body.insights-page .premium-insight-collection .insight-signal i:nth-child(2){left:45%;height:32%;top:38%;background:#00a3ff99;transform:translateY(var(--insight-depth,0px))}
+body.insights-page .premium-insight-collection .insight-signal i:nth-child(3){left:66%;height:60%;top:10%;background:#80d7ff;transform:translateY(var(--insight-depth,0px))}
+body.insights-page .premium-insight-collection .signal-1 i{width:48%;height:3px;left:24%;top:30%;background:#00a3ff}
+body.insights-page .premium-insight-collection .signal-1 i:nth-child(2){width:34%;height:3px;left:24%;top:48%}
+body.insights-page .premium-insight-collection .signal-1 i:nth-child(3){width:20%;height:3px;left:24%;top:66%}
+body.insights-page .premium-insight-collection .signal-2 i{width:36%;height:36%;left:18%;top:18%;border:1px solid #80d7ff;background:none}
+body.insights-page .premium-insight-collection .signal-2 i:nth-child(2){width:36%;height:36%;left:35%;top:35%;border:1px solid #00a3ff;background:#00a3ff18}
+body.insights-page .premium-insight-collection .signal-2 i:nth-child(3){width:8%;height:8%;left:71%;top:71%;background:#00a3ff}
+.career-connect-copy>a::after{content:none!important}
+.insights-page .insight-entry a.editorial-link-arrow::after{content:none!important}
+.insights-page .insight-entry a.editorial-link-arrow svg{width:22px;height:22px;flex:0 0 22px;fill:none;stroke:#00a3ff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
