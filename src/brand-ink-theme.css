@@ -129,11 +129,7 @@ body.brand-ink .ink-light .insight-entry:not(.insight-feature-dossier) :is(h2,p,
 body.brand-ink .ink-light .insight-entry:not(.insight-feature-dossier) p{color:#4c5e69}
 body.brand-ink .insight-feature-dossier.ink-dark{--ink-fg:#f3f6f8;--ink-muted:#c0ced8;--ink-label:#a4c1d4;background:#080d14}
 
-/* Careers: keep the cinematic pictures, then a light culture-reading chapter. */
-body.brand-ink .life-brand-sticky>span,body.brand-ink .life-brand-sticky>small{color:#a9bdca}
-body.brand-ink .life-brand-sticky img{filter:none}
-body.brand-ink .life-story-cover.ink-light{background:#f5f5f2}
-body.brand-ink .life-story-symbol{background:#e9eff2}
+/* Careers: a clear application chapter with supporting cinematic pictures. */
 body.brand-ink .career-connect-stage{background:#090c10}
 body.brand-ink .career-connect-copy .career-connect-purpose{color:#a9bdca}
 body.brand-ink .career-connect-purpose span{color:#f3f6f8}

@@ -17,6 +17,7 @@ import './about-proof-motion.js';
 import './about-heading-alignment.css';
 import './internal-heading-alignment.css';
 import './leadership-motion.js';
+import './about-people.js';
 import './culture-premium-motion.js';
 import './client-story-gallery.js';
 import './footer-refinement.js';
@@ -125,22 +126,16 @@ if (stream) {
   stream.querySelectorAll('a').forEach(link => { link.textContent = 'View on BrandShip’s official site'; link.target = '_blank'; link.rel = 'noopener'; });
 }
 
-const form = document.querySelector('.enquiry-form');
-if (form) form.addEventListener('submit', event => {
-  event.preventDefault();
-  if (!form.reportValidity()) return;
-  const fields = new FormData(form);
-  const body = `Name: ${fields.get('name')}\nEmail: ${fields.get('email')}\nOrganisation: ${fields.get('company') || 'Not provided'}\n\n${fields.get('message')}`;
-  window.location.href = `mailto:hello@ourbrandship.com?subject=${encodeURIComponent('BrandShip project enquiry')}&body=${encodeURIComponent(body)}`;
-  document.querySelector('#enquiry-status').textContent = 'Your email app has been requested. Please send the draft there to complete your enquiry. If it does not open, email hello@ourbrandship.com directly.';
-});
 import './work-archive-toolbar.js';
 import './insights-opening.js';
 import './insights-collection.js';
 import './careers-opening.js';
 import './careers-culture-film.js';
-import './careers-life-story.js';
+import './about-directors.css';
+import './careers-application.css';
+import './careers-jobs.js';
 import './careers-linkedin.js';
 import './mobile-refinement.css';
 import './futuristic-rhythm.js';
 import './brand-ink-theme.js';
+import './service-request.js';

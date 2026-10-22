@@ -39,37 +39,17 @@ if (aboutContent) {
     <p class="feedback-intro">A proposed positioning framework for review. Confirm the language and supporting evidence before using these as company claims.</p>
     <div class="why-grid"><article><b>01</b><h3>Saudi understanding</h3><p>Sample proof point: show how local cultural insight shaped a brief.</p></article><article><b>02</b><h3>Strategic thinking</h3><p>Sample proof point: connect research to a decisive brand position.</p></article><article><b>03</b><h3>Creative execution</h3><p>Sample proof point: demonstrate the idea across identity and touchpoints.</p></article><article><b>04</b><h3>Senior involvement</h3><p>Placeholder for the leadership model and when senior specialists engage.</p></article><article><b>05</b><h3>Stakeholder alignment</h3><p>Placeholder for experience navigating complex stakeholder groups.</p></article></div>`);
   (awards || numbers)?.after(why);
-  const leadership = aboutContent.querySelector('#leadership');
-  leadership?.querySelector('header>span')?.replaceChildren(document.createTextNode('Leadership'));
-  leadership?.querySelector('header')?.insertAdjacentHTML('beforeend', `<p class="feedback-intro">Led by the chairman and founder, with directors across the disciplines that connect brand strategy and execution. Board membership and individual credentials beyond the published roles await confirmation.</p>`);
-  const leadershipGrid = leadership?.querySelector('.leadership-grid');
-  leadershipGrid?.firstElementChild?.insertAdjacentHTML('beforebegin', '<div class="leadership-group-label">Chairman & founder</div>');
-  leadershipGrid?.querySelector('.leadership-owner')?.insertAdjacentHTML('afterend', '<div class="leadership-group-label">Practice leadership</div>');
-  leadershipGrid?.querySelectorAll('article').forEach((card, index) => {
-    const expertise = index === 0 ? 'Brand vision & consultancy' : ['Business development', 'Marketing communication', 'Project leadership', 'Creative direction', 'Brand strategy'][index - 1];
-    (card.querySelector('.owner-copy') || card).insertAdjacentHTML('beforeend', `<p class="leadership-credential"><span>Expertise</span>${expertise}<br><span>Credentials</span>Biography and credentials pending approval</p>`);
-  });
-  const team = el('section', 'feedback-section about-team', `
-    <div class="feedback-heading"><span>Our team</span><h2>Different disciplines. One connected practice<span class="blue-stop">.</span></h2></div>
-    <p class="feedback-intro">The work brings together strategy, creative, communication, project management and business development. Meet the publicly listed leadership team now; a wider team directory will follow once names, portraits and credentials are approved.</p>
-    <div class="team-disciplines" aria-label="BrandShip disciplines"><span>Strategy</span><span>Creative</span><span>Communication</span><span>Project management</span><span>Business development</span></div>
-    <div class="team-preview" aria-label="Wider team profile placeholders"><article><span>Team profile 01</span><h3>Research &amp; insight</h3><p>Name, portrait and short expertise statement to be supplied.</p></article><article><span>Team profile 02</span><h3>Design &amp; experience</h3><p>Name, portrait and short expertise statement to be supplied.</p></article><article><span>Team profile 03</span><h3>Activation &amp; delivery</h3><p>Name, portrait and short expertise statement to be supplied.</p></article></div>
-    <a class="feedback-text-link" href="${href('team.html')}">Explore our team <span class="feedback-arrow" aria-hidden="true"></span></a>`);
-  team.id = 'team';
-  leadership?.after(team);
+  // Real board and employee profiles now live in the page source. Keep the
+  // director voices beside them, instead of injecting generic team placeholders.
+  const voices = aboutContent.querySelector('#team');
   const culture = aboutContent.querySelector('.official-culture');
-  if (culture) team.after(culture);
+  if (culture && voices) voices.after(culture);
   const clients = aboutContent.querySelector('#clients');
   clients?.insertAdjacentHTML('beforeend', `<div class="client-stories"><h3>Selected client stories</h3><p class="approval-note">The short story lines below are editorial placeholders; project links open the current draft case-study layouts.</p><div><a href="${href('case-study.html?project=king-salman-gate')}"><span>Destination identity · story draft</span><strong>King Salman Gate</strong><p>Placeholder: the challenge, shared ambition and role of the brand.</p><em>Explore case</em></a><a href="${href('case-study.html?project=rua-al-haram')}"><span>Place branding · story draft</span><strong>Rua Al Haram</strong><p>Placeholder: the insight that connected place and audience.</p><em>Explore case</em></a><a href="${href('case-study.html?project=masar')}"><span>Destination branding · story draft</span><strong>Masar</strong><p>Placeholder: the strategic direction and how it took shape.</p><em>Explore case</em></a></div><div class="testimonial-placeholder"><span>Client voice · layout placeholder</span><blockquote>“Approved client testimonial will appear here.”</blockquote><p>Client name, role and permission to publish to be confirmed.</p></div></div>`);
   const sectionNav = document.querySelector('.about-section-nav');
   sectionNav?.querySelector('a[href="#overview"]')?.insertAdjacentHTML('afterend', '<a href="#story">Our story</a>');
   sectionNav?.querySelector('a[href="#story"]')?.insertAdjacentHTML('afterend', '<a href="#history">History</a>');
   sectionNav?.querySelector('a[href="#leadership"]')?.insertAdjacentHTML('afterend', '<a href="#team">Team</a>');
-}
-
-const teamDirectory = document.querySelector('.team-directory');
-if (teamDirectory) {
-  teamDirectory.querySelector('.team-grid')?.insertAdjacentHTML('afterend', `<section class="wider-team" aria-labelledby="wider-team-title"><div class="feedback-heading"><span>Wider team</span><h2 id="wider-team-title">The people behind the practice<span class="blue-stop">.</span></h2></div><p class="feedback-intro">Sample profile layout for the broader team. Replace each card with an approved name, portrait, role and credential.</p><div class="wider-team-grid"><article><div class="profile-placeholder" aria-hidden="true"><span>01</span></div><h3>Team member</h3><p>Strategy &amp; research · profile pending</p></article><article><div class="profile-placeholder" aria-hidden="true"><span>02</span></div><h3>Team member</h3><p>Creative &amp; design · profile pending</p></article><article><div class="profile-placeholder" aria-hidden="true"><span>03</span></div><h3>Team member</h3><p>Communication &amp; activation · profile pending</p></article></div></section>`);
 }
 
 const serviceCatalogue = document.querySelector('.services-catalogue');
@@ -141,6 +121,6 @@ if (caseOverview) {
   document.querySelector('.case-output .case-label')?.replaceChildren(document.createTextNode('Deliverables'));
   document.querySelector('.case-output')?.querySelectorAll('.case-label')[1]?.replaceChildren(document.createTextNode('Intended strategic value'));
   document.querySelector('.case-output')?.insertAdjacentHTML('afterend', `<div class="case-impact-note"><span>Measured impact</span><p>Approved performance results and client testimonial to be added when available.</p></div>`);
-  document.querySelector('.case-impact-note')?.insertAdjacentHTML('beforeend', '<div class="case-impact-sample"><strong>35%</strong><small>Illustrative result for the demo — replace with a verified measure and its source.</small></div>');
+  document.querySelector('.case-impact-note')?.insertAdjacentHTML('beforeend', '<div class="case-impact-sample"><strong>35%</strong><small>Illustrative result for the demo. Replace with a verified measure and its source.</small></div>');
   caseOverview.insertAdjacentHTML('afterbegin', '<p class="case-draft-label">Illustrative case-story structure · copy and results pending client approval</p>');
 }

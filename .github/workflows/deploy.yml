@@ -27,6 +27,7 @@ jobs:
       - run: npm run build
         env:
           GITHUB_PAGES: 'true'
+          VITE_CAREERS_CMS_AUTH_ORIGIN: ${{ vars.VITE_CAREERS_CMS_AUTH_ORIGIN }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

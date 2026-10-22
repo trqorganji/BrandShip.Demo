@@ -1,0 +1,20 @@
+/* Recruitment is the primary Careers action. Culture remains supporting content. */
+body.brand-ink .careers-catalogue-title .career-apply-button{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:48px;padding:13px 22px;margin-top:24px;background:#00a3ff;color:#07141e;border:1px solid #00a3ff;border-radius:8px;font-size:14px;font-weight:600;line-height:1.5}
+.career-apply-button svg,.career-role>svg{width:24px;height:24px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+body.brand-ink .careers-catalogue-title p.career-apply-address{font-size:13px;line-height:1.7;margin-top:12px;color:#b5c5d0;overflow-wrap:anywhere}
+.career-apply-button:focus-visible,.career-role:focus-visible{outline:2px solid #00a3ff;outline-offset:5px}
+body.brand-ink .careers-catalogue-title .career-apply-button:hover{background:#64c7ff}
+body.brand-ink .careers-catalogue-title .careers-opening-link{display:flex;width:max-content;margin:16px auto 0;font-size:12px}
+body.brand-ink .career-positions.ink-light{margin-top:0}
+body.brand-ink .career-positions .career-position-intro{padding-block:30px;align-items:start}
+body.brand-ink .career-positions .career-position-intro h2{font-size:clamp(34px,4vw,60px);line-height:1.12;text-align:left;letter-spacing:-.045em}
+.career-application-checklist{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:0;margin:8px 0 32px}
+.career-application-checklist li{display:flex;align-items:flex-start;gap:14px;padding:20px 0;border-top:1px solid #c9d2d7;min-width:0}
+body.brand-ink .career-application-checklist li>span{color:#007cad;font-size:12px;line-height:1.8}
+body.brand-ink .career-application-checklist h3{font-size:18px;line-height:1.5;font-weight:500;text-align:left;margin:0 0 8px;letter-spacing:-.015em}
+body.brand-ink .career-application-checklist h3 small{display:block;color:#526b7a;font-size:11px;font-weight:400}
+body.brand-ink .career-application-checklist p{color:#465c6a;font-size:13px;line-height:1.7;margin:0;max-width:32ch}
+body.brand-ink .career-role small{font-size:14px;overflow-wrap:anywhere}
+.career-role>svg{position:relative;z-index:1;color:#007cad}
+body.brand-ink .career-positions p.career-application-note{font-size:12px;color:#465c6a;line-height:1.8;margin:18px 0 0}
+@media(max-width:800px){.career-application-checklist{grid-template-columns:1fr;gap:0;margin-bottom:20px}.career-application-checklist li{padding:16px 0}.career-role>svg{grid-column:2;grid-row:1/3}body.brand-ink .career-role span{font-size:24px}body.brand-ink .career-role small{font-size:13px}body.brand-ink .career-positions .career-position-intro{gap:20px}body.brand-ink .careers-catalogue-title .career-apply-button{max-width:100%}}

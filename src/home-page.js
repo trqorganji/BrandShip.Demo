@@ -8,7 +8,7 @@ if (projects) {
  const status=document.createElement('p');status.className='project-deck-status';status.setAttribute('aria-live','polite');
  let active=0;
  const buttons=cards.map((card,i)=>{const button=document.createElement('button');button.type='button';button.textContent=card.querySelector('h3').textContent.trim();button.addEventListener('click',()=>show(i));index.append(button);return button;});
- function show(next){active=(next+cards.length)%cards.length;cards.forEach((card,i)=>{const position=(i-active+cards.length)%cards.length;card.dataset.position=position;card.inert=position!==0;card.setAttribute('aria-hidden',String(position!==0));buttons[i].setAttribute('aria-pressed',String(position===0));});status.textContent=`${cards[active].querySelector('h3').textContent.trim()} — swipe to discover`;
+ function show(next){active=(next+cards.length)%cards.length;cards.forEach((card,i)=>{const position=(i-active+cards.length)%cards.length;card.dataset.position=position;card.inert=position!==0;card.setAttribute('aria-hidden',String(position!==0));buttons[i].setAttribute('aria-pressed',String(position===0));});status.textContent=`${cards[active].querySelector('h3').textContent.trim()} · Swipe to discover`;
  }
  projects.after(index,status);show(0);
  projects.addEventListener('brandship:deck-select',event=>{

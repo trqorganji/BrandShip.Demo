@@ -31,7 +31,7 @@ const diagrams = {
 export function renderCaseStudy({ key, data, nextKey, next, index, total }) {
   const main = document.querySelector('#main');
   const [motif, paths] = diagrams[key];
-  document.title = `${data.name} — Brandship`;
+  document.title = `${data.name} | Brandship`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${data.name}: ${data.tagline}. Explore Brandship’s project story and scope of work.`);
   main.className = 'cs-project';
   main.dataset.project = key;
@@ -60,7 +60,7 @@ export function renderCaseStudy({ key, data, nextKey, next, index, total }) {
       <div class="cs-work-intro"><h2 id="cs-work-title">${escape(data.deliveryTitle)}</h2><p>${escape(data.delivery)}</p></div>
       <div class="cs-work-gallery"><figure class="cs-client-mark"><div><img src="${asset(`assets/${marks[key]}`)}" alt="${escape(data.name)} client mark" loading="lazy" decoding="async"></div><figcaption><span>Client mark</span><span>Existing supplied artwork</span></figcaption></figure><aside class="cs-artwork-note"><span class="cs-eyebrow">A closer look</span><h3>The detail behind<br>the direction<span class="cs-blue-stop">.</span></h3><p>This demo currently includes a project visual and client mark. Approved identity layouts, applications and supporting project photography are needed to complete the visual story.</p><span class="cs-assets-status">Additional project assets pending approval</span></aside></div>
     </section>
-    <section id="cs-scope" class="cs-scope cs-shell" aria-labelledby="cs-scope-title"><div class="cs-section-heading"><span class="cs-eyebrow">04 / Scope & intended value</span><h2 id="cs-scope-title">What the work brings together<span class="cs-blue-stop">.</span></h2></div><div class="cs-scope-grid"><div><h3>Scope of work</h3><ol>${data.scope.map((item, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span>${escape(item)}</li>`).join('')}</ol></div><div><h3>Intended strategic value</h3><ul>${data.outcomes.map(item => `<li>${escape(item)}</li>`).join('')}</ul><p class="cs-evidence-note">These are intended benefits described in the draft—not measured performance results. Project claims and supporting evidence require client approval.</p></div></div></section>
+    <section id="cs-scope" class="cs-scope cs-shell" aria-labelledby="cs-scope-title"><div class="cs-section-heading"><span class="cs-eyebrow">04 / Scope & intended value</span><h2 id="cs-scope-title">What the work brings together<span class="cs-blue-stop">.</span></h2></div><div class="cs-scope-grid"><div><h3>Scope of work</h3><ol>${data.scope.map((item, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span>${escape(item)}</li>`).join('')}</ol></div><div><h3>Intended strategic value</h3><ul>${data.outcomes.map(item => `<li>${escape(item)}</li>`).join('')}</ul><p class="cs-evidence-note">These are intended benefits described in the draft, not measured performance results. Project claims and supporting evidence require client approval.</p></div></div></section>
     <section class="cs-next cs-shell" aria-label="Next project"><div class="cs-next-top"><span class="cs-eyebrow">Continue exploring</span><a href="${base}work.html">View all work ${arrow}</a></div><a class="cs-next-link" href="${base}case-study.html?project=${nextKey}"><img src="${asset(next.image)}" alt="" loading="lazy" decoding="async"><div><span>Next case study / ${escape(next.sector)}</span><h2>${escape(next.name)}</h2></div>${arrow}</a></section>`;
   main.removeAttribute('aria-busy');
   enableCaseMotion(main);

@@ -20,9 +20,6 @@ body .branding-capability-mark{width:58px;height:58px;stroke-width:1.5}
 body.practice-page .branding-premium-capabilities article{grid-template-columns:58px minmax(200px,.65fr) minmax(0,1fr)}
 .premium-services-opening .services-image-frame img{transform:translateY(var(--services-depth,0px)) scale(1.16)}
 .culture-film-screen{width:calc(94% + var(--film-expand,0)*6%);height:calc(94% + var(--film-expand,0)*6%)}
-.life-brand-sticky img{width:min(85%,1100px)}
-.life-story-symbol{height:150px}
-.life-story-symbol i{border-width:2px}
 body .future-dark.culture-cinema-intro{max-width:none;margin-bottom:40px}
 body .future-dark.culture-cinema-intro p{max-width:620px}
 body .future-dark.insight-entry-featured{padding:38px;gap:38px}
@@ -38,7 +35,6 @@ body .future-dark.work-directory-head .filters button.active,body .future-dark.w
   body .branding-capability-mark{width:40px;height:40px}
   body.practice-page .branding-premium-capabilities article{grid-template-columns:40px minmax(0,1fr)}
   .premium-services-opening .services-image-frame img{transform:none}
-  .life-story-symbol{height:105px}
   body .future-dark.insight-entry-featured{padding:24px 18px;gap:24px}
   body .future-dark.culture-cinema-intro{padding-inline:12px}
 }

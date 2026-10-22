@@ -1,0 +1,59 @@
+/* Glass is intentionally confined to Home's Selected Work and client-logo strip.
+   No body-level backdrop, global surface changes, or extra content boxes. */
+body.brand-ink.home-page :is(.home-selected,.home-trust){
+  background:
+    linear-gradient(118deg,transparent 24%,#ffffff06 35%,#ffffff0c 37%,transparent 53%,#00000014 75%),
+    radial-gradient(ellipse at 9% 1%,rgba(198,214,229,.18),transparent 58%),
+    radial-gradient(ellipse at 100% 76%,rgba(0,163,255,.13),transparent 63%),
+    linear-gradient(118deg,#202831,#141b23 45%,#121a23);
+  border-block:1px solid #d8e9f514;
+}
+/* Original logo pixels remain unchanged, including light artwork backgrounds. */
+body.brand-ink.home-page .home-trust>p,
+body.brand-ink.home-page .home-trust .home-logo-pause{color:#bacbd7}
+body.brand-ink.home-page .home-trust .home-logo-pause{min-height:44px}
+body.brand-ink.home-page .home-logo-group img{
+  mix-blend-mode:normal;
+}
+body.brand-ink.home-page .home-logo-group img:not([src*="client-madina-made"]){
+  background:#f5f5f2;
+}
+
+/* Retain the separately requested larger figures and their existing motion. */
+body.brand-ink.about-page .about-numbers .about-stat-grid strong{
+  display:block;
+  font-size:clamp(96px,9vw,160px);
+  font-weight:500;
+  line-height:1;
+  letter-spacing:-.065em;
+}
+body.brand-ink.about-page .about-numbers .about-stat-grid article{
+  min-width:0;
+  min-height:clamp(230px,19vw,320px);
+  padding:34px 22px 26px;
+}
+body.brand-ink.about-page .about-numbers .about-stat-grid p{margin-top:28px}
+
+@media(max-width:800px){
+  body.brand-ink.home-page :is(.home-selected,.home-trust){
+    background:
+      radial-gradient(ellipse at 0 0,#a7c3dc1a,transparent 65%),
+      linear-gradient(120deg,#1c242d,#141d27);
+  }
+  body.brand-ink.about-page .about-numbers .about-stat-grid{grid-template-columns:1fr;gap:0}
+  body.brand-ink.about-page .about-numbers .about-stat-grid article{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+    min-height:0;
+    padding:26px 0;
+    border-right:0;
+    border-bottom:1px solid var(--ink-rule);
+  }
+  body.brand-ink.about-page .about-numbers .about-stat-grid strong{font-size:clamp(86px,18vw,126px)}
+  body.brand-ink.about-page .about-numbers .about-stat-grid p{margin-top:16px;font-size:14px}
+}
+@media(prefers-reduced-transparency:reduce){
+  body.brand-ink.home-page :is(.home-selected,.home-trust){background:#171e26}
+}

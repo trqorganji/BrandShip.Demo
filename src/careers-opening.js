@@ -10,7 +10,7 @@ if (opening) {
   const link = document.createElement('a');
   link.className = 'careers-opening-link';
   link.href = '#positions';
-  link.innerHTML = 'Explore opportunities <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg>';
+  link.innerHTML = 'Explore open positions <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg>';
   copy.append(link);
   const media = opening.querySelector('.editorial-media');
   const image = media.querySelector('img');

@@ -48,7 +48,8 @@ export default defineConfig({
         contact: resolve(process.cwd(), 'contact.html'),
         caseStudy: resolve(process.cwd(), 'case-study.html'),
         practice: resolve(process.cwd(), 'practice.html'),
-        team: resolve(process.cwd(), 'team.html')
+        team: resolve(process.cwd(), 'team.html'),
+        hrAdmin: resolve(process.cwd(), 'admin/index.html')
       }
     }
   }

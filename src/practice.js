@@ -10,7 +10,7 @@ const practices = {
   branding: {
     name: 'Branding', proposition: 'A clear idea. A distinctive expression.',
     intro: 'We help define what a brand stands for, then make that direction visible and consistent wherever it appears.',
-    solve: 'When an organisation needs to clarify its purpose, position and personality—or translate a strategy into a recognisable identity.',
+    solve: 'When an organisation needs to clarify its purpose, position and personality, or translate a strategy into a recognisable identity.',
     approach: 'Start with context and research, define the strategic blueprint, then build and apply a coherent visual system. The exact phases depend on the brief.',
     capabilities: [
       ['Strategy', 'We differentiate your brand with a comprehensive blueprint, grounded in reality, that defines its purpose, positioning, tone of voice, and personality.'],
@@ -41,7 +41,7 @@ const practices = {
   }
 };
 const data = practices[area];
-document.title = `${data.name} — BrandShip`;
+document.title = `${data.name} | BrandShip`;
 queueMicrotask(() => {
   enhanceBrandingOpening(area);
   enhanceFuturisticRhythm();

@@ -9,11 +9,21 @@ try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
   for (const route of routes) {
     await page.goto(new URL(route, base).href);
+    await page.locator('body.brand-ink').waitFor();
+    await page.locator('.ink-dark').first().waitFor();
+    if (route === 'about.html') await page.locator('.about-numbers.animated-metrics.ink-dark').waitFor();
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(150);
     if (route === 'index.html' || route === 'work.html') {
       const surface = route === 'index.html' ? '.home-offering' : '.ink-filter-chapter';
-      assert.equal(await page.locator(surface).evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(9, 12, 16)', `${route}: section colours must share the dark canvas`);
+      assert.equal(await page.locator(surface).evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(9, 12, 16)', `${route}: unrelated sections must retain their original dark canvas`);
+      assert.equal(await page.locator('.brand-glass-backdrop').count(), 0, 'Glass must not be applied as a page-wide backdrop');
+      if (route === 'index.html') {
+        for (const selector of ['.home-selected', '.home-trust']) {
+          await page.locator(`${selector}.ink-dark`).waitFor();
+          assert.match(await page.locator(selector).evaluate(el => getComputedStyle(el).backgroundImage), /gradient/, `${selector} must retain its local glass finish`);
+        }
+      }
     }
     const found = new Map();
     const height = await page.evaluate(() => document.documentElement.scrollHeight);

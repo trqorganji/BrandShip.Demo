@@ -1,26 +1,27 @@
 import './brand-ink-theme.css';
+import './brand-glass-canvas.css';
 
 document.body.classList.add('brand-ink');
 document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#090c10');
 
 // Surface roles change colour only: content, order and motion controllers stay intact.
 const dark = [
-  '.hero', '.brand-manifesto', '.home-selected', '.home-offering', '.home-thinking', '.brand-purpose',
+  '.hero', '.brand-manifesto', '.home-selected', '.home-offering', '.home-thinking', '.brand-purpose', '.home-trust',
   '.about-editorial-hero', '.about-section-nav', '.about-directory-content > section',
   '.about-numbers', '.about-purpose', '.about-awards', '.about-leadership', '.about-clients',
   '.cinematic-stage', '.official-culture', '.client-stories',
   '.services-catalogue', '.work-catalogue', '.insights-catalogue', '.careers-catalogue',
   '.practice-hero', '.practice-body', '.practice-capabilities', '.practice-deliverables', '.practice-related',
-  '.culture-cinema-intro', '.life-brand-interlude', '.career-connect',
-  '.team-hero', '.team-directory', '.enquiry-layout',
+  '.culture-cinema-intro', '.career-connect', '.career-positions',
+  '.team-hero', '.team-directory', '.enquiry-layout', '.service-request-form',
   '.work-portfolio-opening', '.insight-feature-dossier', '.future-dark',
   '.cs-hero', '.cs-concept', '.cs-work', '.cs-next'
 ].join(',');
 const light = [
-  '.home-trust', '.home-conversation', '.about-story-pair', '.client-marquee',
+  '.home-conversation', '.about-story-pair', '.client-marquee',
   '.method-section', '.branding-approach-section', '.practice-method',
-  '.insights-catalogue-content', '.life-story-cover', '.career-positions',
-  '.enquiry-form', '.wider-team', '.consultancy-close', '.cs-brief', '.cs-scope'
+  '.insights-catalogue-content',
+  '.enquiry-form:not(.service-request-form)', '.wider-team', '.consultancy-close', '.cs-brief', '.cs-scope'
 ].join(',');
 
 function applySurfaces() {

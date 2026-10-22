@@ -1,0 +1,8 @@
+/* Director messages belong directly beneath the active portrait and role. */
+.people-quote-slot{min-height:124px;max-width:520px;margin:8px auto 0}
+.people-quote{text-align:center;scroll-margin-top:135px}
+.people-quote .director-quote-mark{display:block;width:30px;height:24px;margin:0 auto 10px;fill:#00a3ff}
+body.brand-ink .people-quote #director-message>span{display:block;color:#9cb6c7;font-size:10px;letter-spacing:.1em;text-transform:uppercase;line-height:1.6;margin-bottom:6px}
+body.brand-ink .people-quote #director-message>p{max-width:48ch;margin:0 auto;color:#b9ccd9;font-size:13px;line-height:1.6;text-align:center}
+body.brand-ink .people-quote blockquote{max-width:42ch;margin:0 auto;color:#eef5fa;font-size:clamp(16px,1.5vw,20px);line-height:1.6;letter-spacing:-.01em;text-align:center;overflow-wrap:anywhere}
+@media(max-width:800px){.people-quote{scroll-margin-top:110px}}

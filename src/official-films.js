@@ -24,7 +24,7 @@ if (location.pathname.endsWith('about.html')) {
 
 if (location.pathname.endsWith('careers.html')) {
  const target = document.querySelector('#culture') || document.querySelector('.careers-content');
- if (target) target.insertAdjacentHTML('beforeend', film('official-showreel', 'Think With Purpose — life at BrandShip'));
+ if (target) target.insertAdjacentHTML('beforeend', film('official-showreel', 'Think With Purpose: life at BrandShip'));
 }
 
 // Official ambient film supports the closing invitation, rather than another dark block.

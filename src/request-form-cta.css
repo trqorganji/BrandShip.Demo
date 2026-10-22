@@ -1,0 +1,50 @@
+/* Clear entry points to the enquiry form, without changing surrounding sections. */
+body.brand-ink main a.request-form-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  min-height:48px;
+  width:max-content;
+  max-width:100%;
+  padding:14px 20px;
+  border:1px solid #00a3ff;
+  border-radius:8px;
+  background:#00a3ff;
+  color:#07141e;
+  font-size:13px;
+  font-weight:600;
+  line-height:1.4;
+  letter-spacing:.01em;
+  text-align:left;
+  text-transform:none;
+  transition:background .2s,border-color .2s;
+}
+body.brand-ink main a.request-form-cta:hover{background:#65c8ff;border-color:#65c8ff;color:#07141e}
+body.brand-ink main a.request-form-cta:focus-visible{outline:2px solid #8bd5ff;outline-offset:5px;color:#07141e}
+body.brand-ink main a.request-form-cta svg{width:21px;height:21px;flex:0 0 21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.request-form-entry{display:grid;justify-items:start;gap:10px;min-width:0}
+body.brand-ink main .request-form-hint{max-width:48ch;margin:0;font-size:12px;line-height:1.7;color:#bacbd7;letter-spacing:normal;text-transform:none}
+.home-hero-actions{align-items:flex-start}
+.services-catalogue-title .request-form-entry{justify-items:center;margin-top:28px}
+body.brand-ink .services-catalogue-title .request-form-hint{max-width:44ch;text-align:center}
+.request-form-callout{display:flex;justify-content:space-between;align-items:center;gap:28px;margin-top:40px;padding-top:28px;border-top:1px solid #2b3741}
+.request-form-callout>div{min-width:0}
+body.brand-ink .request-form-callout .request-form-kicker{display:block;font-size:10px;line-height:1.6;letter-spacing:.12em;text-transform:uppercase;color:#9fb4c3}
+body.brand-ink .request-form-callout h3{margin:10px 0;font-size:25px;font-weight:500;line-height:1.2;letter-spacing:-.025em;color:#f3f6f8}
+.request-form-callout .request-form-cta{flex-shrink:0}
+body.brand-ink main .ink-light .request-form-hint,
+body.brand-ink .services-close .request-form-hint{color:#4c5e69}
+body.brand-ink .home-conversation .request-form-hint{margin:0 0 22px}
+body.brand-ink .services-close .request-form-hint{margin:16px 0 0}
+@media(max-width:800px){
+  .request-form-callout{flex-direction:column;align-items:flex-start;gap:20px;margin-top:32px;padding-top:24px}
+  .services-catalogue-title .request-form-entry{margin-top:22px}
+}
+@media(max-width:480px){
+  .home-hero-actions{width:100%;gap:16px}
+  .home-hero-actions .request-form-entry{order:-1;width:100%}
+  .home-hero-actions .request-form-cta,
+  .request-form-callout .request-form-cta{width:100%}
+}
+@media(prefers-reduced-motion:reduce){body.brand-ink main a.request-form-cta{transition:none}}
