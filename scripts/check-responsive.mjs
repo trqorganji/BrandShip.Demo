@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_EXECUTABLE ? { executablePath: process.env.CHROME_EXECUTABLE } : {}) });
-const routes = ['index.html', 'about.html', 'services.html', 'work.html', 'insights.html', 'careers.html', 'practice.html?area=branding', 'practice.html?area=communication', 'contact.html', 'team.html', 'case-study.html?project=king-salman-gate'];
+const routes = ['index.html', 'about.html', 'services.html', 'work.html', 'insights.html', 'careers.html', 'practice.html?area=branding', 'practice.html?area=communication', 'practice.html?area=web-development', 'contact.html', 'team.html', 'case-study.html?project=king-salman-gate'];
 const base = process.env.RESPONSIVE_BASE_URL || 'http://localhost:5173/';
 let failures = 0;
 try {
@@ -17,9 +17,11 @@ try {
       await page.evaluate(() => document.fonts.ready);
       await page.waitForTimeout(350);
       if (route === 'about.html') {
-        assert.equal(await page.locator('.about-purpose-grid').evaluate(e => getComputedStyle(e).backgroundColor), 'rgba(0, 0, 0, 0)', 'Mission & Vision must retain the final layout in production');
+        assert.deepEqual(await page.locator('.about-directory-content > section').evaluateAll(nodes => nodes.map(node => node.id)), ['why-brandship', 'testimonials', 'numbers', 'leadership', 'history'], 'About follows the approved chapter order');
         await page.waitForFunction(() => parseFloat(getComputedStyle(document.querySelector('.about-stat-grid strong')).fontSize) >= 86);
-        assert.equal(await page.locator('.client-marquee.ink-light').count(), 1, 'Client logos must retain their original light surface');
+        assert.equal(await page.locator('.why-grid article').count(), 6);
+        assert.equal(await page.locator('.partner-card').count(), 5);
+        assert.equal(await page.locator('.about-people,.people-controls,.official-culture,.about-clients').count(), 0, 'Removed About sections must not be reinjected');
       }
       for (const fraction of [0, .5, 1]) {
         await page.evaluate(f => scrollTo(0, (document.documentElement.scrollHeight - innerHeight) * f), fraction);

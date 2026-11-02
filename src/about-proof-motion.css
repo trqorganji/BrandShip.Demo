@@ -1,4 +1,10 @@
 .about-page .proof-showcase{padding-bottom:55px}
+.about-page .proof-showcase .proof-feature{grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);margin:0;padding:clamp(20px,3vw,40px);border:1px solid #2b3741;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(0,163,255,.02));text-align:left}
+.about-page .proof-showcase .proof-copy h3{text-align:left;font-size:clamp(28px,3vw,42px);margin:16px 0}
+.about-page .proof-showcase .proof-copy,.about-page .proof-showcase .proof-copy .proof-eyebrow{text-align:left}
+.about-page .proof-showcase .proof-copy p{margin:0;max-width:none}
+.about-page .proof-showcase .proof-image{border-radius:14px;aspect-ratio:1.7}
+@media(max-width:800px){.about-page .proof-showcase .proof-feature{grid-template-columns:1fr;gap:24px;border-radius:18px}.about-page .proof-showcase .proof-image{grid-row:1}}
 .proof-showcase .proof-feature{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;align-items:center;margin-top:40px;padding-block:30px;border-top:1px solid #d5dadd}
 .proof-eyebrow{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#007fbf;display:block}
 .about-page .proof-copy h3{font-size:clamp(28px,3vw,46px);line-height:1.15;letter-spacing:-.04em;margin:24px 0}

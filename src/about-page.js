@@ -1,4 +1,5 @@
 import './brand-dot-film.css';
+import './about-testimonials.css';
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const signature = document.querySelector('.about-brand-signature');
 if (signature) {

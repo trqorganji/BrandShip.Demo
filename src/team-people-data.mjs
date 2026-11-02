@@ -1,4 +1,4 @@
-// Names and roles follow the supplied organisation slide. Board captions were
+// Names and roles follow the supplied organisation slide and later user corrections. Board captions were
 // confirmed in the user's screenshots. Portraits are mapped by slide position,
 // never inferred from faces. Unapproved messages are deliberately left empty.
 const person = (id, name, role, team, source, director = false) => ({ id, name, role, team, source, director, image: `assets/team/${id}.jpg`, quote: null });
@@ -11,11 +11,11 @@ export const partners = [
 ];
 export const people = [
   person('rayan-organji', 'Rayan Organji', 'Acting CEO & Business Development Director', 'Business Development', 'image37.jpeg', true),
-  person('salman-alrajhi', 'Salman AlRajhi', 'Sr. BD Specialist', 'Business Development', 'image33.png'),
-  person('raafat-attar', 'Raafat Attar', 'Sr. BD Specialist', 'Business Development', 'image34.png'),
-  person('mohammad-yassin', 'Mohammad Yassin', 'BD Specialist', 'Business Development', 'image32.png'),
-  person('lama-karkanawi', 'Lama Karkanawi', 'BD Specialist', 'Business Development', 'image31.png'),
-  person('lana-trabzoni', 'Lana Trabzoni', 'BD Specialist', 'Business Development', 'image23.png'),
+  person('salman-alrajhi', 'Salman AlRajhi', 'Sr. BD', 'Business Development', 'image33.png'),
+  person('raafat-attar', 'Raafat Attar', 'Sr. BD', 'Business Development', 'image34.png'),
+  person('mohammad-yassin', 'Mohammad Yassin', 'BD', 'Business Development', 'image32.png'),
+  person('lama-karkanawi', 'Lama Karkanawi', 'BD', 'Business Development', 'image31.png'),
+  person('lana-trabzoni', 'Lana Trabzoni', 'BD', 'Business Development', 'image23.png'),
   person('amr-dulaimi', 'Amr Dulaimi', 'Project Management Director', 'Project Management', 'image24.jpeg', true),
   person('yasmina-abdulraouf', 'Yasmina Abdulraouf', 'Sr. Project Manager', 'Project Management', 'image29.png'),
   person('sarah-almasri', 'Sarah Almasri', 'Sr. Project Manager', 'Project Management', 'image30.png'),

@@ -15,6 +15,8 @@ No identities were inferred from faces.
 - A stray cropped `n Yahya` text object has no associated portrait and is not present
   in the visible organisation screenshot. It has not been turned into a profile.
 - Names now follow the supplied slide, including Rayan Organji and Amr Naeim.
+- Per the user's correction, Business Development roles omit "Specialist": retain
+  `Sr. BD` and `BD`, with the director title and other departments unchanged.
 
 The authoritative website mapping is `src/team-people-data.mjs`. `source` records the
 original media filename. `image` points to the optimised website copy. Original

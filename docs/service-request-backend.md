@@ -54,6 +54,7 @@ Service keys mirror the website's published catalogue:
 - Marketing & communication: `marcom-strategies`, `analytics`, `internal-culture`,
   `sentiment-analysis`, `sonic-branding`, `video-conceptualization`, `ai-lensing`.
 - Additional client-defined service: `other`.
+- Web Development: `web-development` (also preselected by the practice-page web project CTAs).
 - Guidance requested: `not-sure` (clients do not have to know the right service).
 
 The initial view contains name, email, a collapsible service picker, and the note/upload

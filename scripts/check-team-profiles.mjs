@@ -6,6 +6,9 @@ const base = process.env.RESPONSIVE_BASE_URL || 'http://localhost:5173/';
 assert.equal(partners.length, 5);
 assert.equal(people.length, 31);
 assert.equal(directors.length, 5);
+assert.deepEqual(people.filter(person => person.team === 'Business Development').map(person => person.role), ['Acting CEO & Business Development Director', 'Sr. BD', 'Sr. BD', 'BD', 'BD', 'BD']);
+assert.equal(people.find(person => person.id === 'hamza-kamal').role, 'PM Specialist', 'Other departments keep their approved titles');
+assert.equal(people.find(person => person.id === 'natasha-qurashi').role, 'Strategy Specialist');
 assert.equal(new Set([...partners, ...people].map(person => person.id)).size, 36);
 let bytes = 0;
 for (const person of [...partners, ...people]) {

@@ -69,9 +69,9 @@
 .cs-artwork-note p{font-size:14px;line-height:1.85;color:#64747e;margin:0 0 24px}
 .cs-assets-status{display:inline-block;padding-left:12px;border-left:2px solid var(--cs-blue);font-size:10px;line-height:1.7;color:#687982}
 .cs-scope{padding-block:50px 68px;border-top:1px solid var(--cs-line)}
-.cs-scope .cs-section-heading{align-items:start}
+.cs-scope .cs-section-heading{display:block;text-align:left}
 .cs-project .cs-scope h2{max-width:22ch;font-size:clamp(28px,3.2vw,46px);line-height:1.2;text-align:left!important;margin:0}
-.cs-scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw}
+.cs-scope-grid{display:grid;grid-template-columns:1fr;gap:0}
 .cs-project .cs-scope-grid h3{font-size:16px;margin:0 0 22px;text-align:left!important}
 .cs-scope-grid ol,.cs-scope-grid ul{list-style:none;padding:0;margin:0}
 .cs-scope-grid li{display:flex;gap:24px;padding:16px 0;border-top:1px solid var(--cs-line);font-size:14px;line-height:1.7}
@@ -131,7 +131,7 @@
   .cs-client-mark figcaption{font-size:9px}
   .cs-artwork-note{padding-block:24px}
   .cs-scope{padding-block:36px 44px}
-  .cs-project .cs-scope h2{font-size:29px;margin-top:18px}
+  .cs-project .cs-scope h2{font-size:29px;margin-top:0}
   .cs-scope-grid{gap:34px}
   .cs-next{padding-block:28px 36px}
   .cs-next-link{min-height:280px;padding:25px;gap:16px}

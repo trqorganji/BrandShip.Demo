@@ -6,18 +6,25 @@
 .about-page .connected-story .about-overview p,.about-page .connected-story .story-section>p:not(.approval-note){font-size:clamp(15px,1.2vw,18px);line-height:1.8;max-width:530px}
 .about-page .connected-story .story-section .approval-note{font-size:11px;line-height:1.7;max-width:400px;margin-top:26px}
 .story-connection{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:0;pointer-events:none}
-.story-connection path{fill:none;stroke-width:1;vector-effect:non-scaling-stroke}
-.connection-guide{stroke:#00a3ff18}
-.connection-trace{stroke:#00a3ff;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--connection-progress,0));opacity:.6}
-.connection-tail{stroke:#00a3ff;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--connection-progress,0));opacity:.15}
+.story-connection path{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.connection-guide,.connection-tail-guide{stroke:#00a3ff;opacity:.22}
+.connection-trace{stroke:#00a3ff;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--connection-progress,0));opacity:.95}
+.connection-tail{stroke:#00a3ff;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--connection-tail-progress,0));opacity:.85}
 .connection-node{fill:#00a3ff;opacity:var(--connection-progress,0)}
-.connection-satellite{fill:var(--cream,#f7f7f5);stroke:#00a3ff;stroke-width:1;opacity:calc(var(--connection-progress,0) * .4)}
+.connection-satellite{fill:#00a3ff;stroke:#00a3ff;stroke-width:2;opacity:var(--connection-tail-progress,0)}
+.connection-head{fill:#00a3ff}
+.connection-head-halo{fill:none;stroke:#00a3ff;stroke-width:2;stroke-opacity:.25}
+.story-connection .connection-head,.story-connection .connection-head-halo{opacity:0}
+.story-continuation{z-index:2;overflow:hidden;opacity:calc(1 - var(--portal-exit,0))}
+.story-continuation .connection-guide{opacity:.3}
+.about-directory-content>.story-connected-scene{margin-top:0}
 .connected-story.connection-entered .about-overview h2{animation:story-enter .8s cubic-bezier(.22,1,.36,1) both}
 .connected-story.connection-entered .chapter-label,.connected-story.connection-entered .story-section h2{animation:story-enter .8s cubic-bezier(.22,1,.36,1) .18s both}
 @keyframes story-enter{from{transform:translateY(12px);opacity:.35}to{transform:none;opacity:1}}
 @media(max-width:650px){
  .about-page .about-story-pair.connected-story{display:block;padding-block:40px 52px}
  .about-page .connected-story .about-overview{padding-bottom:42px}
+ .about-page .connected-story .about-overview{padding-right:16px}
  .about-page .connected-story .story-section{padding:28px 0 0 22px!important;border-top:0}
  .about-page .connected-story .about-overview h2{font-size:clamp(32px,8.5vw,44px)}
  .about-page .connected-story .story-section h2{font-size:clamp(26px,7vw,34px)}

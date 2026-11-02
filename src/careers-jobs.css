@@ -46,3 +46,4 @@ body.brand-ink .job-board .job-hr-link{display:inline-flex;align-items:center;mi
 @media(max-width:800px){body.brand-ink .job-board.ink-dark{padding-block:32px;scroll-margin-top:110px}.job-board-heading{grid-template-columns:1fr;gap:24px}.job-board-toolbar :is(input,select){font-size:16px}.job-board-empty{padding:24px;align-items:start;gap:18px}.job-board-empty>svg{width:34px;height:34px;flex-basis:34px}.job-card{padding:24px}.job-card h3{font-size:28px}#job-board-filters{display:grid;grid-template-columns:1fr 1fr;width:100%}.job-board-toolbar :is(input,select){max-width:none}}
 @media(max-width:480px){.job-board-empty{flex-direction:column}.job-board-heading>p{font-size:14px}#job-board-filters{grid-template-columns:1fr}body.brand-ink .job-board a.career-role{width:100%}}
 @media(prefers-reduced-motion:reduce){.job-apply svg{transition:none}}
+.job-board-empty[hidden]{display:none}

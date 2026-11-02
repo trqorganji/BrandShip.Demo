@@ -27,8 +27,8 @@ if (route && route !== 'index.html') {
     title.append(text, figure(file, alt, caption, true));
     title.classList.add('editorial-opening');
   };
-  hero('.services-catalogue-title', 'services-official.png', 'BrandShip services artwork', 'Strategy · Identity · Communication');
-  hero('.insights-catalogue-title', 'insight-book.png', 'Arabic branding book featured by BrandShip', 'Ideas, culture and brand knowledge');
+  hero('.services-catalogue-title', 'services-official.png', 'Brandship services artwork', 'Strategy · Identity · Communication');
+  hero('.insights-catalogue-title', 'insight-book.png', 'Arabic branding book featured by Brandship', 'Ideas, culture and brand knowledge');
   hero('.careers-catalogue-title', 'careers-01.jpg', 'People connecting at a creative industry event', 'Life, ideas and connection');
 
   const firstInsight = document.querySelector('.insight-entry-visual');
@@ -38,7 +38,7 @@ if (route && route !== 'index.html') {
   const culture = document.querySelector('.career-culture-stage');
   if (culture) {
     const gallery = document.createElement('div'); gallery.className = 'editorial-culture-gallery';
-    gallery.append(figure('careers-02.jpg', 'BrandShip published culture photograph', ''), figure('careers-03.jpg', 'BrandShip published culture photograph', ''));
+    gallery.append(figure('careers-02.jpg', 'Brandship published culture photograph', ''), figure('careers-03.jpg', 'Brandship published culture photograph', ''));
     culture.after(gallery);
   }
   const contact = document.querySelector('.enquiry-layout>div');

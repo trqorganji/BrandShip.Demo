@@ -1,0 +1,44 @@
+/* A third practice, with a distinct browser-inspired visual rather than another orbit. */
+@media(min-width:1101px){.home-service-groups{grid-template-columns:repeat(3,minmax(0,1fr));gap:3vw}}
+.web-browser{width:100%;border:1px solid #526d8255;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#192733,#0c141e);color:#f3f6f8;box-shadow:0 22px 50px #0003,inset 0 1px 0 #ffffff0f;text-align:left;isolation:isolate}
+.web-browser-bar{display:flex;align-items:center;gap:6px;min-height:44px;padding:12px 16px;border-bottom:1px solid #ffffff14;background:#ffffff04}
+.web-browser-bar>i{width:5px;height:5px;border-radius:50%;background:#90a8b8;flex:0 0 5px}
+.web-browser-bar>i:first-child{background:#00a3ff}
+.web-browser-bar>span{margin-inline:auto;font-size:10px;letter-spacing:.08em;color:#a2bbcc}
+.web-browser-bar>b{font-size:13px;font-weight:500;color:#65c8ff}
+.web-browser-canvas{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.65fr);gap:24px;min-height:240px;padding:28px}
+.web-layout-main>span{display:block;font-size:9px;line-height:1.6;text-transform:uppercase;letter-spacing:.14em;color:#a7c0d1}
+body.brand-ink .web-layout-main>strong{display:block;font-size:clamp(23px,2.6vw,38px);font-weight:500;line-height:1.15;letter-spacing:-.035em;color:#f3f6f8;margin-block:16px 22px;text-align:left}
+.web-layout-main>strong>span{color:#00a3ff}
+.web-code-lines{display:grid;gap:7px;max-width:160px}
+.web-code-lines>i{display:block;height:3px;background:#52728a55;border-radius:2px;transform-origin:left}
+.web-code-lines>i:nth-child(2){width:82%;background:#00a3ff55}
+.web-code-lines>i:nth-child(3){width:62%}
+.web-layout-button{height:8px;width:60px;background:#00a3ff;margin-top:24px;border-radius:3px}
+.web-layout-side{display:grid;grid-template-rows:1.4fr 1fr 1fr;gap:12px}
+.web-module{border:1px solid #64c8ff30;border-radius:7px;background:linear-gradient(135deg,#00a3ff20,#ffffff05)}
+.web-module:nth-child(2){background:#ffffff07;margin-left:14px}
+.web-module:nth-child(3){margin-right:12px}
+.web-browser-foot{display:flex;justify-content:space-between;gap:16px;padding:12px 16px;border-top:1px solid #ffffff12;color:#a2bbcc;font-size:9px;line-height:1.6;letter-spacing:.035em}
+.web-preview-visible .web-module{animation:web-module-in 850ms cubic-bezier(.22,1,.36,1) both}
+.web-preview-visible .web-module:nth-child(2){animation-delay:120ms}
+.web-preview-visible .web-module:nth-child(3){animation-delay:240ms}
+.web-preview-visible .web-code-lines>i{animation:web-code-in 900ms cubic-bezier(.22,1,.36,1) both}
+.web-preview-visible .web-code-lines>i:nth-child(2){animation-delay:140ms}
+.web-preview-visible .web-code-lines>i:nth-child(3){animation-delay:280ms}
+.practice-page .web-development-opening h1{font-size:clamp(40px,6.5vw,88px);line-height:1.1;text-wrap:balance}
+.practice-page .web-development-opening>.request-form-cta{margin-top:26px}
+.practice-page .web-development-opening>.web-browser{max-width:760px;margin:34px auto 24px}
+.web-development-opening .web-browser-canvas{min-height:280px;padding:34px}
+.practice-page [id^="web-development-capability-"]{scroll-margin-top:140px}
+@keyframes web-module-in{from{opacity:.25;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes web-code-in{from{opacity:.3;transform:scaleX(.25)}to{opacity:1;transform:scaleX(1)}}
+@media(max-width:800px){
+ .web-browser-canvas{padding:22px;gap:18px;min-height:230px}
+ body.brand-ink .web-layout-main>strong{font-size:clamp(22px,5.5vw,34px)}
+ .practice-page .web-development-opening h1{font-size:clamp(36px,10vw,56px)}
+ .web-development-opening .web-browser-canvas{min-height:230px;padding:22px}
+ .web-development-opening .web-browser-foot{font-size:9px}
+}
+@media(max-width:359px){.web-browser-canvas,.web-development-opening .web-browser-canvas{padding:18px;gap:14px}.web-browser-foot{padding-inline:12px;font-size:8px}}
+@media(prefers-reduced-motion:reduce){.web-browser *{animation:none!important;transform:none!important}}

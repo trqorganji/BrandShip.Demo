@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const base = process.env.RESPONSIVE_BASE_URL || 'http://localhost:5173/';
 const projects = ['king-salman-gate', 'rua-al-haram', 'madina-made', 'riyadh-schools-group', 'qiddiya', 'eksab', 'masar', 'king-salman-park', 'jeddah-central', 'invest-saudi'];
-const routes = ['index.html', 'about.html', 'services.html', 'work.html', 'insights.html', 'careers.html', 'team.html', 'contact.html', 'practice.html?area=branding', 'practice.html?area=communication', ...projects.map(key => `case-study.html?project=${key}`)];
+const routes = ['index.html', 'about.html', 'services.html', 'work.html', 'insights.html', 'careers.html', 'team.html', 'contact.html', 'practice.html?area=branding', 'practice.html?area=communication', 'practice.html?area=web-development', ...projects.map(key => `case-study.html?project=${key}`)];
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_EXECUTABLE ? { executablePath: process.env.CHROME_EXECUTABLE } : {}) });
 try {
   const page = await browser.newPage({ reducedMotion: 'reduce' });
@@ -12,7 +12,7 @@ try {
     await page.goto(new URL(route, base).href);
     await page.locator('body.brand-ink').waitFor();
     const matches = await page.evaluate(() => {
-      const unwanted = /[\u2013\u2014]|--/;
+      const unwanted = /[\u2013\u2014]|--|\bBrandShip\b/;
       const found = [];
       // Check hidden disclosure content too, not CSS variables, comments or script syntax.
       const walker = document.createTreeWalker(document.documentElement, NodeFilter.SHOW_TEXT);
@@ -29,7 +29,7 @@ try {
       });
       return found;
     });
-    assert.deepEqual(matches, [], `${route}: long or double dashes remain in site copy`);
+    assert.deepEqual(matches, [], `${route}: nonstandard punctuation or brand casing remains in site copy`);
     console.log(`${route}: copy checked`);
   }
   assert.deepEqual(errors, [], 'No page runtime errors');

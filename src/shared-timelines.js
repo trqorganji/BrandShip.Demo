@@ -1,7 +1,45 @@
 import './shared-timelines.css';
 
+function revealPhoneTimeline(grid, className, headerOffset) {
+  const cards = [...grid.querySelectorAll('article')];
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const phone = matchMedia('(max-width: 650px)');
+  let observer;
+  function configure() {
+    observer?.disconnect();
+    const enabled = phone.matches && !reduced.matches && 'IntersectionObserver' in window;
+    grid.classList.toggle(className, enabled);
+    if (!enabled) return;
+    // Each visible phase starts independently; skipped chapters never form a queue.
+    observer = new IntersectionObserver(entries => {
+      const entering = entries.filter(entry => entry.isIntersecting)
+        .sort((a, b) => cards.indexOf(a.target) - cards.indexOf(b.target));
+      entering.forEach(({ target: card }, index) => {
+        card.style.setProperty('--milestone-delay', `${index * 150}ms`);
+        card.classList.add('milestone-arrived');
+        observer.unobserve(card);
+      });
+    }, { rootMargin: `-${headerOffset}px 0px -10% 0px`, threshold: .12 });
+    cards.forEach(card => {
+      if (card.getBoundingClientRect().bottom <= headerOffset) card.classList.add('milestone-arrived', 'milestone-settled');
+      if (!card.classList.contains('milestone-arrived')) observer.observe(card);
+    });
+  }
+  grid.addEventListener('animationend', event => {
+    const card = event.target.closest('article');
+    if (event.animationName === 'phone-milestone-copy' && event.target === card?.lastElementChild) {
+      card.classList.add('milestone-settled');
+    }
+  });
+  phone.addEventListener('change', configure);
+  reduced.addEventListener('change', configure);
+  addEventListener('pageshow', configure);
+  configure();
+}
+
 // Services remains the reference component; history reuses its stage and cards.
 document.querySelectorAll('.method-grid').forEach(grid => grid.classList.add('consistent-timeline'));
+document.querySelectorAll('.method-section .method-grid').forEach(grid => revealPhoneTimeline(grid, 'phone-phase-reveal', 88));
 const history = document.querySelector('.about-history');
 const grid = history?.querySelector('.story-timeline');
 if (grid) {
@@ -14,6 +52,7 @@ if (grid) {
   const cards = [...grid.querySelectorAll('article')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const compact = matchMedia('(max-width: 800px)');
+  revealPhoneTimeline(grid, 'phone-history-reveal', 140);
   const clamp = value => Math.max(0, Math.min(1, value));
   let target = 0;
   let progress = 0;

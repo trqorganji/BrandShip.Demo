@@ -4,54 +4,6 @@ export const originalServiceCapabilities = [...document.querySelectorAll('.servi
 const href = path => `${base}${path}`;
 const el = (tag, className, html) => { const node = document.createElement(tag); node.className = className; node.innerHTML = html; return node; };
 
-const aboutContent = document.querySelector('.about-directory-content');
-if (aboutContent) {
-  const overview = aboutContent.querySelector('#overview');
-  const story = el('section', 'feedback-section story-section', `
-    <span class="chapter-label">Our story</span>
-    <h2>Built with purpose. Evolving with our clients<span class="blue-stop">.</span></h2>
-    <p>BrandShip is an independent Saudi brand consultancy connecting research, strategy, identity and communication. We approach brands as relationships between organisations, people and place.</p>
-    <p class="approval-note">The founding date and company milestones will be added after approval.</p>`);
-  story.id = 'story';
-  if (overview) {
-    const pair = el('div', 'about-story-pair', '');
-    overview.before(pair);
-    pair.append(overview, story);
-    pair.after(el('section', 'feedback-section about-history', `
-      <div class="feedback-heading"><span>History timeline</span><h2>The BrandShip journey<span class="blue-stop">.</span></h2></div>
-      <p class="feedback-intro">An illustrative company journey. The dates and milestones below are sample content for the demo, pending confirmation.</p>
-      <div class="story-timeline" aria-label="BrandShip history timeline">
-        <article><small>2015 · founding</small><h3>The first chapter</h3><p>Placeholder for how BrandShip began and the problem it set out to solve.</p></article>
-        <article><small>2018 · early growth</small><h3>A defining milestone</h3><p>Placeholder for an early project, client or turning point.</p></article>
-        <article><small>2021 · expansion</small><h3>More connected capabilities</h3><p>Placeholder for the expansion of the team and consulting practice.</p></article>
-        <article><small>2024 · momentum</small><h3>A wider contribution</h3><p>Placeholder for an approved achievement or new market chapter.</p></article>
-        <article><small>2026 · today</small><h3>What comes next</h3><p>Placeholder for BrandShip’s current scale, ambition and future focus.</p></article>
-      </div>`));
-    pair.nextElementSibling.id = 'history';
-  }
-  const numbers = aboutContent.querySelector('#numbers');
-  numbers?.querySelector('header>span')?.replaceChildren(document.createTextNode('Numbers & achievements'));
-  numbers?.querySelector('h2')?.replaceChildren(document.createTextNode('Evidence of the practice.'));
-  const awards = aboutContent.querySelector('#awards');
-  if (numbers && awards) numbers.after(awards);
-  const why = el('section', 'feedback-section why-section', `
-    <div class="feedback-heading"><span>Why BrandShip</span><h2>Clarity from complexity<span class="blue-stop">.</span></h2></div>
-    <p class="feedback-intro">A proposed positioning framework for review. Confirm the language and supporting evidence before using these as company claims.</p>
-    <div class="why-grid"><article><b>01</b><h3>Saudi understanding</h3><p>Sample proof point: show how local cultural insight shaped a brief.</p></article><article><b>02</b><h3>Strategic thinking</h3><p>Sample proof point: connect research to a decisive brand position.</p></article><article><b>03</b><h3>Creative execution</h3><p>Sample proof point: demonstrate the idea across identity and touchpoints.</p></article><article><b>04</b><h3>Senior involvement</h3><p>Placeholder for the leadership model and when senior specialists engage.</p></article><article><b>05</b><h3>Stakeholder alignment</h3><p>Placeholder for experience navigating complex stakeholder groups.</p></article></div>`);
-  (awards || numbers)?.after(why);
-  // Real board and employee profiles now live in the page source. Keep the
-  // director voices beside them, instead of injecting generic team placeholders.
-  const voices = aboutContent.querySelector('#team');
-  const culture = aboutContent.querySelector('.official-culture');
-  if (culture && voices) voices.after(culture);
-  const clients = aboutContent.querySelector('#clients');
-  clients?.insertAdjacentHTML('beforeend', `<div class="client-stories"><h3>Selected client stories</h3><p class="approval-note">The short story lines below are editorial placeholders; project links open the current draft case-study layouts.</p><div><a href="${href('case-study.html?project=king-salman-gate')}"><span>Destination identity · story draft</span><strong>King Salman Gate</strong><p>Placeholder: the challenge, shared ambition and role of the brand.</p><em>Explore case</em></a><a href="${href('case-study.html?project=rua-al-haram')}"><span>Place branding · story draft</span><strong>Rua Al Haram</strong><p>Placeholder: the insight that connected place and audience.</p><em>Explore case</em></a><a href="${href('case-study.html?project=masar')}"><span>Destination branding · story draft</span><strong>Masar</strong><p>Placeholder: the strategic direction and how it took shape.</p><em>Explore case</em></a></div><div class="testimonial-placeholder"><span>Client voice · layout placeholder</span><blockquote>“Approved client testimonial will appear here.”</blockquote><p>Client name, role and permission to publish to be confirmed.</p></div></div>`);
-  const sectionNav = document.querySelector('.about-section-nav');
-  sectionNav?.querySelector('a[href="#overview"]')?.insertAdjacentHTML('afterend', '<a href="#story">Our story</a>');
-  sectionNav?.querySelector('a[href="#story"]')?.insertAdjacentHTML('afterend', '<a href="#history">History</a>');
-  sectionNav?.querySelector('a[href="#leadership"]')?.insertAdjacentHTML('afterend', '<a href="#team">Team</a>');
-}
-
 const serviceCatalogue = document.querySelector('.services-catalogue');
 if (serviceCatalogue) {
   const intro = el('section', 'practice-overview', `
@@ -60,7 +12,7 @@ if (serviceCatalogue) {
       <a href="${href('practice.html?area=branding')}"><span>Branding</span><h3>Make the brand unmistakable.</h3><p>For organisations that need a clear position and a distinctive visual system.</p><dl><dt>What we solve</dt><dd>Positioning and identity challenges</dd><dt>Illustrative deliverables</dt><dd>Strategic blueprint, identity system, visual language</dd><dt>Selected cases</dt><dd>King Salman Gate · Rua Al Haram</dd></dl><strong>Explore the practice <i aria-hidden="true"></i></strong></a>
       <a href="${href('practice.html?area=communication')}"><span>Marketing &amp; communication</span><h3>Make the brand matter in the world.</h3><p>For organisations connecting their brand with audiences, culture and channels.</p><dl><dt>What we solve</dt><dd>Audience connection and activation</dd><dt>Illustrative deliverables</dt><dd>Communication strategy, content concepts, measurement plan</dd><dt>Selected cases</dt><dd>Madina Made · King Salman Park</dd></dl><strong>Explore the practice <i aria-hidden="true"></i></strong></a>
     </div>`);
-  serviceCatalogue.after(el('section', 'method-section', `<div class="feedback-heading"><span>How we work</span><h2>From question to enduring expression<span class="blue-stop">.</span></h2></div><p class="feedback-intro">Illustrative consulting framework for review. Every phase can be adapted to the engagement and the actual BrandShip methodology should be approved before launch.</p><div class="method-grid"><article><small>01 / Discover</small><b>Listen &amp; research</b><p>Understand audiences, context and the brief.</p><em>Sample output · discovery summary</em></article><article><small>02 / Define</small><b>Set direction</b><p>Align purpose, position and strategic priorities.</p><em>Sample output · strategic blueprint</em></article><article><small>03 / Create</small><b>Build the system</b><p>Express the idea through identity, voice and experience.</p><em>Sample output · creative platform</em></article><article><small>04 / Activate</small><b>Bring it to life</b><p>Plan channels, launch and stakeholder touchpoints.</p><em>Sample output · activation plan</em></article><article><small>05 / Measure</small><b>Govern &amp; learn</b><p>Review signals and maintain consistency.</p><em>Sample output · measurement framework</em></article></div>`));
+  serviceCatalogue.after(el('section', 'method-section', `<div class="feedback-heading"><h2>How we work<span class="blue-stop">.</span></h2></div><div class="method-grid"><article><small>01 / Discover</small><b>Listen &amp; research</b><p>Understand audiences, context and the brief.</p><em>Sample output · discovery summary</em></article><article><small>02 / Define</small><b>Set direction</b><p>Align purpose, position and strategic priorities.</p><em>Sample output · strategic blueprint</em></article><article><small>03 / Create</small><b>Build the system</b><p>Express the idea through identity, voice and experience.</p><em>Sample output · creative platform</em></article><article><small>04 / Activate</small><b>Bring it to life</b><p>Plan channels, launch and stakeholder touchpoints.</p><em>Sample output · activation plan</em></article><article><small>05 / Measure</small><b>Govern &amp; learn</b><p>Review signals and maintain consistency.</p><em>Sample output · measurement framework</em></article></div>`));
   serviceCatalogue.querySelector('.service-stream')?.before(intro);
   serviceCatalogue.querySelector('.service-stream')?.remove();
 }
@@ -96,7 +48,7 @@ if (insights) {
   const existingEntries = [...insights.querySelectorAll('.insight-entry')];
   existingEntries.forEach((entry, index) => entry.dataset.topic = ['research', 'magazine', 'perspectives', 'research', 'sector'][index]);
   const stream = existingEntries[0]?.parentElement;
-  stream?.insertAdjacentHTML('beforeend', `<article class="insight-entry insight-placeholder" data-topic="reports"><span>Report · sample content</span><h2>Brand signals in a changing market</h2><p>Placeholder for a future downloadable report. Research, date and findings pending approval.</p></article><article class="insight-entry insight-placeholder" data-topic="news"><span>News · sample content</span><h2>A new chapter in the BrandShip story</h2><p>Placeholder for a verified company announcement, with date and supporting details.</p></article>`);
+  stream?.insertAdjacentHTML('beforeend', `<article class="insight-entry insight-placeholder" data-topic="reports"><span>Report · sample content</span><h2>Brand signals in a changing market</h2><p>Placeholder for a future downloadable report. Research, date and findings pending approval.</p></article><article class="insight-entry insight-placeholder" data-topic="news"><span>News · sample content</span><h2>A new chapter in the Brandship story</h2><p>Placeholder for a verified company announcement, with date and supporting details.</p></article>`);
   const entries = [...insights.querySelectorAll('.insight-entry')];
   // The site already has filtering logic; extend its vocabulary without a second competing control.
   requestAnimationFrame(() => {
@@ -116,7 +68,7 @@ if (caseOverview) {
   const grid = caseOverview.querySelector('.story-grid');
   grid?.querySelector('.response-card')?.insertAdjacentHTML('beforebegin', `<article class="case-bridge"><span>The insight</span><h3>Research finding to be confirmed.</h3><p>Project-specific research insights will be added after client approval.</p></article>`);
   grid?.querySelector('.response-head span')?.replaceChildren(document.createTextNode('The strategy'));
-  document.querySelector('.case-proof-copy .case-label')?.replaceChildren(document.createTextNode('What BrandShip did'));
+  document.querySelector('.case-proof-copy .case-label')?.replaceChildren(document.createTextNode('What Brandship did'));
   document.querySelector('.case-delivery .case-kicker p')?.replaceChildren(document.createTextNode('From brief to expression'));
   document.querySelector('.case-output .case-label')?.replaceChildren(document.createTextNode('Deliverables'));
   document.querySelector('.case-output')?.querySelectorAll('.case-label')[1]?.replaceChildren(document.createTextNode('Intended strategic value'));

@@ -1,16 +1,19 @@
 import './branding-opening.css';
+import { createWebPreview } from './web-development.js';
 
 export function enhanceBrandingOpening(area = 'branding') {
   const communication = area === 'communication';
+  const web = area === 'web-development';
   const hero = document.querySelector('.practice-hero');
   const lead = document.querySelector('.practice-lead');
   hero.classList.add('branding-premium-opening');
   if (communication) hero.classList.add('communication-premium-opening');
+  if (web) hero.classList.add('web-development-opening');
   lead.classList.add('branding-premium-overview');
   const capabilities = [...document.querySelectorAll('.practice-capabilities article')];
   const links = document.createElement('nav');
   links.className = 'branding-capability-links';
-  links.setAttribute('aria-label', communication ? 'Marketing & communication capabilities' : 'Branding capabilities');
+  links.setAttribute('aria-label', web ? 'Web Development capabilities' : communication ? 'Marketing & communication capabilities' : 'Branding capabilities');
   capabilities.forEach((article, index) => {
     article.id = `${area}-capability-${index + 1}`;
     const link = document.createElement('a');
@@ -21,7 +24,12 @@ export function enhanceBrandingOpening(area = 'branding') {
     mark.setAttribute('viewBox', '0 0 48 48');
     mark.setAttribute('aria-hidden', 'true');
     mark.classList.add('branding-capability-mark');
-    const icons = communication ? [
+    const icons = web ? [
+      'M5 8h38v32H5ZM5 15h38M10 11h1m4 0h1M18 23l-5 5 5 5m12-10 5 5-5 5m-7 3 3-12',
+      'M5 10h27v22H5ZM13 38h11M19 32v6M35 19h8v21h-8Z',
+      'M8 8h32v32H8ZM8 16h32M15 23h18M15 29h12M15 35h15',
+      'M29 9a10 10 0 0 0-12 12L7 31l10 10 10-10A10 10 0 0 0 39 19l-8 5-7-7 5-8Z'
+    ] : communication ? [
       'M8 24h12l18-12v24L20 24M15 24l4 14h8l-5-13',
       'M9 38V10M9 38h30M16 32V24M25 32V17M34 32V10',
       'M24 22a6 6 0 1 0 0-12 6 6 0 0 0 0 12ZM13 38v-4a11 11 0 0 1 22 0v4M8 16v12M40 16v12',
@@ -49,11 +57,17 @@ export function enhanceBrandingOpening(area = 'branding') {
   graphic.setAttribute('viewBox', '0 0 800 120');
   graphic.setAttribute('aria-hidden', 'true');
   graphic.innerHTML = `${Array.from({length:5}, (_,index) => `<path data-strand="${index}"/>`).join('')}<rect x="393" y="53" width="14" height="14"/>`;
-  hero.append(graphic);
+  if (web) hero.append(createWebPreview());
+  else hero.append(graphic);
   const questions = document.querySelector('.practice-questions');
   const explanation = questions.querySelector('h2').textContent;
   questions.classList.add('branding-approach-section');
-  const steps = communication ? [
+  const steps = web ? [
+    ['Discover','Understand your audiences, content and website goals.','Website scope & user journeys'],
+    ['Design','Shape the structure, interface and responsive experience.','Interface designs & prototype'],
+    ['Build','Develop the website and connect the agreed CMS.','Website & content management'],
+    ['Launch','Test the experience, prepare content and hand over.','Launch & team guidance']
+  ] : communication ? [
     ['Understand','Explore audiences, culture and communication needs.','Audience & channel insights'],
     ['Align','Connect brand voice with a clear communication direction.','Communication framework'],
     ['Activate','Develop creative concepts across relevant touchpoints.','Campaign & content concepts'],
@@ -64,7 +78,7 @@ export function enhanceBrandingOpening(area = 'branding') {
     ['Create','Translate the direction into a coherent identity.','Identity & visual system'],
     ['Apply','Bring the system into real-world touchpoints.','Applications & guidance']
   ];
-  questions.innerHTML = `<header class="branding-challenge"><span>What we solve</span><h2>${communication ? 'A clear voice.<br><em>Meaningful connection.</em>' : 'Clear direction.<br><em>Distinctive identity.</em>'}</h2><p>${explanation}</p></header><section class="branding-approach" aria-labelledby="branding-approach-title"><header><span>Our approach</span><h2 id="branding-approach-title">${communication ? 'From audience insight<br>to activation.' : 'From understanding<br>to expression.'}</h2></header><ol class="branding-approach-track">${steps.map(([title,text,output],index)=>`<li><span class="approach-diamond" aria-hidden="true"></span><small>0${index+1} / ${title}</small><h3>${title}</h3><p>${text}</p><span class="approach-output">Illustrative output · ${output}</span></li>`).join('')}</ol><p class="approach-approval">Illustrative approach for review. Phases and outputs depend on the brief and require approval before launch.</p></section>`;
+  questions.innerHTML = `<header class="branding-challenge"><span>What we solve</span><h2>${web ? 'Your brand online.<br><em>Designed around people.</em>' : communication ? 'A clear voice.<br><em>Meaningful connection.</em>' : 'Clear direction.<br><em>Distinctive identity.</em>'}</h2><p>${explanation}</p></header><section class="branding-approach" aria-labelledby="branding-approach-title"><header><span>Our approach</span><h2 id="branding-approach-title">${web ? 'From first idea<br>to a working website.' : communication ? 'From audience insight<br>to activation.' : 'From understanding<br>to expression.'}</h2></header><ol class="branding-approach-track">${steps.map(([title,text,output],index)=>`<li><span class="approach-diamond" aria-hidden="true"></span><small>0${index+1} / ${title}</small><h3>${title}</h3><p>${text}</p><span class="approach-output">Illustrative output · ${output}</span></li>`).join('')}</ol><p class="approach-approval">Illustrative approach for review. Phases and outputs depend on the brief and require approval before launch.</p></section>`;
   const approach = questions.querySelector('.branding-approach');
   document.querySelector('.practice-body').classList.add('branding-motion-body');
   const motionSections = [...document.querySelectorAll('.practice-deliverables,.practice-method,.practice-related')];

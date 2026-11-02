@@ -58,7 +58,8 @@ try {
   mode = 'empty';
   await visit();
   assert.equal(await page.locator('.job-card').count(), 0);
-  assert.match(await page.locator('#job-board-empty-title').textContent(), /No open positions/);
+  assert(await page.locator('#job-board-empty').isHidden());
+  assert(await page.locator('.job-general-application a').isVisible());
   assert(await page.locator('#job-board-filters').isHidden());
   mode = 'error';
   await visit();

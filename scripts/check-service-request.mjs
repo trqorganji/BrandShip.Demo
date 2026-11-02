@@ -25,9 +25,9 @@ try {
   const published = await readFile(new URL('../services.html', import.meta.url), 'utf8');
   const names = [...published.matchAll(/<article><div><h2>([^<]+)<\/h2>/g)].map(match => match[1]);
   const options = await page.locator('.request-service-options label>span').allTextContents();
-  assert.equal(names.length, 10);
+  assert.equal(names.length, 11);
   names.forEach(name => assert(options.includes(name), `Missing service: ${name}`));
-  assert.equal(options.length, 12);
+  assert.equal(options.length, 13);
   assert.equal(await page.locator('#request-service-picker').getAttribute('open'), null);
   assert.equal(await page.locator('#request-extra-details').getAttribute('open'), null);
   assert.equal(await page.locator('#request-stage,#request-project,#request-website,#request-audience,#request-timeline,#request-budget').count(), 0);

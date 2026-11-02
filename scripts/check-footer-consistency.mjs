@@ -19,6 +19,11 @@ try {
         await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
       });
       const footer = page.locator('footer.refined-footer');
+      assert.equal(await footer.locator('a[href^="mailto:labeeb@ourbrandship.com"]').count(), 0, 'HR email must not appear in the shared footer');
+      assert.equal(await footer.locator('.footer-grid>div:last-child a[href="mailto:hello@ourbrandship.com"]').textContent(), 'hello@ourbrandship.com', 'Main contact text and mail link both use hello');
+      const hrLinks = await page.locator('main a[href^="mailto:labeeb@ourbrandship.com"]').count();
+      if (route === 'careers.html') assert(hrLinks > 0, 'Careers applications still go to HR');
+      else assert.equal(hrLinks, 0, 'HR email is only used for Careers');
       assert.equal(await footer.locator('.footer-top .footer-iconic').textContent(), 'Iconic');
       assert.equal(await footer.locator('.footer-top p br').count(), 1);
       const styles = await footer.evaluate(element => {

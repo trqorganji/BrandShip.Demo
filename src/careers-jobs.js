@@ -27,9 +27,9 @@ if (board) {
     const matches = jobs.filter(job => (!team.value || job.team === team.value) && [job.title, job.team, job.location, job.type, ...job.requirements].join(' ').toLocaleLowerCase().includes(query));
     list.replaceChildren();
     count.textContent = jobs.length ? `${matches.length} ${matches.length === 1 ? 'position' : 'positions'}${query || team.value ? ` matching your search` : ' open'}` : 'General applications';
-    empty.hidden = matches.length > 0;
-    find('job-board-empty-title').textContent = jobs.length ? 'No roles match those filters.' : 'No open positions at the moment.';
-    find('job-board-empty-copy').textContent = jobs.length ? 'Try another keyword or team, or send a general application below.' : 'You can still introduce yourself. Share your experience and the kind of role you have in mind.';
+    empty.hidden = !jobs.length || matches.length > 0;
+    find('job-board-empty-title').textContent = jobs.length ? 'No roles match those filters.' : '';
+    find('job-board-empty-copy').textContent = jobs.length ? 'Try another keyword or team, or send a general application below.' : '';
     if (!reduced.matches) revealObserver = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
       if (!isIntersecting) return;
       const animation = target.animate([{ transform: 'translateY(10px)', opacity: .7 }, { transform: 'none', opacity: 1 }], { duration: 400, easing: 'cubic-bezier(.2,.7,.2,1)' });

@@ -25,3 +25,28 @@
  .motion-luxury .consistent-timeline article{transform:none}
  .motion-luxury .consistent-timeline article:before{opacity:0}
 }
+
+/* Phone timelines: copy enters in order without changing the document layout. */
+@media(max-width:650px) and (prefers-reduced-motion:no-preference){
+ .consistent-timeline:is(.phone-history-reveal,.phone-phase-reveal) article:not(.milestone-arrived)>*{opacity:0;transform:translateY(20px)}
+ .consistent-timeline:is(.phone-history-reveal,.phone-phase-reveal) article.milestone-arrived:not(.milestone-settled)>*{
+  animation:phone-milestone-copy 720ms cubic-bezier(.22,1,.36,1) var(--milestone-delay,0ms) both;
+ }
+ .consistent-timeline:is(.phone-history-reveal,.phone-phase-reveal) article.milestone-arrived:not(.milestone-settled)>:is(h3,b){animation-delay:calc(var(--milestone-delay,0ms) + 70ms)}
+ .consistent-timeline:is(.phone-history-reveal,.phone-phase-reveal) article.milestone-arrived:not(.milestone-settled)>p{animation-delay:calc(var(--milestone-delay,0ms) + 140ms)}
+ .consistent-timeline.phone-phase-reveal article.milestone-arrived:not(.milestone-settled)>em{animation-delay:calc(var(--milestone-delay,0ms) + 210ms)}
+ .about-history .phone-history-reveal article.milestone-arrived:not(.milestone-settled)::after{animation:phone-milestone-node 860ms ease var(--milestone-delay,0ms) both}
+ /* Services draws each rail segment with its phase, rather than exposing a full rail. */
+ .motion-luxury .method-grid.phone-phase-reveal article{border-left-color:transparent;border-bottom-color:transparent}
+ .motion-luxury .method-grid.phone-phase-reveal article::before{display:block;inset:0 auto 0 -1px;width:2px;height:100%;margin:0;background:linear-gradient(#00a3ff,#6bcaff);opacity:.65;transform:scaleY(0);transform-origin:top;z-index:0}
+ .motion-luxury .method-grid.phone-phase-reveal article::after{opacity:0;transform:rotate(45deg) scale(.6)}
+ .motion-luxury .method-grid.phone-phase-reveal article.milestone-arrived{border-bottom-color:var(--ink-rule)}
+ .motion-luxury .method-grid.phone-phase-reveal article.milestone-arrived::before{transform:scaleY(1)}
+ .motion-luxury .method-grid.phone-phase-reveal article.milestone-arrived::after{opacity:1;transform:rotate(45deg) scale(1)}
+ .motion-luxury .method-grid.phone-phase-reveal article.milestone-arrived:not(.milestone-settled)::before{animation:phone-phase-track 900ms cubic-bezier(.22,1,.36,1) var(--milestone-delay,0ms) both}
+ .motion-luxury .method-grid.phone-phase-reveal article.milestone-arrived:not(.milestone-settled)::after{animation:phone-phase-node 860ms ease var(--milestone-delay,0ms) both}
+}
+@keyframes phone-milestone-copy{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes phone-milestone-node{0%{background:#00a3ff;box-shadow:0 0 0 0 #00a3ff45}55%{background:#00a3ff;box-shadow:0 0 0 9px #00a3ff00}100%{background:var(--motion-paper);box-shadow:0 0 0 12px #00a3ff00}}
+@keyframes phone-phase-track{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes phone-phase-node{0%{opacity:0;transform:rotate(45deg) scale(.6);background:#00a3ff;box-shadow:0 0 0 0 #00a3ff45}35%{opacity:1;background:#00a3ff}70%{box-shadow:0 0 0 9px #00a3ff00}100%{opacity:1;transform:rotate(45deg) scale(1);background:var(--motion-paper);box-shadow:none}}

@@ -123,7 +123,7 @@ if (stream) {
   stream.before(tabs);
   stream.after(empty);
   // The source currently publishes previews, not linked full articles.
-  stream.querySelectorAll('a').forEach(link => { link.textContent = 'View on BrandShip’s official site'; link.target = '_blank'; link.rel = 'noopener'; });
+  stream.querySelectorAll('a').forEach(link => { link.textContent = 'View on Brandship’s official site'; link.target = '_blank'; link.rel = 'noopener'; });
 }
 
 import './work-archive-toolbar.js';
@@ -135,7 +135,9 @@ import './about-directors.css';
 import './careers-application.css';
 import './careers-jobs.js';
 import './careers-linkedin.js';
-import './mobile-refinement.css';
 import './futuristic-rhythm.js';
 import './brand-ink-theme.js';
 import './service-request.js';
+import './mobile-experience.js';
+import './web-development.css';
+import './mobile-refinement.css';

@@ -13,12 +13,12 @@ if (!document.body.classList.contains('home-page')) {
   if (aboutPair) {
     const stage = document.createElement('section');
     stage.className = 'cinematic-stage';
-    stage.setAttribute('aria-label', 'BrandShip journey');
+    stage.setAttribute('aria-label', 'Brandship journey');
     stage.innerHTML = `<div class="cinematic-sticky">
       <div class="cinematic-orbit" aria-hidden="true"></div>
-      <div class="cinematic-coordinate" aria-hidden="true"><span>Purpose / Perspective</span><span>BrandShip</span></div>
+      <div class="cinematic-coordinate" aria-hidden="true"><span>Purpose / Perspective</span><span>Brandship</span></div>
       <div class="cinematic-frame">
-        <video muted loop playsinline preload="none" poster="${base}assets/official-brand-montage.jpg" aria-label="BrandShip brand work montage"></video>
+        <video muted loop playsinline preload="none" poster="${base}assets/official-brand-montage.jpg" aria-label="Brandship brand work montage"></video>
         <div class="cinematic-shade" aria-hidden="true"></div>
         <div class="cinematic-caption"><span>Our journey</span><h2><span class="cinematic-title-line">Ideas become</span><span class="cinematic-title-line"><em>lasting impact.</em></span></h2><p>From a clear purpose to the work that moves brands forward.</p></div>
       </div>

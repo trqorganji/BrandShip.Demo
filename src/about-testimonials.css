@@ -1,0 +1,7 @@
+.about-page .about-testimonials{padding-block:clamp(48px,7vw,100px)}
+.about-testimonial-card{display:flex;align-items:flex-start;gap:clamp(20px,4vw,64px);max-width:920px;margin:40px auto 0;padding:clamp(24px,4vw,48px);border:1px solid #34414c;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(0,163,255,.025));box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
+.about-testimonial-card svg{width:44px;flex:0 0 44px;fill:#00a3ff}
+.about-testimonial-card span{color:#94a8b6;font-size:12px;line-height:1.6;letter-spacing:.1em;text-transform:uppercase}
+.about-testimonial-card p{color:#bac5cd;font-size:clamp(17px,2vw,23px);line-height:1.65;margin:16px 0 0;max-width:48ch}
+.about-page .about-numbers>.about-awards{padding-inline:0;margin-top:64px}
+@media(max-width:650px){.about-testimonial-card{flex-direction:column;gap:18px;border-radius:18px}.about-testimonial-card svg{width:32px;flex-basis:auto}.about-page .about-numbers>.about-awards{margin-top:40px}}
