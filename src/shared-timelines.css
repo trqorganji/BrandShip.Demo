@@ -34,7 +34,6 @@
  }
  .consistent-timeline:is(.phone-history-reveal,.phone-phase-reveal) article.milestone-arrived:not(.milestone-settled)>:is(h3,b){animation-delay:calc(var(--milestone-delay,0ms) + 70ms)}
  .consistent-timeline:is(.phone-history-reveal,.phone-phase-reveal) article.milestone-arrived:not(.milestone-settled)>p{animation-delay:calc(var(--milestone-delay,0ms) + 140ms)}
- .consistent-timeline.phone-phase-reveal article.milestone-arrived:not(.milestone-settled)>em{animation-delay:calc(var(--milestone-delay,0ms) + 210ms)}
  .about-history .phone-history-reveal article.milestone-arrived:not(.milestone-settled)::after{animation:phone-milestone-node 860ms ease var(--milestone-delay,0ms) both}
  /* Services draws each rail segment with its phase, rather than exposing a full rail. */
  .motion-luxury .method-grid.phone-phase-reveal article{border-left-color:transparent;border-bottom-color:transparent}

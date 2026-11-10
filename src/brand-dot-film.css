@@ -1,11 +1,13 @@
 /* Alpha-transparent artwork: only the dot and ripple animate. */
-.about-page .about-editorial-hero:has(.about-brand-signature){grid-template-columns:minmax(0,.75fr) minmax(0,1.45fr);gap:5vw;align-items:center;padding-block:165px 65px}
-.about-page .about-editorial-copy{min-width:0}
+/* Centred signature stack: eyebrow, wordmark, then the discover link. */
+.about-page .about-editorial-hero:has(.about-brand-signature){grid-template-columns:minmax(0,1fr);justify-items:center;padding-block:165px 65px}
+.about-page .about-editorial-copy{display:flex;flex-direction:column;align-items:center;width:100%;min-width:0}
+.about-page .about-editorial-copy .about-hero-title{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 .about-page .about-editorial-copy>span{display:block;font-size:10px;line-height:1.6;letter-spacing:.12em;max-width:320px}
 .about-page .about-editorial-copy h1{font-size:clamp(42px,4vw,66px);line-height:1.08;letter-spacing:-.045em;margin:24px 0 22px}
 .about-page .about-editorial-copy p{font-size:clamp(14px,1.05vw,16px);line-height:1.75;margin:0;max-width:340px}
 .about-page .about-editorial-copy>a{margin-top:28px;font-size:12px;gap:28px}
-.about-page .about-brand-signature{position:relative;display:grid;place-items:center;min-width:0;min-height:280px;aspect-ratio:2.15;border:0;background:transparent;overflow:visible}
+.about-page .about-brand-signature{position:relative;display:grid;place-items:center;width:min(820px,100%);min-width:0;margin:34px 0 6px;border:0;background:transparent;overflow:visible}
 .about-page .about-brand-signature>img{width:94%;filter:brightness(0)}
 .signature-wordmark{display:block;width:96%;height:auto;overflow:visible}
 .signature-lettering{filter:brightness(0)}
@@ -38,7 +40,7 @@
  .about-page .about-editorial-hero:has(.about-brand-signature){grid-template-columns:minmax(0,1fr);padding-block:130px 40px;gap:30px}
  .about-page .about-editorial-copy h1{font-size:clamp(36px,7.5vw,54px);margin:22px 0}
  .about-page .about-editorial-copy p{font-size:14px}
- .about-page .about-brand-signature{min-height:140px;aspect-ratio:2.15}
+ .about-page .about-brand-signature{margin:24px 0 0}
  .about-page .signature-hero .about-brand-signature{transform:none}
 }
 @media(prefers-reduced-motion:reduce){
